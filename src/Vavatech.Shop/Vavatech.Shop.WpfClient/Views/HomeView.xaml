@@ -16,13 +16,7 @@
 
     <DockPanel Background="Black">
         
-        
-
-        <Button DockPanel.Dock="Bottom" >Go to settings</Button>
-        <Button DockPanel.Dock="Bottom" >Go to settings</Button>
-
-        <Button DockPanel.Dock="Bottom" >Go to settings</Button>
-
+       
         <Label HorizontalAlignment="Center" VerticalAlignment="Center" 
            
                Foreground="White"
