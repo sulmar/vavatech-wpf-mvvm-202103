@@ -1,0 +1,28 @@
+﻿<Window x:Class="Vavatech.Shop.WpfClient._02_LayoutControls.UniformGridView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Vavatech.Shop.WpfClient._02_LayoutControls"
+        mc:Ignorable="d"
+        Title="UniformGridView" Height="640.43" Width="492.76">
+    <Grid>
+
+
+        <UniformGrid Columns="3" Rows="4">
+            <Border Background="Red" />
+            <Border Background="Green" />
+            <Border Background="Blue" />
+            <Border Background="Yellow" />
+            <Border Background="Pink" />
+            <Border Background="Black" />
+            <Border Background="LightBlue" />
+            <Border Background="DarkGray" />
+            <Border Background="DarkGreen" />
+            <Border Background="LightBlue" />
+            <Border Background="DarkGray" />
+            <Border Background="DarkGreen" />
+        </UniformGrid>
+
+    </Grid>
+</Window>

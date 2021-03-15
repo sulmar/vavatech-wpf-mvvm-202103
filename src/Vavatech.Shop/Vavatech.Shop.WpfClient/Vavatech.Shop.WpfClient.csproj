@@ -59,12 +59,54 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="02_LayoutControls\CanvasView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="02_LayoutControls\DockPanelView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="02_LayoutControls\GridView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="02_LayoutControls\StackPanelView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="02_LayoutControls\UniformGridView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="02_LayoutControls\WrapPanelView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Compile Include="01_XAML\XamlView.xaml.cs">
       <DependentUpon>XamlView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="02_LayoutControls\CanvasView.xaml.cs">
+      <DependentUpon>CanvasView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="02_LayoutControls\DockPanelView.xaml.cs">
+      <DependentUpon>DockPanelView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="02_LayoutControls\GridView.xaml.cs">
+      <DependentUpon>GridView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="02_LayoutControls\StackPanelView.xaml.cs">
+      <DependentUpon>StackPanelView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="02_LayoutControls\UniformGridView.xaml.cs">
+      <DependentUpon>UniformGridView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="02_LayoutControls\WrapPanelView.xaml.cs">
+      <DependentUpon>WrapPanelView.xaml</DependentUpon>
     </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>

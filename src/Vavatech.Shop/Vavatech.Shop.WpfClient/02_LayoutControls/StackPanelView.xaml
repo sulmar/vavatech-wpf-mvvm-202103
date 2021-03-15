@@ -1,0 +1,39 @@
+﻿<Window x:Class="Vavatech.Shop.WpfClient._02_LayoutControls.StackPanelView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Vavatech.Shop.WpfClient._02_LayoutControls"
+        mc:Ignorable="d"
+        Title="StackPanelView" Height="750" Width="800">
+    
+    <StackPanel Orientation="Vertical">
+
+        <StackPanel Orientation="Horizontal">
+            <Label>Hello</Label>
+            <Button Margin="5" FontSize="50" Background="Blue">Hello</Button>
+        </StackPanel>
+
+        <Line X1="10" X2="500" Y1="20" Y2="50" StrokeThickness="3"
+              Stroke="Black" />
+
+        <StackPanel Orientation="Horizontal">
+            <Label>Hello</Label>
+            <Button Margin="5" Background="Green">Hello 2</Button>
+        </StackPanel>
+     
+
+        <Label>Hello</Label>
+        <Button Margin="5" Background="red">Hello 2</Button>
+
+        <Label>Hello</Label>
+        <Button Margin="5" Background="White">Hello 3</Button>
+
+        <Ellipse Width="200" Height="200" 
+                 Fill="DarkGreen" />
+
+
+       
+
+    </StackPanel>
+</Window>
