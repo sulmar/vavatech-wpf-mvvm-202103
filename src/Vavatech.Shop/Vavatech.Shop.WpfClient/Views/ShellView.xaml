@@ -3,9 +3,55 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:Vavatech.Shop.WpfClient.Views"
         mc:Ignorable="d"
         Title="ShellView" Height="450" Width="800">
+
+    <Window.Resources>
+
+        <sys:Double x:Key="MyButtonHeight">48</sys:Double>
+        
+        <Color x:Key="MyBlue">#052767</Color>
+        <Color x:Key="MyPurple">#3a0647</Color>
+
+        <SolidColorBrush x:Key="MyBlueBrush" Color="{StaticResource MyBlue}" />
+
+        <LinearGradientBrush x:Key="MyGradientBrush">
+            <GradientStop Color="{StaticResource MyBlue}" />
+            <GradientStop Color="{StaticResource MyPurple}" Offset="1" />
+        </LinearGradientBrush>
+
+        <Style x:Key="DefaultButtonStyle" TargetType="Button">
+            <Setter Property="Height" Value="48" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Margin" Value="5" />
+        </Style>
+
+        <!-- Ustawia wszystkie kontrolki typu Button na domyślny styl -->
+        <Style TargetType="Button" BasedOn="{StaticResource DefaultButtonStyle}" />
+
+        <Style x:Key="SettingsButtonStyle" TargetType="Button" BasedOn="{StaticResource DefaultButtonStyle}">
+            <Setter Property="Height" Value="48" />
+            <Setter Property="Background" Value="DarkSeaGreen" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Margin" Value="5" />
+        </Style>
+
+
+        <Style x:Key="MenuBarButtonStyle" TargetType="Button">
+            <Setter Property="Width" Value="100" />
+            <Setter Property="Margin" Value="5" />
+        </Style>
+
+        <Style x:Key="DangerousMenuBarButtonStyle" TargetType="Button" BasedOn="{StaticResource MenuBarButtonStyle}">
+            <Setter Property="Background" Value="Red" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Width" Value="100" />
+        </Style>
+
+    </Window.Resources>
 
     <Grid>
 
@@ -28,9 +74,9 @@
             </StatusBar>
             
             <!-- Side bar -->
-            <StackPanel Width="250">
+            <StackPanel Width="250" Background="{StaticResource MyGradientBrush}" >
 
-                <Border Background="#052767" Height="48">
+                <Border Background="{StaticResource MyBlueBrush}" Height="48">
                                         
                     <Label 
                         Foreground="White" 
@@ -40,18 +86,14 @@
                         Content="WPF App" />
                 </Border>
 
-                <Button Height="48" Margin="5" Background="Transparent" Foreground="White" >Home</Button>
-                <Button Height="48" Margin="5"  Background="Transparent" Foreground="White" >Counter</Button>
-                <Button Height="48" Margin="5"  Background="Transparent" Foreground="White" >Customers</Button>
-                <Button Height="48" Margin="5"  Background="Transparent" Foreground="White" >Products</Button>
-                <Button Height="48" Margin="5"  Background="Transparent" Foreground="White" >Settings</Button>
+                <Button>Home</Button>
+                <Button>Counter</Button>
+                <Button>Customers</Button>
+                <Button>Products</Button>
+                <Button>Orders</Button>
+                <Button Style="{StaticResource SettingsButtonStyle}">Settings</Button>
+                
 
-                <StackPanel.Background>
-                    <LinearGradientBrush>
-                        <GradientStop Color="#052767" />
-                        <GradientStop Color="#3a0647" Offset="1" />
-                    </LinearGradientBrush>
-                </StackPanel.Background>
             </StackPanel>
 
           
@@ -60,8 +102,8 @@
 
             <Grid DockPanel.Dock="Top" Background="#f7f7f7" Height="48">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Button Width="100" Margin="5">Help</Button>
-                    <Button Width="100" Margin="5" >About</Button>
+                    <Button Style="{StaticResource MenuBarButtonStyle}">Help</Button>
+                    <Button Style="{StaticResource DangerousMenuBarButtonStyle}">About</Button>
                 </StackPanel>
             </Grid>
             
