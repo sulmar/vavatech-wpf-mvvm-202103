@@ -107,7 +107,7 @@
             </Grid>
 
 
-            <Frame Source="HomeView.xaml" />
+            <Frame Source="CustomersView.xaml" />
 
 
         </DockPanel>
