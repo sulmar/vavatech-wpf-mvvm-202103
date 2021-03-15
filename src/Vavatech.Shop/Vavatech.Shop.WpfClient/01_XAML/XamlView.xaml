@@ -10,9 +10,31 @@
     <Window.Resources>
         <SolidColorBrush x:Key="MyBackgroundBrush" Color="Blue" />
     </Window.Resources>
-    <Grid>
-        <Button Background="{StaticResource MyBackgroundBrush}">Hello World!</Button>
-    </Grid>
+    
+    <StackPanel>
+
+        <Button Background="{StaticResource MyBackgroundBrush}">
+            <Grid>
+                <TextBlock>Hello</TextBlock>
+                <CheckBox />
+            </Grid>
+        </Button>
+
+        <Button Background="White" Content="Update"></Button>
+
+        <Button>
+            <Button.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="White" />
+                    <GradientStop Color="Red"  Offset="1" />
+                </LinearGradientBrush>
+            </Button.Background>
+            <Button.Content>
+                Remove
+            </Button.Content>
+        </Button>
+
+    </StackPanel>
 
    
 </Window>
