@@ -5,6 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Vavatech.Shop.WpfClient.Views"
       xmlns:vm="clr-namespace:Vavatech.Shop.ViewModels;assembly=Vavatech.Shop.ViewModels"
+      x:Name="Customers"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"      
       Title="CustomersView">
@@ -13,6 +14,10 @@
         <vm:CustomersViewModel />
     </Page.DataContext>
 
+    <Page.Resources>
+      
+    </Page.Resources>
+    
     <Grid>
 
         <Grid.ColumnDefinitions>
@@ -21,21 +26,81 @@
         </Grid.ColumnDefinitions>
 
         <!-- Customers -->
-        <ListBox ItemsSource="{Binding Path=Customers}">
+        
+        <!--<ListBox             
+            ItemsSource="{Binding Path=Customers}"
+            ItemTemplate="{StaticResource CustomerTemplate}"
+            SelectedItem="{Binding Path=SelectedCustomer}" >
           
-        </ListBox>
+        </ListBox>-->
+        
+        
+
+        <ListView ItemsSource="{Binding Customers}"
+                  SelectedItem="{Binding SelectedCustomer}"
+                  Width="500"
+                  x:Name="CustomersListView"
+                  >
+
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn Width="100" Header="First name" DisplayMemberBinding="{Binding FirstName}" />
+                        <GridViewColumn x:Name="LastNameHeader" Header="Last name" DisplayMemberBinding="{Binding LastName}" >
+                            <!--<GridViewColumn.Width>
+                                <MultiBinding Converter="">
+                                    <Binding ElementName="CustomersListView" Path="ActualWidth" />
+                                    <Binding ElementName="LastNameHeader" Path="Header" />
+                                </MultiBinding>
+                            </GridViewColumn.Width>-->
+                        </GridViewColumn>
+
+                        <GridViewColumn Header="Last name" DisplayMemberBinding="{Binding LastName}" />
+                        <GridViewColumn Header="Last name" DisplayMemberBinding="{Binding LastName}" />
+                        <GridViewColumn Header="Last name" DisplayMemberBinding="{Binding LastName}" />
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <!--<DataGrid 
+            ItemsSource="{Binding Customers}"
+            SelectedItem="{Binding SelectedCustomer}"
+            AutoGenerateColumns="False">
+
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="Avatar">
+
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding Avatar}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                    
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="First Name" Binding="{Binding FirstName}" />
+                <DataGridTextColumn Header="Last Name" Binding="{Binding LastName}" />
+                <DataGridCheckBoxColumn Header="Removed" Binding="{Binding IsRemoved}" />
+            </DataGrid.Columns>
+            
+        </DataGrid>-->
 
         <!-- Selected customer -->
         
-        <StackPanel Grid.Column="1">
+        <StackPanel Grid.Column="1" DataContext="{Binding SelectedCustomer}">
+                        
             <Label>First name</Label>
-            <TextBox />
+            <TextBox Text="{Binding FirstName}" />
 
             <Label>Last name</Label>
-            <TextBox />
+            <TextBox Text="{Binding LastName}" />
 
             <Label>Customer type</Label>
-            <ComboBox />
+            <ComboBox SelectedItem="{Binding CustomerType}"
+                      ItemsSource="{Binding ElementName=Customers, Path=DataContext.CustomerTypes}" />
+
+            <Label>Removed</Label>
+            <CheckBox IsChecked="{Binding IsRemoved}" />
         </StackPanel>
         
     </Grid>

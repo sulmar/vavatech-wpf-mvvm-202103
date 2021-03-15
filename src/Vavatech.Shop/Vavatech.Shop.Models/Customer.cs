@@ -9,8 +9,7 @@ namespace Vavatech.Shop.Models
         public string LastName { get; set; }
         public string FullName => $"{FirstName} {LastName}";
         public CustomerType CustomerType { get; set; }
-        public bool IsRemoved { get; set; }
-
-        
+        public string Avatar { get; set; }
+        public bool IsRemoved { get; set; }        
     }
 }

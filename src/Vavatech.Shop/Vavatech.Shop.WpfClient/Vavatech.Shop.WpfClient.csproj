@@ -120,6 +120,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Resources\DataTemplates.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Resources\Styles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -165,6 +169,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Vavatech.Shop.Models\Vavatech.Shop.Models.csproj">
+      <Project>{f7fc36f3-f380-48f4-928a-27266a2156ef}</Project>
+      <Name>Vavatech.Shop.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Vavatech.Shop.ViewModels\Vavatech.Shop.ViewModels.csproj">
       <Project>{895237c8-919b-4f42-a8c0-801f34ebe371}</Project>
       <Name>Vavatech.Shop.ViewModels</Name>
