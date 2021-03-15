@@ -23,6 +23,15 @@ namespace Vavatech.Shop.WpfClient.Views
         public CustomersView()
         {
             InitializeComponent();
+
+            /* XAML
+              <Page.DataContext>
+                <vm:CustomersViewModel />
+             </Page.DataContext>
+             */
+
+            // C# Code-Behind
+            // this.DataContext = new CustomersViewModel();
         }
     }
 }
