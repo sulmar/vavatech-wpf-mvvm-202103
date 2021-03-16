@@ -28,10 +28,11 @@ namespace Vavatech.Shop.WpfClient.Views
               <Page.DataContext>
                 <vm:CustomersViewModel />
              </Page.DataContext>
+
              */
 
             // C# Code-Behind
-            // this.DataContext = new CustomersViewModel();
+            // this.DataContext = new CustomersViewModel(new FakeCustomerService());
         }
     }
 }

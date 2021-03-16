@@ -5,14 +5,15 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Vavatech.Shop.WpfClient.Views"
       xmlns:vm="clr-namespace:Vavatech.Shop.ViewModels;assembly=Vavatech.Shop.ViewModels"
+      DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=CustomersViewModel}"
       x:Name="Customers"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"      
       Title="CustomersView">
 
-    <Page.DataContext>
-        <vm:CustomersViewModel />
-    </Page.DataContext>
+    <!--<Page.DataContext>
+        <vm:CustomersViewModel  />
+    </Page.DataContext>-->
 
     <Page.Resources>
       
@@ -55,9 +56,8 @@
                             </GridViewColumn.Width>-->
                         </GridViewColumn>
 
-                        <GridViewColumn Header="Last name" DisplayMemberBinding="{Binding LastName}" />
-                        <GridViewColumn Header="Last name" DisplayMemberBinding="{Binding LastName}" />
-                        <GridViewColumn Header="Last name" DisplayMemberBinding="{Binding LastName}" />
+                        <GridViewColumn Header="Customer Type" DisplayMemberBinding="{Binding CustomerType}" />
+
                     </GridView.Columns>
                 </GridView>
             </ListView.View>
@@ -88,7 +88,9 @@
         <!-- Selected customer -->
         
         <StackPanel Grid.Column="1" DataContext="{Binding SelectedCustomer}">
-                        
+
+            <TextBlock FontWeight="Bold" FontSize="16" Text="{Binding FullName}" />
+
             <Label>First name</Label>
             <TextBox Text="{Binding FirstName}" />
 

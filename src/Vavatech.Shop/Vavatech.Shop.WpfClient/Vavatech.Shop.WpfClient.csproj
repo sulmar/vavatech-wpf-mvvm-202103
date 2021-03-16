@@ -58,6 +58,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModelLocator.cs" />
     <Compile Include="Views\CustomersView.xaml.cs">
       <DependentUpon>CustomersView.xaml</DependentUpon>
     </Compile>
@@ -169,6 +170,18 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Vavatech.Shop.Fakers\Vavatech.Shop.Fakers.csproj">
+      <Project>{BE49440A-7E39-49B0-88A9-1CF4C4A755D8}</Project>
+      <Name>Vavatech.Shop.Fakers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Vavatech.Shop.FakeServices\Vavatech.Shop.FakeServices.csproj">
+      <Project>{45218F7F-41EB-442A-9AA3-3162769ACA4B}</Project>
+      <Name>Vavatech.Shop.FakeServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Vavatech.Shop.IServices\Vavatech.Shop.IServices.csproj">
+      <Project>{1296E4E5-9A05-42C5-85F5-BC14178B96E9}</Project>
+      <Name>Vavatech.Shop.IServices</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Vavatech.Shop.Models\Vavatech.Shop.Models.csproj">
       <Project>{f7fc36f3-f380-48f4-928a-27266a2156ef}</Project>
       <Name>Vavatech.Shop.Models</Name>

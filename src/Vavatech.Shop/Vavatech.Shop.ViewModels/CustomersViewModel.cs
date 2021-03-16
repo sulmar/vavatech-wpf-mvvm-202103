@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Vavatech.Shop.FakeServices;
 using Vavatech.Shop.IServices;
 using Vavatech.Shop.Models;
 
@@ -18,16 +17,9 @@ namespace Vavatech.Shop.ViewModels
 
         private readonly ICustomerService customerService;
 
-        // TODO: refactor
-        public CustomersViewModel()
-            : this(new FakeCustomerService())
-        {
-
-        }
-
         public CustomersViewModel(ICustomerService customerService)
         {
-            this.customerService = customerService;
+            this.customerService = customerService;            
 
             Load();
         }
