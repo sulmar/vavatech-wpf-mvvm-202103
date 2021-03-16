@@ -39,8 +39,9 @@
 
             <Label>TotalCreditAmount</Label>
             <TextBlock Text="{Binding TotalCreditAmount}" />
+            
 
-            <ListView ItemsSource="{Binding Customers}"
+            <ListView ItemsSource="{Binding SelectedCustomers}"
                   SelectedItem="{Binding SelectedCustomer}"
                   Width="500"
                   x:Name="CustomersListView"
@@ -115,7 +116,7 @@
             <CheckBox IsChecked="{Binding IsRemoved}" />
 
             <Button Background="DarkBlue" Command="{Binding ElementName=Customers, Path=DataContext.AddCustomerCommand}">Add</Button>
-            <Button Background="DarkRed" >Remove</Button>
+            <Button Background="DarkRed" Command="{Binding ElementName=Customers, Path=DataContext.RemoveCustomerCommand}">Remove</Button>
         </StackPanel>
         
     </Grid>
