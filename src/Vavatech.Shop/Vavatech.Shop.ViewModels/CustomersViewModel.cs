@@ -49,7 +49,9 @@ namespace Vavatech.Shop.ViewModels
 
         private void Load()
         {
-            Customers = new BindingList<Customer>(customerService.Get().ToList());
+            // Customers = new BindingList<Customer>(customerService.Get().ToList());
+
+            Customers = customerService.Get().ToBindingList();
 
             Customers.ListChanged += (s, e) => OnPropertyChanged(nameof(TotalCreditAmount));
 
