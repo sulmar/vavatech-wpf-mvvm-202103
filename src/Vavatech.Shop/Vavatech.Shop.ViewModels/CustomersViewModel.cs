@@ -1,6 +1,8 @@
 ﻿using Bogus;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Windows.Input;
 using Vavatech.Shop.IServices;
@@ -12,7 +14,7 @@ namespace Vavatech.Shop.ViewModels
 
     public class CustomersViewModel : BaseViewModel
     {
-        public ICollection<Customer> Customers { get; set; }
+        public BindingList<Customer> Customers { get; set; }
 
         public decimal TotalCreditAmount => Customers
             .Where(c=>c.CreditAmount.HasValue)
@@ -47,7 +49,10 @@ namespace Vavatech.Shop.ViewModels
 
         private void Load()
         {
-            Customers = customerService.Get().ToList();
+            Customers = new BindingList<Customer>(customerService.Get().ToList());
+
+            Customers.ListChanged += (s, e) => OnPropertyChanged(nameof(TotalCreditAmount));
+
             CustomerTypes = Enum.GetValues(typeof(CustomerType)).Cast<CustomerType>();
         }
 
