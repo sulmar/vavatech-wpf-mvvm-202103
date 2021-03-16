@@ -1,0 +1,29 @@
+﻿<Page x:Class="Vavatech.Shop.WpfClient.Views.CounterView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Vavatech.Shop.WpfClient.Views"
+      DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=CounterViewModel}"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="CounterView">
+
+    <Grid Background="DarkBlue">
+
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+            
+            <TextBlock 
+                FontSize="40"
+                Foreground="White" Text="100" VerticalAlignment="Center" />
+
+            <Button
+                Command="{Binding AddCommand}"
+                Width="200" Background="DarkBlue" BorderBrush="White" >Add</Button>
+             
+        </StackPanel>
+        
+
+    </Grid>
+</Page>

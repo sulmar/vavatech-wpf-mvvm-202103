@@ -85,6 +85,9 @@
     </ApplicationDefinition>
     <Compile Include="Modules\CustomerModule.cs" />
     <Compile Include="ViewModelLocator.cs" />
+    <Compile Include="Views\CounterView.xaml.cs">
+      <DependentUpon>CounterView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\CustomersView.xaml.cs">
       <DependentUpon>CustomersView.xaml</DependentUpon>
     </Compile>
@@ -152,6 +155,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Resources\Styles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CounterView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
