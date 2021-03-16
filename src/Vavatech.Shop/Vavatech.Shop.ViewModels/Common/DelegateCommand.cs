@@ -38,4 +38,36 @@ namespace Vavatech.Shop.ViewModels.Common
             CanExecuteChanged?.Invoke(this, EventArgs.Empty);
         }
     }
+
+
+    public class DelegateCommand<T> : ICommand
+    {
+        public event EventHandler CanExecuteChanged;
+
+        private readonly Action<T> execute;
+        private readonly Func<T, bool> canExecute; // Predicate
+
+        public DelegateCommand(Action<T> execute, Func<T, bool> canExecute = null)
+        {
+            this.execute = execute;
+            this.canExecute = canExecute;
+        }
+
+        public bool CanExecute(object parameter)
+        {
+            // return canExecute == null ? true : canExecute.Invoke();
+
+            return canExecute == null || canExecute.Invoke((T) parameter);
+        }
+
+        public void Execute(object parameter)
+        {
+            execute?.Invoke((T) parameter);
+        }
+
+        public void OnCanExecuteChanged()
+        {
+            CanExecuteChanged?.Invoke(this, EventArgs.Empty);
+        }
+    }
 }

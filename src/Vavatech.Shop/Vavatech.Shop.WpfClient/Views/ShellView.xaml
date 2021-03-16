@@ -61,9 +61,9 @@
             <!-- Menu -->
             <Menu DockPanel.Dock="Top">
                 <MenuItem Header="File">
-                    <MenuItem Header="Show Customers" />
-                    <MenuItem Header="Show Products" />
-                    <MenuItem Header="Show Counter" />
+                    <MenuItem Header="Show Customers" Command="{Binding ShowViewCommand}" CommandParameter="Customers" />
+                    <MenuItem Header="Show Products" Command="{Binding ShowViewCommand}" CommandParameter="Products" />
+                    <MenuItem Header="Show Counter" Command="{Binding ShowViewCommand}" CommandParameter="Counter" />
                     <Separator />
                     <MenuItem Header="Exit" Command="{Binding ExitCommand}" />
                 </MenuItem>
@@ -93,9 +93,9 @@
                 </Border>
 
                 <Button>Home</Button>
-                <Button Command="{Binding ShowCounterCommand}" >Counter</Button>
-                <Button Command="{Binding ShowCustomersCommand}">Customers</Button>
-                <Button Command="{Binding ShowProductsCommand}" >Products</Button>
+                <Button Command="{Binding ShowViewCommand}" CommandParameter="Counter" >Counter</Button>
+                <Button Command="{Binding ShowViewCommand}" CommandParameter="Customers">Customers</Button>
+                <Button Command="{Binding ShowViewCommand}" CommandParameter="Products" >Products</Button>
                 <Button>Orders</Button>
                 <Button Style="{StaticResource SettingsButtonStyle}">Settings</Button>
                 
@@ -114,7 +114,9 @@
             </Grid>
 
 
-            <Frame x:Name="MainFrame" Source="CustomersView.xaml" />
+            <Frame x:Name="MainFrame" Source="CustomersView.xaml" NavigationUIVisibility="Hidden"
+                   
+                   />
 
 
         </DockPanel>
