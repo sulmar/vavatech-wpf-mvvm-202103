@@ -113,6 +113,9 @@
 
             <Label>Removed</Label>
             <CheckBox IsChecked="{Binding IsRemoved}" />
+
+            <Button Background="DarkBlue" Command="{Binding ElementName=Customers, Path=DataContext.AddCustomerCommand}">Add</Button>
+            <Button Background="DarkRed" >Remove</Button>
         </StackPanel>
         
     </Grid>

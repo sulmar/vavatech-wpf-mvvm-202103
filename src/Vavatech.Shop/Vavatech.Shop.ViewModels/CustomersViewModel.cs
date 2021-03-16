@@ -1,15 +1,18 @@
-﻿using System;
+﻿using Bogus;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Input;
 using Vavatech.Shop.IServices;
 using Vavatech.Shop.Models;
+using Vavatech.Shop.ViewModels.Common;
 
 namespace Vavatech.Shop.ViewModels
 {
 
     public class CustomersViewModel : BaseViewModel
     {
-        public IEnumerable<Customer> Customers { get; set; }
+        public ICollection<Customer> Customers { get; set; }
 
         public decimal TotalCreditAmount => Customers
             .Where(c=>c.CreditAmount.HasValue)
@@ -24,22 +27,36 @@ namespace Vavatech.Shop.ViewModels
             }
         }
 
+        public ICommand AddCustomerCommand { get; private set; }
+
         public IEnumerable<CustomerType> CustomerTypes { get; set; }
 
         private readonly ICustomerService customerService;
+        private readonly Faker<Customer> customerFaker;
         private Customer selectedCustomer;
 
-        public CustomersViewModel(ICustomerService customerService)
+        public CustomersViewModel(ICustomerService customerService, Faker<Customer> customerFaker)
         {
+            AddCustomerCommand = new DelegateCommand(AddCustomer);
+
             this.customerService = customerService;
+            this.customerFaker = customerFaker;
 
             Load();
         }
 
         private void Load()
         {
-            Customers = customerService.Get();
+            Customers = customerService.Get().ToList();
             CustomerTypes = Enum.GetValues(typeof(CustomerType)).Cast<CustomerType>();
+        }
+
+
+        public void AddCustomer()
+        {
+            SelectedCustomer = customerFaker.Generate();
+
+            Customers.Add(SelectedCustomer);
         }
     }
 }
