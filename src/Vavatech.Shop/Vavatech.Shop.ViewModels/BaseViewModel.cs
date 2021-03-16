@@ -1,6 +1,8 @@
-﻿namespace Vavatech.Shop.ViewModels
+﻿using Vavatech.Shop.Models;
+
+namespace Vavatech.Shop.ViewModels
 {
-    public abstract class BaseViewModel
+    public abstract class BaseViewModel : Base
     {
 
     }

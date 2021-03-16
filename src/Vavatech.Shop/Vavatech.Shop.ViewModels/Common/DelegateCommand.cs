@@ -32,5 +32,10 @@ namespace Vavatech.Shop.ViewModels.Common
         {
             execute?.Invoke();
         }
+
+        public void OnCanExecuteChanged()
+        {
+            CanExecuteChanged?.Invoke(this, EventArgs.Empty);
+        }
     }
 }

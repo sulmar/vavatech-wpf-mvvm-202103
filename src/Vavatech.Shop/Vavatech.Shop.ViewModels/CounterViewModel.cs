@@ -8,13 +8,27 @@ namespace Vavatech.Shop.ViewModels
 {
     public class CounterViewModel : BaseViewModel
     {
-        public int Counter { get; set; }
+        private int counter;
 
-        public ICommand AddCommand { get; private set; }
+        public int Counter
+        {
+            get => counter; set
+            {
+                counter = value;
+
+                OnPropertyChanged();
+
+                AddCommand.OnCanExecuteChanged();
+            }
+        }
+
+        public DelegateCommand AddCommand { get; private set; }
 
         public CounterViewModel()
         {
-            AddCommand = new DelegateCommand(Add);
+            AddCommand = new DelegateCommand(Add, CanAdd);
+
+            Counter = 100;
         }
 
         public void Add()
@@ -22,7 +36,7 @@ namespace Vavatech.Shop.ViewModels
             Counter++;
         }
 
-      
-       
+        public bool CanAdd() => Counter < 110;
+
     }
 }

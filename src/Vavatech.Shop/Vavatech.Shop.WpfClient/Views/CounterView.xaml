@@ -12,14 +12,24 @@
     <Grid Background="DarkBlue">
 
 
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+        <StackPanel HorizontalAlignment="Center" >
             
             <TextBlock 
                 FontSize="40"
-                Foreground="White" Text="100" VerticalAlignment="Center" />
+                Foreground="White" Text="{Binding Counter}" 
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                
+                />
+
+            <Slider Value="{Binding Counter}"
+                    Minimum="0"
+                    Maximum="200"                    
+                    Width="200" />
 
             <Button
                 Command="{Binding AddCommand}"
+                Margin="20"
                 Width="200" Background="DarkBlue" BorderBrush="White" >Add</Button>
              
         </StackPanel>
