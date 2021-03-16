@@ -52,6 +52,8 @@ namespace Vavatech.Shop.Models
         public string FullName => $"{FirstName} {LastName}";
         public CustomerType CustomerType { get; set; }
         public string Avatar { get; set; }
+
+        public decimal? CreditAmount { get; set; }
         public bool IsRemoved { get; set; }
     }
 }

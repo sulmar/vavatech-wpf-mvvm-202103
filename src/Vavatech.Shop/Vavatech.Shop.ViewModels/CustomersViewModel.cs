@@ -11,6 +11,10 @@ namespace Vavatech.Shop.ViewModels
     {
         public IEnumerable<Customer> Customers { get; set; }
 
+        public decimal TotalCreditAmount => Customers
+            .Where(c=>c.CreditAmount.HasValue)
+            .Sum(c => c.CreditAmount.Value);
+
         public Customer SelectedCustomer
         {
             get => selectedCustomer; set

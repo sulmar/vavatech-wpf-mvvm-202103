@@ -14,6 +14,7 @@ namespace Vavatech.Shop.Fakers
             RuleFor(p => p.LastName, f => f.Person.LastName);
             RuleFor(p => p.Avatar, f => f.Person.Avatar);
             RuleFor(p => p.CustomerType, f => f.PickRandom<CustomerType>());
+            RuleFor(p => p.CreditAmount, f => Math.Round(f.Random.Decimal(1, 1000), 2));
             RuleFor(p => p.IsRemoved, f => f.Random.Bool(0.2f));
         }
     }

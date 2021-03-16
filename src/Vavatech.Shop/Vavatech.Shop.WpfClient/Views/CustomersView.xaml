@@ -34,10 +34,13 @@
             SelectedItem="{Binding Path=SelectedCustomer}" >
           
         </ListBox>-->
-        
-        
 
-        <ListView ItemsSource="{Binding Customers}"
+        <StackPanel>
+
+            <Label>TotalCreditAmount</Label>
+            <TextBlock Text="{Binding TotalCreditAmount}" />
+
+            <ListView ItemsSource="{Binding Customers}"
                   SelectedItem="{Binding SelectedCustomer}"
                   Width="500"
                   x:Name="CustomersListView"
@@ -58,11 +61,15 @@
 
                         <GridViewColumn Header="Customer Type" DisplayMemberBinding="{Binding CustomerType}" />
 
+                        <GridViewColumn Header="Credit Amount" DisplayMemberBinding="{Binding CreditAmount}" />
+
                     </GridView.Columns>
                 </GridView>
             </ListView.View>
         </ListView>
 
+        </StackPanel>
+        
         <!--<DataGrid 
             ItemsSource="{Binding Customers}"
             SelectedItem="{Binding SelectedCustomer}"
@@ -100,6 +107,9 @@
             <Label>Customer type</Label>
             <ComboBox SelectedItem="{Binding CustomerType}"
                       ItemsSource="{Binding ElementName=Customers, Path=DataContext.CustomerTypes}" />
+
+            <Label>Credit amount</Label>
+            <TextBox Text="{Binding CreditAmount}" />
 
             <Label>Removed</Label>
             <CheckBox IsChecked="{Binding IsRemoved}" />
