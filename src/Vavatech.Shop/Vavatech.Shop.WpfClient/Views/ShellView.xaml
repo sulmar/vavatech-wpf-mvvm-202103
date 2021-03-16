@@ -60,7 +60,13 @@
 
             <!-- Menu -->
             <Menu DockPanel.Dock="Top">
-                <MenuItem Header="File"></MenuItem>
+                <MenuItem Header="File">
+                    <MenuItem Header="Show Customers" />
+                    <MenuItem Header="Show Products" />
+                    <MenuItem Header="Show Counter" />
+                    <Separator />
+                    <MenuItem Header="Exit" Command="{Binding ExitCommand}" />
+                </MenuItem>
                 <MenuItem Header="Edit"></MenuItem>
                 <MenuItem Header="View"></MenuItem>
                 <MenuItem Header="Help"></MenuItem>
