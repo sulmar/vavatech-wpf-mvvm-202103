@@ -30,6 +30,8 @@ namespace Vavatech.Shop.WpfClient
             Frame.Navigate(uri, parameter);
 
             Parameter = parameter;
+
+
         }
 
         private Frame Get(string frameName)

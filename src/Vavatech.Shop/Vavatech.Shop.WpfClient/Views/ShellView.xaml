@@ -95,6 +95,7 @@
                 <Button>Home</Button>
                 <Button Command="{Binding ShowViewCommand}" CommandParameter="Counter" >Counter</Button>
                 <Button Command="{Binding ShowViewCommand}" CommandParameter="Customers">Customers</Button>
+                <Button Command="{Binding ShowViewCommand}" CommandParameter="Customer">Customer</Button>
                 <Button Command="{Binding ShowViewCommand}" CommandParameter="Products" >Products</Button>
                 <Button>Orders</Button>
                 <Button Style="{StaticResource SettingsButtonStyle}">Settings</Button>
