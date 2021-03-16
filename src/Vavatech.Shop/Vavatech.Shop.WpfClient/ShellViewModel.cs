@@ -14,12 +14,7 @@ namespace Vavatech.Shop.ViewModels
         private readonly IApplicationService applicationService;
 
         public ICommand ExitCommand { get; private set; }
-
         public ICommand ShowViewCommand { get; private set; }
-
-        //public ICommand ShowCustomersCommand { get; private set; }
-        //public ICommand ShowProductsCommand { get; private set; }
-        //public ICommand ShowCounterCommand { get; private set; }
 
         public ShellViewModel(
             INavigationService navigationService,
@@ -30,10 +25,6 @@ namespace Vavatech.Shop.ViewModels
 
             ShowViewCommand = new DelegateCommand<string>(ShowView);
 
-            //ShowCustomersCommand = new DelegateCommand(ShowCustomers);
-            //ShowProductsCommand = new DelegateCommand(ShowProducts);
-            //ShowCounterCommand = new DelegateCommand(ShowCounter);
-
             this.navigationService = navigationService;
             this.messageBoxService = messageBoxService;
             this.applicationService = applicationService;
@@ -43,21 +34,6 @@ namespace Vavatech.Shop.ViewModels
         {
             navigationService.Navigate(viewName);
         }
-
-        //public void ShowCustomers()
-        //{
-        //    navigationService.Navigate("Customers");
-        //}
-
-        //public void ShowCounter()
-        //{
-        //    navigationService.Navigate("Counter");
-        //}
-
-        //public void ShowProducts()
-        //{
-        //    navigationService.Navigate("Products");
-        //}
 
         public void Exit()
         {

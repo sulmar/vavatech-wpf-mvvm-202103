@@ -31,7 +31,7 @@ namespace Vavatech.Shop.WpfClient
             // containerBuilder.RegisterModule(new CustomerModule());
 
             // containerBuilder.RegisterType<CustomersViewModel>();
-            // containerBuilder.RegisterType<ShellViewModel>();
+            containerBuilder.RegisterType<ShellViewModel>();
 
             // Automatyczna rejestracja wszystkich klas, które dziedziczą po BaseViewModel
             containerBuilder.RegisterAssemblyTypes(typeof(BaseViewModel).Assembly)
