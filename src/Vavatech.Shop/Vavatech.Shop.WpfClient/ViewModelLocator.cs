@@ -10,6 +10,7 @@ using Vavatech.Shop.FakeServices;
 using Vavatech.Shop.IServices;
 using Vavatech.Shop.Models;
 using Vavatech.Shop.ViewModels;
+using Vavatech.Shop.WpfClient.Modules;
 
 namespace Vavatech.Shop.WpfClient
 {
@@ -24,9 +25,20 @@ namespace Vavatech.Shop.WpfClient
         {
             ContainerBuilder containerBuilder = new ContainerBuilder();
 
-            containerBuilder.RegisterType<CustomersViewModel>();
-            containerBuilder.RegisterType<FakeCustomerService>().As<ICustomerService>().SingleInstance();
-            containerBuilder.RegisterType<CustomerFaker>().As<Faker<Customer>>().SingleInstance();
+            //containerBuilder.RegisterType<FakeCustomerService>().As<ICustomerService>().SingleInstance();
+            //containerBuilder.RegisterType<CustomerFaker>().As<Faker<Customer>>().SingleInstance();
+
+            // containerBuilder.RegisterModule(new CustomerModule());
+
+            // containerBuilder.RegisterType<CustomersViewModel>();
+            // containerBuilder.RegisterType<ShellViewModel>();
+
+            // Automatyczna rejestracja wszystkich klas, które dziedziczą po BaseViewModel
+            containerBuilder.RegisterAssemblyTypes(typeof(BaseViewModel).Assembly)
+                .Where(t => t.IsSubclassOf(typeof(BaseViewModel)));
+
+            // Automatyczna rejestracja klas z modułów
+            containerBuilder.RegisterAssemblyModules(typeof(CustomerModule).Assembly);
 
             container = containerBuilder.Build();
         }
@@ -34,5 +46,6 @@ namespace Vavatech.Shop.WpfClient
         // public CustomersViewModel CustomersViewModel => new CustomersViewModel(new FakeCustomerService(new CustomerFaker()));
 
         public CustomersViewModel CustomersViewModel => container.Resolve<CustomersViewModel>();
+        public ShellViewModel ShellViewModel => container.Resolve<ShellViewModel>();
     }
 }
