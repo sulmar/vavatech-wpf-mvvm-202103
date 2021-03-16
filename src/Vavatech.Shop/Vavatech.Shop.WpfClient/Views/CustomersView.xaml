@@ -4,7 +4,8 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Vavatech.Shop.WpfClient.Views"
-      xmlns:vm="clr-namespace:Vavatech.Shop.ViewModels;assembly=Vavatech.Shop.ViewModels"
+      xmlns:vm="clr-namespace:Vavatech.Shop.ViewModels;assembly=Vavatech.Shop.ViewModels" 
+      xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
       DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=CustomersViewModel}"
       x:Name="Customers"
       mc:Ignorable="d" 
@@ -16,6 +17,15 @@
         </Page.DataContext>-->
 
     <Page.Resources>
+
+        <CollectionViewSource x:Key="CustomersViewSource" Source="{Binding SelectedCustomers}">
+            <CollectionViewSource.SortDescriptions>
+                <scm:SortDescription PropertyName="FirstName" />
+                <scm:SortDescription PropertyName="LastName" />
+
+            </CollectionViewSource.SortDescriptions>
+            
+        </CollectionViewSource>
       
     </Page.Resources>
     
@@ -39,9 +49,9 @@
 
             <Label>TotalCreditAmount</Label>
             <TextBlock Text="{Binding TotalCreditAmount}" />
-            
 
-            <ListView ItemsSource="{Binding SelectedCustomers}"
+
+            <ListView ItemsSource="{Binding Source={StaticResource CustomersViewSource}}"
                   SelectedItem="{Binding SelectedCustomer}"
                   Width="500"
                   x:Name="CustomersListView"

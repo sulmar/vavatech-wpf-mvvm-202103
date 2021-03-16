@@ -11,12 +11,11 @@ using Vavatech.Shop.ViewModels.Common;
 
 namespace Vavatech.Shop.ViewModels
 {
-
     public class CustomersViewModel : BaseViewModel
     {
         public BindingList<Customer> Customers { get; set; }
 
-        public IEnumerable<Customer> SelectedCustomers => Customers.Skip(0).Take(10).ToList();
+        public IEnumerable<Customer> SelectedCustomers => Customers.ToList();
 
         public decimal TotalCreditAmount => Customers
             .Where(c=>c.CreditAmount.HasValue)
