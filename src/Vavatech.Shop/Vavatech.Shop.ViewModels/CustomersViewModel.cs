@@ -11,15 +11,23 @@ namespace Vavatech.Shop.ViewModels
     {
         public IEnumerable<Customer> Customers { get; set; }
 
-        public Customer SelectedCustomer { get; set; }
+        public Customer SelectedCustomer
+        {
+            get => selectedCustomer; set
+            {
+                selectedCustomer = value;
+                OnPropertyChanged();
+            }
+        }
 
         public IEnumerable<CustomerType> CustomerTypes { get; set; }
 
         private readonly ICustomerService customerService;
+        private Customer selectedCustomer;
 
         public CustomersViewModel(ICustomerService customerService)
         {
-            this.customerService = customerService;            
+            this.customerService = customerService;
 
             Load();
         }

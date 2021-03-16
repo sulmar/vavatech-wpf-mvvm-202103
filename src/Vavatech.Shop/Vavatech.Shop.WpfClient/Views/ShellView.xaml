@@ -108,7 +108,7 @@
             </Grid>
 
 
-            <Frame Source="CounterView.xaml" />
+            <Frame Source="CustomersView.xaml" />
 
 
         </DockPanel>
