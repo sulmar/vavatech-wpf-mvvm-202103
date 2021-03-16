@@ -9,31 +9,43 @@ namespace Vavatech.Shop.ViewModels
 {
     public class ShellViewModel : BaseViewModel
     {
+        private readonly INavigationService navigationService;
         private readonly IMessageBoxService messageBoxService;
         private readonly IApplicationService applicationService;
 
-        public ICommand ExitCommand { get; set; }
+        public ICommand ExitCommand { get; private set; }
+        public ICommand ShowCustomersCommand { get; private set; }
+        public ICommand ShowProductsCommand { get; private set; }
+        public ICommand ShowCounterCommand { get; private set; }
 
-        public ShellViewModel(IMessageBoxService messageBoxService, IApplicationService applicationService)
+        public ShellViewModel(
+            INavigationService navigationService,
+            IMessageBoxService messageBoxService, 
+            IApplicationService applicationService)
         {
             ExitCommand = new DelegateCommand(Exit);
+            ShowCustomersCommand = new DelegateCommand(ShowCustomers);
+            ShowProductsCommand = new DelegateCommand(ShowProducts);
+            ShowCounterCommand = new DelegateCommand(ShowCounter);
+
+            this.navigationService = navigationService;
             this.messageBoxService = messageBoxService;
             this.applicationService = applicationService;
         }
 
         public void ShowCustomers()
         {
-
+            navigationService.Navigate("Customers");
         }
 
         public void ShowCounter()
         {
-
+            navigationService.Navigate("Counter");
         }
 
         public void ShowProducts()
         {
-
+            navigationService.Navigate("Products");
         }
 
         public void Exit()

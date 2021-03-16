@@ -93,9 +93,9 @@
                 </Border>
 
                 <Button>Home</Button>
-                <Button>Counter</Button>
-                <Button>Customers</Button>
-                <Button>Products</Button>
+                <Button Command="{Binding ShowCounterCommand}" >Counter</Button>
+                <Button Command="{Binding ShowCustomersCommand}">Customers</Button>
+                <Button Command="{Binding ShowProductsCommand}" >Products</Button>
                 <Button>Orders</Button>
                 <Button Style="{StaticResource SettingsButtonStyle}">Settings</Button>
                 
@@ -114,7 +114,7 @@
             </Grid>
 
 
-            <Frame Source="CustomersView.xaml" />
+            <Frame x:Name="MainFrame" Source="CustomersView.xaml" />
 
 
         </DockPanel>

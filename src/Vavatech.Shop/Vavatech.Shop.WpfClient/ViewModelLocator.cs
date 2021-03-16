@@ -43,6 +43,8 @@ namespace Vavatech.Shop.WpfClient
             containerBuilder.RegisterType<WpfMessageBoxService>().As<IMessageBoxService>();
             containerBuilder.RegisterType<WpfApplicationService>().As<IApplicationService>();
 
+            containerBuilder.RegisterType<FrameNavigationService>().As<INavigationService>().SingleInstance();
+
             container = containerBuilder.Build();
         }
 
