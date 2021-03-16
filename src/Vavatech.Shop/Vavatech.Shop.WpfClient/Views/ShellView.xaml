@@ -6,8 +6,15 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:Vavatech.Shop.WpfClient.Views"
         DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=ShellViewModel}"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"        
         mc:Ignorable="d"
         Title="ShellView" Height="450" Width="800">
+
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Closing">
+            <i:InvokeCommandAction Command="{Binding ExitCommand}" PassEventArgsToCommand="True" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
 
     <!--<Window.Resources>
 

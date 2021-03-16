@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
       xmlns:local="clr-namespace:Vavatech.Shop.WpfClient.Views"
       DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=CounterViewModel}"
       mc:Ignorable="d" 
@@ -28,10 +29,23 @@
                     Width="200" />
 
             <Button
-                Command="{Binding AddCommand}"
+                Command="{Binding AddCommand}"                
                 Margin="20"
                 Width="200" Background="DarkBlue" BorderBrush="White" >Add</Button>
-             
+
+            <Button               
+                Margin="20"
+                Width="200" Background="DarkBlue" BorderBrush="White"
+                Content="Mouse Enter">
+
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseEnter">
+                        <i:InvokeCommandAction Command="{Binding AddCommand}" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+                
+            </Button>
+
         </StackPanel>
         
 

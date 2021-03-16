@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 using System.Windows.Input;
 using Vavatech.Shop.IServices;
@@ -26,7 +27,7 @@ namespace Vavatech.Shop.ViewModels
             IMessageBoxService messageBoxService, 
             IApplicationService applicationService)
         {
-            ExitCommand = new DelegateCommand(Exit);
+            ExitCommand = new DelegateCommand<CancelEventArgs>(Exit);
 
             ShowViewCommand = new DelegateCommand<string>(ShowView);
 
@@ -59,12 +60,19 @@ namespace Vavatech.Shop.ViewModels
         //    navigationService.Navigate("Products");
         //}
 
-        public void Exit()
+        public void Exit(CancelEventArgs args)
         {
             if (messageBoxService.ShowMessage("Are you sure?", "Exit"))
             {
                 applicationService.Close();
             }
+            else
+            {
+                args.Cancel = true;
+            }
+
+
+
         }
     }
 }
