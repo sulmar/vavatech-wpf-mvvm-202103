@@ -11,23 +11,29 @@
     <DataTemplate x:Key="CustomerTemplate" DataType="{x:Type m:Customer}">
 
         <Border BorderBrush="LightGray" BorderThickness="1">
-            <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal" Width="300">
 
-                <Image Margin="5" Width="100" Source="{Binding Avatar}" />
+                <Image Margin="5" Width="150" Source="{Binding Avatar}" />
 
-                <TextBlock  Style="{StaticResource TextBlockStyle}">
-                    <TextBlock.Text>
-                        <MultiBinding StringFormat="{} {0} {1}">
-                            <Binding Path="FirstName" />
-                            <Binding Path="LastName" />
-                        </MultiBinding>
-                    </TextBlock.Text>
-                </TextBlock>
+                <StackPanel>
+                    
+                
+                    <TextBlock  FontSize="20" Style="{StaticResource TextBlockStyle}">
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="{} {0} {1}">
+                                <Binding Path="FirstName" />
+                                <Binding Path="LastName" />
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
 
-                <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding CustomerType}" />
+                    <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding CustomerType}" />
+
+                    <CheckBox Margin="5" IsChecked="{Binding IsRemoved}">Removed</CheckBox>
+
+                </StackPanel>
 
 
-                <CheckBox IsChecked="{Binding IsRemoved}"  />
 
             </StackPanel>
         </Border>

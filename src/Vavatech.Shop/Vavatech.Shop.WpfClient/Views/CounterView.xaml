@@ -15,6 +15,7 @@
 
 
         <StackPanel HorizontalAlignment="Center" >
+
             
             <TextBlock 
                 FontSize="40"

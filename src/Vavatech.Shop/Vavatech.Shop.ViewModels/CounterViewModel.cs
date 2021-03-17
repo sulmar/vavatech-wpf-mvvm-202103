@@ -9,6 +9,7 @@ namespace Vavatech.Shop.ViewModels
 {
     public class CounterViewModel : BaseViewModel
     {
+
         private int counter;
 
         public int Counter
