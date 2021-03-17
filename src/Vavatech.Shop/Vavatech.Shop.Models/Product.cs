@@ -8,5 +8,9 @@
         public bool IsDiscount { get; set; }
         public decimal Discount { get; set; }
         public string ImageUrl { get; set; }
+
+        public bool IsOverLimit => UnitPrice > UnitPriceOverLimit;
+
+        public static decimal UnitPriceOverLimit = 500;
     }
 }

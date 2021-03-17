@@ -50,11 +50,38 @@
                        FontSize="20"
                        Text="{Binding Name}" />
 
-                <TextBlock FontSize="20"  Text="{Binding UnitPrice}" />
+                <TextBlock FontSize="20"  Text="{Binding UnitPrice}" >
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Foreground" Value="Black" />
 
-                <TextBlock FontSize="20" 
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsOverLimit}" Value="True">
+                                    <Setter Property="Foreground" Value="Red" />
+                                    <Setter Property="Background" Value="Yellow" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                            
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+
+                <!--<TextBlock FontSize="20" 
                            Visibility="{Binding IsDiscount, Converter={StaticResource MyConverter}}"                                                    
-                           Text="Discount!" />
+                           Text="Discount!" />-->
+
+                <TextBlock FontSize="20" Text="Discount!" >
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock" >
+                            <Setter Property="Visibility" Value="Visible" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsDiscount}" Value="False" >
+                                    <Setter Property="Visibility" Value="Collapsed" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
             </StackPanel>
             
 
