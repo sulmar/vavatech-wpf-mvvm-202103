@@ -20,6 +20,11 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
         <DockPanel Margin="40">
 
             <DockPanel.Resources>
@@ -58,6 +63,13 @@
 
             </Ellipse>
         </Grid>
-        
+
+
+        <Image 
+           Stretch="Uniform"
+            Grid.Column="0"
+            Grid.Row="1"
+            Source="{StaticResource SettingsImage}" />
+
     </Grid>
 </Page>

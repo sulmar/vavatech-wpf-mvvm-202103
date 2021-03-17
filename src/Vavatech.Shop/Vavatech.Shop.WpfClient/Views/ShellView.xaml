@@ -101,9 +101,29 @@
 
                 <Button>Home</Button>
                 <Button Command="{Binding ShowViewCommand}" CommandParameter="Counter" >Counter</Button>
-                <Button Command="{Binding ShowViewCommand}" CommandParameter="Customers">Customers</Button>
-                <Button Command="{Binding ShowViewCommand}" CommandParameter="Customer">Customer</Button>
-                <Button Command="{Binding ShowViewCommand}" CommandParameter="Products" >Products</Button>
+                
+                <Button Command="{Binding ShowViewCommand}" CommandParameter="Customers">
+                    <DockPanel>
+                        <Image Source="{StaticResource CustomersImage}" />
+                        <TextBlock VerticalAlignment="Center">Customers</TextBlock>
+                    </DockPanel>
+                    </Button>
+                <Button Command="{Binding ShowViewCommand}" CommandParameter="Customer">
+                    <DockPanel>
+                        <Image Source="{StaticResource CustomersImage}" />
+                        <TextBlock VerticalAlignment="Center">Customer</TextBlock>
+                    </DockPanel>
+                </Button>
+                
+                
+                <Button Command="{Binding ShowViewCommand}" CommandParameter="Products" >
+                    <DockPanel>
+                        <Image DockPanel.Dock="Left" Source="{StaticResource ProductsImage}" />
+                        <TextBlock VerticalAlignment="Center">Products</TextBlock>
+                    </DockPanel>
+                    
+                    
+                </Button>
                 <Button>Orders</Button>
                 <Button Command="{Binding ShowViewCommand}" CommandParameter="Settings"  Style="{StaticResource SettingsButtonStyle}">Settings</Button>
                 

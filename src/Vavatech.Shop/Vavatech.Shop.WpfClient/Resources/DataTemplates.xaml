@@ -42,7 +42,9 @@
             </Grid.ColumnDefinitions>
 
 
-            <Image Margin="5" Width="150" Grid.Column="0" Source="{Binding ImageUrl}" />
+            <Image 
+                
+                Margin="5" Width="150" Grid.Column="0" Source="{Binding ImageUrl}" />
 
             <StackPanel Grid.Column="1" >
                 <TextBlock 
