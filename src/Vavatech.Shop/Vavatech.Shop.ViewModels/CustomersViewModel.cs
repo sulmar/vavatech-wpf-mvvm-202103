@@ -11,6 +11,7 @@ using Vavatech.Shop.ViewModels.Common;
 
 namespace Vavatech.Shop.ViewModels
 {
+
     public class CustomersViewModel : BaseViewModel
     {
         public BindingList<Customer> Customers { get; set; }

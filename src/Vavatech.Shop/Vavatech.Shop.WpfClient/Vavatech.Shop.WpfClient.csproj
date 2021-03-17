@@ -94,6 +94,7 @@
     </ApplicationDefinition>
     <Compile Include="FrameNavigationService.cs" />
     <Compile Include="Modules\CustomerModule.cs" />
+    <Compile Include="Modules\ProductModule.cs" />
     <Compile Include="ShellViewModel.cs" />
     <Compile Include="ViewModelLocator.cs" />
     <Compile Include="Views\CounterView.xaml.cs">

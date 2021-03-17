@@ -4,17 +4,55 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Vavatech.Shop.WpfClient.Views"
+      DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=ProductsViewModel}"
       mc:Ignorable="d" 
+      x:Name="Products"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ProductsView">
 
-    <Grid Background="DarkBlue">
+    <Grid>
 
-        <TextBlock Text="Products View"
-                   Foreground="White"
-                   FontSize="40"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center" />
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        
+        
+        <!-- Products -->
+
+        <ListBox
+            ItemsSource="{Binding Path=Products}"
+            SelectedItem="{Binding SelectedEntity}"
+            ItemTemplate="{StaticResource ProductTemplate}"
+            HorizontalContentAlignment="Stretch"
+            />
+        
+
+
+        <!-- Selected Product -->
+
+        <StackPanel Grid.Column="1" DataContext="{Binding SelectedEntity}">
+            <Label>Name</Label>
+            <TextBox Text="{Binding Name}" />
+
+            <Label>Color</Label>
+            <ComboBox ItemsSource="{Binding ElementName=Products, Path=DataContext.Colors}"
+                      SelectedItem="{Binding Color}"
+                      />
+
+            <Label>Unit Price</Label>
+            <TextBox Text="{Binding UnitPrice}" />
+
+            <Label>Discount</Label>
+
+            <DockPanel>
+                <CheckBox x:Name="IsDiscountCheckBox" IsChecked="{Binding IsDiscount}" />
+                <TextBox Text="{Binding Discount}" IsReadOnly="{Binding ElementName=IsDiscountCheckBox, Path=IsChecked}" />
+            </DockPanel>
+            
+        </StackPanel>
+
+
 
 
     </Grid>
