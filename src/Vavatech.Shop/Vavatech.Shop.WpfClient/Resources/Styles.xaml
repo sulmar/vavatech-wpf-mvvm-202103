@@ -49,5 +49,23 @@
         <Setter Property="Width" Value="100" />
         <Setter Property="Margin" Value="5" />
     </Style>
-    
+
+
+    <Style x:Key="VisibilityTextBlockStyle" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyle}">
+        <Setter Property="Visibility" Value="Visible" />
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding IsDiscount}" Value="False" >
+                <Setter Property="Visibility" Value="Collapsed" />
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--<Style x:Key="FirstTextBlockStyle" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="Blue" />
+    </Style>
+
+    <Style x:Key="SecondTextBlockStyle" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="Green" />
+    </Style>-->
+
 </ResourceDictionary>

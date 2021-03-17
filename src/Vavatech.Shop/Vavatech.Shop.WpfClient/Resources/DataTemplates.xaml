@@ -70,8 +70,8 @@
                            Visibility="{Binding IsDiscount, Converter={StaticResource MyConverter}}"                                                    
                            Text="Discount!" />-->
 
-                <TextBlock FontSize="20" Text="Discount!" >
-                    <TextBlock.Style>
+                <TextBlock FontSize="20" Text="Discount!" Style="{StaticResource VisibilityTextBlockStyle}">
+                    <!--<TextBlock.Style>
                         <Style TargetType="TextBlock" >
                             <Setter Property="Visibility" Value="Visible" />
                             <Style.Triggers>
@@ -80,8 +80,34 @@
                                 </DataTrigger>
                             </Style.Triggers>
                         </Style>
+                    </TextBlock.Style>-->
+                </TextBlock>
+
+                <TextBlock FontSize="20" Text="Big Discount!">
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Visibility" Value="Visible" />
+                            <Setter Property="Foreground" Value="Black" />
+
+                            <Style.Triggers>
+                                <MultiDataTrigger>
+                                    <MultiDataTrigger.Conditions>
+                                        <Condition Binding="{Binding IsDiscount}" Value="True" />
+                                        <Condition Binding="{Binding IsOverLimit}" Value="True" />
+                                    </MultiDataTrigger.Conditions>
+                                    <Setter Property="Foreground" Value="Red" />
+                                </MultiDataTrigger>
+                            </Style.Triggers>
+                            
+                        </Style>
                     </TextBlock.Style>
                 </TextBlock>
+
+                <!--<TextBlock FontSize="20" Text="First!" Style="{StaticResource FirstTextBlockStyle}" />
+
+                <TextBlock FontSize="20" Text="Second!" Style="{StaticResource SecondTextBlockStyle}" />-->
+
+
             </StackPanel>
             
 
