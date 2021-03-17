@@ -37,8 +37,15 @@
         <!-- Selected Product -->
 
         <StackPanel Grid.Column="1" DataContext="{Binding SelectedEntity}">
-            <Label>Name</Label>
+            <Label>
+                <StackPanel Orientation="Horizontal">
+                    <Image Width="30" Source="{StaticResource ProductsImage}" />
+                    <TextBlock Text="Name" VerticalAlignment="Center" />
+                </StackPanel>
+                
+            </Label>
             <TextBox Text="{Binding Name}" />
+
 
             <Label>Color</Label>
             <ComboBox ItemsSource="{Binding ElementName=Products, Path=DataContext.Colors}"

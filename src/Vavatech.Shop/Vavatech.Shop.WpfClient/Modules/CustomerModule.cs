@@ -18,6 +18,7 @@ namespace Vavatech.Shop.WpfClient.Modules
         {
             builder.RegisterType<FakeCustomerService>().As<ICustomerService>().SingleInstance();
             builder.RegisterType<CustomerFaker>().As<Faker<Customer>>().SingleInstance();
+            builder.RegisterType<CoordinateFaker>().As<Faker<Coordinate>>().SingleInstance();
         }
     }
 }

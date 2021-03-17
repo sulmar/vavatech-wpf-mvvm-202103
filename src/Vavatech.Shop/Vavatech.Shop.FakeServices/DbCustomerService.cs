@@ -11,13 +11,6 @@ namespace Vavatech.Shop.FakeServices
     {
         private readonly ICollection<Customer> customers;
 
-        // TODO: refactor
-        public DbCustomerService()
-            : this(new CustomerFaker())
-        {
-
-        }
-
         public DbCustomerService(Faker<Customer> faker)
         {
             customers = faker.Generate(100);

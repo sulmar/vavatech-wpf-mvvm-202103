@@ -54,6 +54,15 @@ namespace Vavatech.Shop.Models
         public string Avatar { get; set; }
 
         public decimal? CreditAmount { get; set; }
+
+        public Coordinate Location { get; set; }
+
         public bool IsRemoved { get; set; }
+    }
+
+    public class Coordinate : Base
+    {
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
     }
 }

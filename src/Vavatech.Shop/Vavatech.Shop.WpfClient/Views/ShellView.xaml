@@ -121,9 +121,15 @@
                         <Image DockPanel.Dock="Left" Source="{StaticResource ProductsImage}" />
                         <TextBlock VerticalAlignment="Center">Products</TextBlock>
                     </DockPanel>
-                    
-                    
                 </Button>
+
+                <Button Command="{Binding ShowViewCommand}" CommandParameter="CustomersMap" >
+                    <DockPanel>
+                        <Image DockPanel.Dock="Left" Source="{StaticResource CustomersImage}" />
+                        <TextBlock VerticalAlignment="Center">Map</TextBlock>
+                    </DockPanel>
+                </Button>
+
                 <Button>Orders</Button>
                 <Button Command="{Binding ShowViewCommand}" CommandParameter="Settings"  Style="{StaticResource SettingsButtonStyle}">Settings</Button>
                 
