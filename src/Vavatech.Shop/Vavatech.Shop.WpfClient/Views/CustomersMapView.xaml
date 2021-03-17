@@ -29,7 +29,7 @@
             <!-- Map -->
 
             <maps:Map CredentialsProvider="YourSecretKey" 
-                      Center="52,21"
+                      Center="{Binding CenterLocation, Converter={StaticResource LocationConverter}}"
                       ZoomLevel="6" >
 
                 <maps:MapItemsControl ItemsSource="{Binding Customers}" >
@@ -42,6 +42,7 @@
 
                                 <Grid>
                                     <Image Width="50" Source="{Binding Avatar}" />
+
                                 </Grid>
                             </maps:Pushpin>
 

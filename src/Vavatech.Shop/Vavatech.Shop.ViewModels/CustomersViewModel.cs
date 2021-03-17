@@ -31,6 +31,9 @@ namespace Vavatech.Shop.ViewModels
             }
         }
 
+
+        public Coordinate CenterLocation { get; private set; }
+
         public ICommand AddCustomerCommand { get; private set; }
         public ICommand RemoveCustomerCommand { get; private set; }
 
@@ -54,6 +57,8 @@ namespace Vavatech.Shop.ViewModels
         private void Load()
         {
             // Customers = new BindingList<Customer>(customerService.Get().ToList());
+
+            CenterLocation = new Coordinate(52, 21);
 
             Customers = customerService.Get().ToBindingList();
 
