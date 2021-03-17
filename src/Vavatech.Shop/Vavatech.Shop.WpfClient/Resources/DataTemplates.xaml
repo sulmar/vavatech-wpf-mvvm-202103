@@ -1,7 +1,11 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:m="clr-namespace:Vavatech.Shop.Models;assembly=Vavatech.Shop.Models"
+                    xmlns:c="clr-namespace:Vavatech.Shop.WpfClient.Converters"
                     >
+
+
+    <c:BoolToVisibilityConverter x:Key="MyConverter" />
 
 
     <DataTemplate x:Key="CustomerTemplate" DataType="{x:Type m:Customer}">
@@ -47,6 +51,10 @@
                        Text="{Binding Name}" />
 
                 <TextBlock FontSize="20"  Text="{Binding UnitPrice}" />
+
+                <TextBlock FontSize="20" 
+                           Visibility="{Binding IsDiscount, Converter={StaticResource MyConverter}}"                                                    
+                           Text="Discount!" />
             </StackPanel>
             
 
