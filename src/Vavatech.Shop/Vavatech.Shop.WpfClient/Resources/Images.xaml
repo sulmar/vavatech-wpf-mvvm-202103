@@ -4,7 +4,7 @@
 
     <BitmapImage x:Key="CustomersImage" UriSource="/Assets/Users-WF.png" />
     <BitmapImage x:Key="ProductsImage" UriSource="/Assets/Product Box-02-WF.png" />
-
+    <BitmapImage x:Key="MapImage" UriSource="/Assets/Navigation-02.png" />
 
     <BitmapImage x:Key="SettingsImage" UriSource="https://picsum.photos/640/480/?image=481" />
 

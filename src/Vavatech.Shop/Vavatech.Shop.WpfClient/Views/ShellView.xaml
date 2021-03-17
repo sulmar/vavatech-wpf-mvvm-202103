@@ -125,7 +125,7 @@
 
                 <Button Command="{Binding ShowViewCommand}" CommandParameter="CustomersMap" >
                     <DockPanel>
-                        <Image DockPanel.Dock="Left" Source="{StaticResource CustomersImage}" />
+                        <Image DockPanel.Dock="Left" Source="{StaticResource MapImage}" />
                         <TextBlock VerticalAlignment="Center">Map</TextBlock>
                     </DockPanel>
                 </Button>

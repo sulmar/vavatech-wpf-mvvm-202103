@@ -283,7 +283,9 @@
       <Name>Vavatech.Shop.ViewModels</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Assets\Navigation-02.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\BarCode-WF.png" />
     <Resource Include="Assets\Product Box-02-WF.png" />
