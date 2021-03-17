@@ -23,6 +23,8 @@ namespace Vavatech.Shop.WpfClient.Views
         public CustomersMapView()
         {
             InitializeComponent();
+
+         
         }
     }
 }

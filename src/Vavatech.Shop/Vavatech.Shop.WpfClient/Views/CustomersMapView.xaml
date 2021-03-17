@@ -28,7 +28,7 @@
             
             <!-- Map -->
 
-            <maps:Map CredentialsProvider="YourSecretKey" 
+            <maps:Map x:Name="MyMap" CredentialsProvider="YourSecretKey" 
                       Center="{Binding CenterLocation, Converter={StaticResource LocationConverter}}"
                       ZoomLevel="6" >
 

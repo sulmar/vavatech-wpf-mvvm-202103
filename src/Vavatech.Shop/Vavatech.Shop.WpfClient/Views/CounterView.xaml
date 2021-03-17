@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+      xmlns:b="clr-namespace:Vavatech.Shop.WpfClient.Behaviors"
       xmlns:local="clr-namespace:Vavatech.Shop.WpfClient.Views"
       DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=CounterViewModel}"
       mc:Ignorable="d" 
@@ -45,6 +46,29 @@
                 </i:Interaction.Triggers>
                 
             </Button>
+
+            <Button        
+                Margin="20"
+                Width="200" Background="DarkGreen" BorderBrush="White"
+                Content="Mouse Enter Behavior" >
+
+                <i:Interaction.Behaviors>
+                    <b:MouseEnterButtonBehavior Width="50" />
+                </i:Interaction.Behaviors>
+
+            </Button>
+
+            <Button                               
+                Margin="20"
+                Width="200" Background="DarkOrange" BorderBrush="White"
+                Content="Mouse Enter Behavior" >
+
+                <i:Interaction.Behaviors>
+                    <b:MouseEnterButtonBehavior Width="{Binding Counter}" Command="{Binding AddCommand}" />
+                </i:Interaction.Behaviors>
+                
+            </Button>
+
 
         </StackPanel>
         
