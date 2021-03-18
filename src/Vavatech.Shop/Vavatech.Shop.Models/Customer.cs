@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using Vavatech.Shop.Models.Attributes;
 
 namespace Vavatech.Shop.Models
 {
@@ -49,6 +50,15 @@ namespace Vavatech.Shop.Models
 
     // IDataErrorInfo -> ValidatesOnDataErrors=True
 
+
+    public enum Country
+    {
+        Poland,
+        Germany,
+        Italy,
+        USA
+    }
+
     public class Customer : BaseEntity, IDataErrorInfo
     {
      
@@ -62,6 +72,18 @@ namespace Vavatech.Shop.Models
         public decimal? CreditAmount { get; set; }
 
         public Coordinate Location { get; set; }
+
+        public Country Country { get; set; }
+
+        [Country("Poland")]
+        public string Pesel { get; set; }
+        [Country("Poland")]
+        public string Regon { get; set; }
+        
+        public string TaxId { get; set; }
+
+        [Country("Germany")]
+        public string Land { get; set; }
 
         public bool IsRemoved { get; set; }
 
