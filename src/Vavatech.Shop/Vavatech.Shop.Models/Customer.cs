@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 
 namespace Vavatech.Shop.Models
 {
@@ -45,8 +46,13 @@ namespace Vavatech.Shop.Models
     // PM> Install-Package PropertyChanged.Fody
 
 
-    public class Customer : BaseEntity
+
+    // IDataErrorInfo -> ValidatesOnDataErrors=True
+
+    public class Customer : BaseEntity, IDataErrorInfo
     {
+     
+
         public string FirstName { get; set; }
         public string LastName { get; set;  }
         public string FullName => $"{FirstName} {LastName}";
@@ -58,6 +64,40 @@ namespace Vavatech.Shop.Models
         public Coordinate Location { get; set; }
 
         public bool IsRemoved { get; set; }
+
+        #region IDataErrorInfo
+        public string this[string columnName] => Validate(columnName);
+
+        private string Validate(string columnName)
+        {
+            if (columnName == nameof(FirstName))
+            {
+                if (string.IsNullOrEmpty(FirstName))
+                {
+                    return "Imię nie może być puste";
+                }
+            }
+
+            if (columnName == nameof(LastName))
+            {
+                if (string.IsNullOrEmpty(LastName))
+                {
+                    return "Nazwisko nie może być puste";
+                }
+            }
+
+            if (columnName == nameof(CreditAmount))
+            {
+                if (CreditAmount < 0 || CreditAmount > 1000)
+                    return "Wartość CreditAmount jest poza zakresem";
+            }
+
+            return string.Empty;    // brak błędu
+        }
+
+        public string Error => null;
+        #endregion
+
     }
 
     public class Coordinate : Base

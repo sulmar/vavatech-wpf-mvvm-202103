@@ -163,17 +163,17 @@
             <TextBlock FontWeight="Bold" FontSize="16" Text="{Binding FullName}" />
 
             <Label>First name</Label>
-            <TextBox Text="{Binding FirstName}" />
+            <TextBox Text="{Binding FirstName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" />
 
             <Label>Last name</Label>
-            <TextBox Text="{Binding LastName}" />
+             <TextBox Text="{Binding LastName,UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" />
 
             <Label>Customer type</Label>
             <ComboBox SelectedItem="{Binding CustomerType}"
                       ItemsSource="{Binding ElementName=Customers, Path=DataContext.CustomerTypes}" />
 
             <Label>Credit amount</Label>
-            <TextBox Text="{Binding CreditAmount}" />
+            <TextBox Text="{Binding CreditAmount, ValidatesOnDataErrors=True}" />
 
             <Label>Removed</Label>
             <CheckBox IsChecked="{Binding IsRemoved}" />

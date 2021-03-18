@@ -84,12 +84,14 @@ namespace Vavatech.Shop.ViewModels
         public void AddCustomer()
         {
             Customers.Add(SelectedCustomer);
+            customerService.Add(SelectedCustomer);
         }
 
 
         public void RemoveCustomer()
         {
             Customers.Remove(SelectedCustomer);
+            customerService.Remove(SelectedCustomer.Id);
         }
 
 
