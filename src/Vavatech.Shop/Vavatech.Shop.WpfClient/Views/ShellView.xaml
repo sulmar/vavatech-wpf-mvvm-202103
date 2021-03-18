@@ -24,12 +24,6 @@
                 Storyboard.TargetProperty="Width"
                 From="50" To="250" Duration="0:0:0.5" />
 
-            <!--<ColorAnimation 
-                Storyboard.TargetName="SideBar"
-                Storyboard.TargetProperty="Background.Color"
-                From="Transparent" To="Blue" 
-                Duration="0:0:0.3" />-->
-
         </Storyboard>
 
         <Storyboard x:Key="CloseMenu">
@@ -37,12 +31,6 @@
                 Storyboard.TargetName="SideBar"
                 Storyboard.TargetProperty="Width"
                 From="250" To="50" Duration="0:0:0.5" />
-
-            <!--<ColorAnimation 
-                Storyboard.TargetName="SideBar"
-                Storyboard.TargetProperty="Background.Color"
-                From="Blue" To="Transparent" 
-                Duration="0:0:0.3" />-->
             
         </Storyboard>
         
@@ -125,7 +113,7 @@
             </StatusBar>
             
             <!-- Side bar -->
-            <StackPanel
+            <StackPanel 
                 
                 x:Name="SideBar"
                 Width="250" Background="{StaticResource MyGradientBrush}" >
