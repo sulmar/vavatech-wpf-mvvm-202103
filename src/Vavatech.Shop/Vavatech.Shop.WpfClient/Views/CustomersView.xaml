@@ -5,6 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Vavatech.Shop.WpfClient.Views"
       xmlns:vm="clr-namespace:Vavatech.Shop.ViewModels;assembly=Vavatech.Shop.ViewModels" 
+      xmlns:m="clr-namespace:Vavatech.Shop.Models;assembly=Vavatech.Shop.Models"
       xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
       DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=CustomersViewModel}"
       x:Name="Customers"
@@ -12,7 +13,7 @@
       d:DesignHeight="450" d:DesignWidth="800"      
       Title="CustomersView">
 
-        <!--<Page.DataContext>
+    <!--<Page.DataContext>
             <vm:CustomersViewModel  />
         </Page.DataContext>-->
 
@@ -24,19 +25,19 @@
                 <scm:SortDescription PropertyName="LastName" />
 
             </CollectionViewSource.SortDescriptions>
-            
+
         </CollectionViewSource>
-      
+
     </Page.Resources>
 
     <DockPanel>
 
         <!-- Search Panel -->
-        
+
         <StackPanel DockPanel.Dock="Top">
-            
+
             <StackPanel.Resources>
-                
+
                 <Style TargetType="Label">
                     <Setter Property="Width" Value="100" />
                     <Setter Property="Margin" Value="5"  />
@@ -48,9 +49,9 @@
                 </Style>
 
             </StackPanel.Resources>
-            
+
             <StackPanel Orientation="Horizontal" >
-                            
+
                 <Label>First name</Label>
                 <TextBox Text="{Binding SearchCriteria.FirstName}" />
 
@@ -61,7 +62,7 @@
 
             <StackPanel Orientation="Horizontal" >
 
-                <Label>Credit from </Label>
+                <Label>Credit from</Label>
                 <TextBox Width="200" Text="{Binding SearchCriteria.CreditAmountFrom}" />
 
                 <Label>Credit to</Label>
@@ -73,33 +74,33 @@
 
         </StackPanel>
 
-        
 
-    
-    <Grid>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
 
-        <!-- Customers -->
-        
-        <!--<ListBox             
+        <Grid>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <!-- Customers -->
+
+            <!--<ListBox             
             ItemsSource="{Binding Path=Customers}"
             ItemTemplate="{StaticResource CustomerTemplate}"
             SelectedItem="{Binding Path=SelectedCustomer}" >
           
         </ListBox>-->
 
-        <StackPanel>
+            <StackPanel>
 
-            <Label>TotalCreditAmount</Label>
-            <TextBlock Text="{Binding TotalCreditAmount}" />
+                <Label>TotalCreditAmount</Label>
+                <TextBlock Text="{Binding TotalCreditAmount}" />
 
 
                 <ScrollViewer>
-                    
+
                     <ListView ItemsSource="{Binding Source={StaticResource CustomersViewSource}}"
                   SelectedItem="{Binding SelectedCustomer}"
                   Width="500"
@@ -124,17 +125,19 @@
 
                                     <GridViewColumn Header="Credit Amount" DisplayMemberBinding="{Binding CreditAmount}" />
 
+                                    <GridViewColumn Header="Country" DisplayMemberBinding="{Binding Country}" />
+
                                 </GridView.Columns>
                             </GridView>
                         </ListView.View>
                     </ListView>
-               
-                </ScrollViewer>
-           
 
-        </StackPanel>
-        
-        <!--<DataGrid 
+                </ScrollViewer>
+
+
+            </StackPanel>
+
+            <!--<DataGrid 
             ItemsSource="{Binding Customers}"
             SelectedItem="{Binding SelectedCustomer}"
             AutoGenerateColumns="False">
@@ -156,9 +159,9 @@
             
         </DataGrid>-->
 
-        <!-- Selected customer -->
-        
-        <StackPanel Grid.Column="1" DataContext="{Binding SelectedCustomer}">
+            <!-- Selected customer -->
+
+            <StackPanel Grid.Column="1" DataContext="{Binding SelectedCustomer}">
 
                 <StackPanel.Resources>
 
@@ -167,16 +170,16 @@
                             <Border BorderBrush="Red" BorderThickness="3">
 
                                 <AdornedElementPlaceholder />
-                                
+
                             </Border>
                         </DockPanel>
                     </ControlTemplate>
-                   
+
                     <Style TargetType="TextBox">
                         <Setter Property="Validation.ErrorTemplate" Value="{StaticResource ErrorTemplate}" />
                         <Style.Triggers>
                             <Trigger Property="Validation.HasError" Value="True" >
-                                
+
                                 <!--<Setter Property="ToolTip"  
                                         Value="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=(Validation.Errors)/ErrorContent}" />-->
 
@@ -185,35 +188,85 @@
                             </Trigger>
                         </Style.Triggers>
                     </Style>
-                  
+
 
                 </StackPanel.Resources>
 
-            <TextBlock FontWeight="Bold" FontSize="16" Text="{Binding FullName}" />
+                <TextBlock FontWeight="Bold" FontSize="16" Text="{Binding FullName}" />
 
-            <Label>First name</Label>
-            <TextBox
+                <Label>First name</Label>
+                <TextBox
                 Validation.ErrorTemplate="{StaticResource ErrorTemplate}"
                 Text="{Binding FirstName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" />
 
-            <Label>Last name</Label>
-             <TextBox Text="{Binding LastName,UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" />
+                <Label>Last name</Label>
+                <TextBox Text="{Binding LastName,UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" />
 
-            <Label>Customer type</Label>
-            <ComboBox SelectedItem="{Binding CustomerType}"
+                <Label>Customer type</Label>
+                <ComboBox SelectedItem="{Binding CustomerType}"
                       ItemsSource="{Binding ElementName=Customers, Path=DataContext.CustomerTypes}" />
 
-            <Label>Credit amount</Label>
-            <TextBox Text="{Binding CreditAmount, ValidatesOnDataErrors=True}" />
 
-            <Label>Removed</Label>
-            <CheckBox IsChecked="{Binding IsRemoved}" />
+                <Label>Country</Label>
+                <ComboBox 
+                      ItemsSource="{Binding ElementName=Customers, Path=DataContext.Countries}"
+                      SelectedItem="{Binding Country}"
+                    />
 
-            <Button Background="DarkBlue" Command="{Binding ElementName=Customers, Path=DataContext.AddCustomerCommand}">Add</Button>
-            <Button Background="DarkRed" Command="{Binding ElementName=Customers, Path=DataContext.RemoveCustomerCommand}">Remove</Button>
-        </StackPanel>
-        
-    </Grid>
+                <StackPanel x:Name="Poland">
+                    <Label>Pesel</Label>
+                    <TextBox x:Name="Pesel" Text="{Binding Pesel}" />
+
+                    <Label>Regon</Label>
+                    <TextBox Text="{Binding Regon}" />
+
+                    <StackPanel.Style>
+
+                        <Style TargetType="StackPanel">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Country}" Value="{x:Static m:Country.Poland}" >
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                        
+                    </StackPanel.Style>
+                </StackPanel>
+
+                <StackPanel x:Name="Germany">
+                    <Label>TaxId</Label>
+                    <TextBox Text="{Binding TaxId}" />
+
+                    <Label>Land</Label>
+                    <TextBox Text="{Binding Land}" />
+
+                    <StackPanel.Style>
+
+                        <Style TargetType="StackPanel">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Country}" Value="{x:Static m:Country.Germany}" >
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+
+                    </StackPanel.Style>
+                </StackPanel>
+
+
+                <Label>Credit amount</Label>
+                <TextBox Text="{Binding CreditAmount, ValidatesOnDataErrors=True}" />
+
+                <Label>Removed</Label>
+                <CheckBox IsChecked="{Binding IsRemoved}" />
+
+                <Button Background="DarkBlue" Command="{Binding ElementName=Customers, Path=DataContext.AddCustomerCommand}">Add</Button>
+                <Button Background="DarkRed" Command="{Binding ElementName=Customers, Path=DataContext.RemoveCustomerCommand}">Remove</Button>
+            </StackPanel>
+
+        </Grid>
 
     </DockPanel>
 

@@ -42,6 +42,8 @@ namespace Vavatech.Shop.ViewModels
         public ICommand SearchCommand { get; private set; }
 
         public IEnumerable<CustomerType> CustomerTypes { get; set; }
+        public IEnumerable<Country> Countries { get; set; }
+
 
         private readonly ICustomerService customerService;
         private readonly Faker<Customer> customerFaker;
@@ -75,7 +77,8 @@ namespace Vavatech.Shop.ViewModels
                 OnPropertyChanged(nameof(SelectedCustomers));
             };
 
-            CustomerTypes = Enum.GetValues(typeof(CustomerType)).Cast<CustomerType>();
+            CustomerTypes = EnumHelper.GetValues<CustomerType>();
+            Countries = EnumHelper.GetValues<Country>();
 
             SelectedCustomer = new Customer();
         }

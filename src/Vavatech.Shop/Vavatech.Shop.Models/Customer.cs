@@ -72,7 +72,7 @@ namespace Vavatech.Shop.Models
         public decimal? CreditAmount { get; set; }
 
         public Coordinate Location { get; set; }
-
+        
         public Country Country { get; set; }
 
         [Country("Poland")]

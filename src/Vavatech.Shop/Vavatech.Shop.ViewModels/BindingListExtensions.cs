@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
@@ -19,5 +20,12 @@ namespace Vavatech.Shop.ViewModels
         {
             return new ObservableCollection<T>(collection);
         }
+    }
+
+
+    public static class EnumHelper
+    {
+        public static IEnumerable<T> GetValues<T>()
+            where T : Enum => Enum.GetValues(typeof(T)).Cast<T>();
     }
 }
