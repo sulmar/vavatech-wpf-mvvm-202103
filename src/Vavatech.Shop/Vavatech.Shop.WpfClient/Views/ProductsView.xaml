@@ -44,9 +44,9 @@
                 </StackPanel>
                 
             </Label>
-            
-            
-            <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True}" />
+
+
+            <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
 
 
             <Label>Color</Label>
@@ -55,7 +55,7 @@
                       />
 
             <Label>Unit Price</Label>
-            <TextBox Text="{Binding UnitPrice, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True}" />
+            <TextBox Text="{Binding UnitPrice, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
 
             <Label>Discount</Label>
 
