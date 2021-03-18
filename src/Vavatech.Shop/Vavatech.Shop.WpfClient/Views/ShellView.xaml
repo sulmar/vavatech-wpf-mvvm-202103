@@ -103,7 +103,7 @@
                         Content="WPF App" />
                 </Border>
 
-                <Button>Home</Button>
+                <Button Command="{Binding ShowViewCommand}" CommandParameter="Home" >Home</Button>
                 <Button Command="{Binding ShowViewCommand}" CommandParameter="Counter" >Counter</Button>
                 
                 <Button Command="{Binding ShowViewCommand}" CommandParameter="Customers">

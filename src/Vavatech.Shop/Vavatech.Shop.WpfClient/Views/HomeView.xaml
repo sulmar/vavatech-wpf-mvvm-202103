@@ -9,19 +9,48 @@
       Title="HomeView">
 
     <Page.Resources>
+       
+      
         <Style TargetType="Button">
-            <Setter Property="Background" Value="White" />
+            <Setter Property="Background" Value="DarkGreen" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Width" Value="200" />
+            <Setter Property="Height" Value="50" />
+            <Setter Property="Margin" Value="10" />
+            <Setter Property="BorderThickness" Value="5" />
+            <Setter Property="Template" Value="{StaticResource RounderButtonTemplate}" />
         </Style>
+
+
+
     </Page.Resources>
 
-    <DockPanel Background="Black">
-        
-       
-        <Label HorizontalAlignment="Center" VerticalAlignment="Center" 
-           
-               Foreground="White"
-               FontSize="40">Hello WPF!</Label>
+    <StackPanel Background="White">
 
-        
-    </DockPanel>
+        <Button Template="{StaticResource RounderButtonTemplate}" >Calculate</Button>
+
+        <Button Background="DarkRed" Template="{StaticResource RounderButtonTemplate}" Content="Hello" />
+
+        <Button BorderThickness="1"
+                Template="{StaticResource RounderButtonTemplate}" >
+
+            <DockPanel>
+                <Image Source="{StaticResource MapImage}" />
+                <TextBlock VerticalAlignment="Center">Map</TextBlock>
+            </DockPanel>
+            
+
+        </Button>
+
+        <Button BorderThickness="1"
+                Template="{StaticResource RounderButtonTemplate}" >
+
+            <DockPanel>
+                <Image Source="{StaticResource ProductsImage}" />
+                <TextBlock VerticalAlignment="Center">Products</TextBlock>
+            </DockPanel>
+
+
+        </Button>
+    </StackPanel>
 </Page>
