@@ -98,33 +98,39 @@
             <TextBlock Text="{Binding TotalCreditAmount}" />
 
 
-            <ListView ItemsSource="{Binding Source={StaticResource CustomersViewSource}}"
+                <ScrollViewer>
+                    
+                    <ListView ItemsSource="{Binding Source={StaticResource CustomersViewSource}}"
                   SelectedItem="{Binding SelectedCustomer}"
                   Width="500"
+                      Height="600"
                   x:Name="CustomersListView"
                   >
 
-            <ListView.View>
-                <GridView>
-                    <GridView.Columns>
-                        <GridViewColumn Width="100" Header="First name" DisplayMemberBinding="{Binding FirstName}" />
-                        <GridViewColumn x:Name="LastNameHeader" Header="Last name" DisplayMemberBinding="{Binding LastName}" >
-                            <!--<GridViewColumn.Width>
+                        <ListView.View>
+                            <GridView>
+                                <GridView.Columns>
+                                    <GridViewColumn Width="100" Header="First name" DisplayMemberBinding="{Binding FirstName}" />
+                                    <GridViewColumn x:Name="LastNameHeader" Header="Last name" DisplayMemberBinding="{Binding LastName}" >
+                                        <!--<GridViewColumn.Width>
                                 <MultiBinding Converter="">
                                     <Binding ElementName="CustomersListView" Path="ActualWidth" />
                                     <Binding ElementName="LastNameHeader" Path="Header" />
                                 </MultiBinding>
                             </GridViewColumn.Width>-->
-                        </GridViewColumn>
+                                    </GridViewColumn>
 
-                        <GridViewColumn Header="Customer Type" DisplayMemberBinding="{Binding CustomerType}" />
+                                    <GridViewColumn Header="Customer Type" DisplayMemberBinding="{Binding CustomerType}" />
 
-                        <GridViewColumn Header="Credit Amount" DisplayMemberBinding="{Binding CreditAmount}" />
+                                    <GridViewColumn Header="Credit Amount" DisplayMemberBinding="{Binding CreditAmount}" />
 
-                    </GridView.Columns>
-                </GridView>
-            </ListView.View>
-        </ListView>
+                                </GridView.Columns>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+               
+                </ScrollViewer>
+           
 
         </StackPanel>
         

@@ -69,23 +69,27 @@ namespace Vavatech.Shop.ViewModels
 
             Customers = customerService.Get().ToBindingList();
 
-            Customers.ListChanged += (s, e) => OnPropertyChanged(nameof(TotalCreditAmount));
+            Customers.ListChanged += (s, e) =>
+            {
+                OnPropertyChanged(nameof(TotalCreditAmount));
+                OnPropertyChanged(nameof(SelectedCustomers));
+            };
 
             CustomerTypes = Enum.GetValues(typeof(CustomerType)).Cast<CustomerType>();
+
+            SelectedCustomer = new Customer();
         }
 
 
         public void AddCustomer()
         {
-            SelectedCustomer = customerFaker.Generate();
-
             Customers.Add(SelectedCustomer);
         }
 
 
         public void RemoveCustomer()
         {
-            Customers[5].CreditAmount += 1000;
+            Customers.Remove(SelectedCustomer);
         }
 
 
