@@ -92,6 +92,8 @@
             
             <!-- Side bar -->
             <StackPanel Width="250" Background="{StaticResource MyGradientBrush}" >
+                
+                
 
                 <Border Background="{StaticResource MyBlueBrush}" Height="48">
                                         

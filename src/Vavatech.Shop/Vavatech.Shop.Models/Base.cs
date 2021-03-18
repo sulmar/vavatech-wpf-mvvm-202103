@@ -11,17 +11,26 @@ using System.Runtime.CompilerServices;
 namespace Vavatech.Shop.Models
 {
 
-    //public static class ValidatorExtensions
-    //{
-    //    public static ValidationResult<T>(this IValidator<T> validator, object instance, string propertyName)
-    //    {
-    //        IEnumerable<string> properties = new List<string> { propertyName };
+    public static class ValidatorExtensions
+    {
+        //public static ValidationResult Validate<T>(this IValidator<T> validator, T instance, string propertyName)
+        //{
+        //    IEnumerable<string> properties = new List<string> { propertyName };
 
-    //        var context = new ValidationContext(instance, new PropertyChain(), new MemberNameValidatorSelector(properties));
+        //    var context = new ValidationContext<T>(instance, new PropertyChain(), new MemberNameValidatorSelector(properties));
 
+        //    return validator.Validate(context);
+        //}
 
-    //    }
-    //}
+        public static ValidationResult MyValidate(this IValidator validator, object instance, string propertyName)
+        {
+            IEnumerable<string> properties = new List<string> { propertyName };
+
+            var context = new ValidationContext<object>(instance, new PropertyChain(), new MemberNameValidatorSelector(properties));
+
+            return validator.Validate(context);
+        }
+    }
 
     public abstract class Base : INotifyPropertyChanged
     {
@@ -36,17 +45,17 @@ namespace Vavatech.Shop.Models
 
         #endregion
 
-      //  #region INotifyDataErrorInfo
+        //#region INotifyDataErrorInfo
 
         //IValidator validator;
 
-        //public bool HasErrors => validator.Validate()
+        //public bool HasErrors => validator?.Validate(this).IsValid ?? true;
 
         //public event EventHandler<DataErrorsChangedEventArgs> ErrorsChanged;
 
         //public IEnumerable GetErrors(string propertyName)
         //{
-        //    var result = validator.Validate()
+        //    var result = validator.MyValidate(this, propertyName);
 
         //    return result.Errors;
         //}
@@ -55,6 +64,4 @@ namespace Vavatech.Shop.Models
 
 
     }
-
-
 }
