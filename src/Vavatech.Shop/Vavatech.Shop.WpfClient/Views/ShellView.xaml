@@ -13,6 +13,40 @@
     <i:Interaction.Behaviors>
         <b:CloseWindowBehavior />
     </i:Interaction.Behaviors>
+
+
+    <Window.Resources>
+
+        <Storyboard x:Key="OpenMenu">
+
+            <DoubleAnimation 
+                Storyboard.TargetName="SideBar"
+                Storyboard.TargetProperty="Width"
+                From="50" To="250" Duration="0:0:0.5" />
+
+            <!--<ColorAnimation 
+                Storyboard.TargetName="SideBar"
+                Storyboard.TargetProperty="Background.Color"
+                From="Transparent" To="Blue" 
+                Duration="0:0:0.3" />-->
+
+        </Storyboard>
+
+        <Storyboard x:Key="CloseMenu">
+            <DoubleAnimation 
+                Storyboard.TargetName="SideBar"
+                Storyboard.TargetProperty="Width"
+                From="250" To="50" Duration="0:0:0.5" />
+
+            <!--<ColorAnimation 
+                Storyboard.TargetName="SideBar"
+                Storyboard.TargetProperty="Background.Color"
+                From="Blue" To="Transparent" 
+                Duration="0:0:0.3" />-->
+            
+        </Storyboard>
+        
+    </Window.Resources>
     
     <!--<i:Interaction.Triggers>
         <i:EventTrigger EventName="Closing">
@@ -91,18 +125,48 @@
             </StatusBar>
             
             <!-- Side bar -->
-            <StackPanel Width="250" Background="{StaticResource MyGradientBrush}" >
+            <StackPanel
                 
-                
+                x:Name="SideBar"
+                Width="250" Background="{StaticResource MyGradientBrush}" >
+
 
                 <Border Background="{StaticResource MyBlueBrush}" Height="48">
-                                        
-                    <Label 
+
+                    <DockPanel>
+
+                        <ToggleButton IsChecked="True">
+                            
+                            <Image Width="30" Source="{StaticResource CustomersImage}" />
+
+                            <ToggleButton.Triggers>
+
+                                <EventTrigger RoutedEvent="ToggleButton.Checked">
+                                    <EventTrigger.Actions>
+                                        <BeginStoryboard Storyboard="{StaticResource OpenMenu}" />
+                                    </EventTrigger.Actions>
+                                </EventTrigger>
+
+                                <EventTrigger RoutedEvent="ToggleButton.Unchecked">
+                                    <EventTrigger.Actions>
+                                        <BeginStoryboard Storyboard="{StaticResource CloseMenu}" />
+                                    </EventTrigger.Actions>
+                                </EventTrigger>
+                                
+                            </ToggleButton.Triggers>
+                            
+                        </ToggleButton>
+                        
+                        <Label 
                         Foreground="White" 
                         HorizontalAlignment="Left" 
                         VerticalAlignment="Center" 
                         FontSize="18"
                         Content="WPF App" />
+
+                        
+                    </DockPanel>
+                    
                 </Border>
 
                 <Button Command="{Binding ShowViewCommand}" CommandParameter="Home" >Home</Button>
