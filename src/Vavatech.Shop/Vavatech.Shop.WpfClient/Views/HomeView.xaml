@@ -31,14 +31,33 @@
 
         <Button Background="DarkRed" Template="{StaticResource RounderButtonTemplate}" Content="Hello" />
 
+
+        <Slider x:Name="RotateAngle"
+                Minimum="0"
+                Maximum="360"
+                Width="360"
+                />
+
         <Button BorderThickness="1"
+                RenderTransformOrigin="0.5, 0.5"
                 Template="{StaticResource RounderButtonTemplate}" >
 
             <DockPanel>
                 <Image Source="{StaticResource MapImage}" />
                 <TextBlock VerticalAlignment="Center">Map</TextBlock>
             </DockPanel>
-            
+
+            <Button.RenderTransform >
+
+                <TransformGroup>
+                    <RotateTransform Angle="{Binding ElementName=RotateAngle, Path=Value}" />
+                    <!--<TranslateTransform                     
+                        X="{Binding ElementName=RotateAngle, Path=Value}"
+                        Y="{Binding ElementName=RotateAngle, Path=Value}"
+                        />-->
+                </TransformGroup>
+
+            </Button.RenderTransform>
 
         </Button>
 
@@ -50,6 +69,17 @@
                 <TextBlock VerticalAlignment="Center">Products</TextBlock>
             </DockPanel>
 
+            <Button.RenderTransform >
+
+                <TransformGroup>
+                    <RotateTransform Angle="{Binding ElementName=RotateAngle, Path=Value}" />
+                    <!--<TranslateTransform                     
+                        X="{Binding ElementName=RotateAngle, Path=Value}"
+                        Y="{Binding ElementName=RotateAngle, Path=Value}"
+                        />-->
+                </TransformGroup>
+
+            </Button.RenderTransform>
 
         </Button>
     </StackPanel>
