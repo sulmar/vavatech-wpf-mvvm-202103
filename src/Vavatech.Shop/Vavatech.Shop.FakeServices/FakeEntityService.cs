@@ -10,7 +10,7 @@ namespace Vavatech.Shop.FakeServices
     public class FakeEntityService<TEntity> : IEntityService<TEntity>
         where TEntity : BaseEntity
     {
-        private readonly ICollection<TEntity> entities;
+        protected readonly ICollection<TEntity> entities;
 
         public FakeEntityService(Faker<TEntity> faker)
         {

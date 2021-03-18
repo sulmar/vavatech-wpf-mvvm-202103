@@ -28,6 +28,53 @@
         </CollectionViewSource>
       
     </Page.Resources>
+
+    <DockPanel>
+
+        <!-- Search Panel -->
+        
+        <StackPanel DockPanel.Dock="Top">
+            
+            <StackPanel.Resources>
+                
+                <Style TargetType="Label">
+                    <Setter Property="Width" Value="100" />
+                    <Setter Property="Margin" Value="5"  />
+                </Style>
+
+                <Style TargetType="TextBox">
+                    <Setter Property="Width" Value="200" />
+                    <Setter Property="Margin" Value="5"  />
+                </Style>
+
+            </StackPanel.Resources>
+            
+            <StackPanel Orientation="Horizontal" >
+                            
+                <Label>First name</Label>
+                <TextBox Text="{Binding SearchCriteria.FirstName}" />
+
+                <Label>Last name</Label>
+                <TextBox Text="{Binding SearchCriteria.LastName}" />
+
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" >
+
+                <Label>Credit from </Label>
+                <TextBox Width="200" Text="{Binding SearchCriteria.CreditAmountFrom}" />
+
+                <Label>Credit to</Label>
+                <TextBox Width="200" Text="{Binding SearchCriteria.CreditAmountTo}" />
+
+            </StackPanel>
+
+            <Button Command="{Binding SearchCommand}" Background="DarkBlue">Search</Button>
+
+        </StackPanel>
+
+        
+
     
     <Grid>
 
@@ -130,4 +177,7 @@
         </StackPanel>
         
     </Grid>
+
+    </DockPanel>
+
 </Page>

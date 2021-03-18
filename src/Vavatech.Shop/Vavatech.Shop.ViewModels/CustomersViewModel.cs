@@ -7,6 +7,7 @@ using System.Linq;
 using System.Windows.Input;
 using Vavatech.Shop.IServices;
 using Vavatech.Shop.Models;
+using Vavatech.Shop.Models.SearchCriterias;
 using Vavatech.Shop.ViewModels.Common;
 
 namespace Vavatech.Shop.ViewModels
@@ -17,6 +18,8 @@ namespace Vavatech.Shop.ViewModels
         public BindingList<Customer> Customers { get; set; }
 
         public IEnumerable<Customer> SelectedCustomers => Customers.ToList();
+
+        public CustomerSearchCriteria SearchCriteria { get; set; }
 
         public decimal TotalCreditAmount => Customers
             .Where(c=>c.CreditAmount.HasValue)
@@ -36,6 +39,7 @@ namespace Vavatech.Shop.ViewModels
 
         public ICommand AddCustomerCommand { get; private set; }
         public ICommand RemoveCustomerCommand { get; private set; }
+        public ICommand SearchCommand { get; private set; }
 
         public IEnumerable<CustomerType> CustomerTypes { get; set; }
 
@@ -47,9 +51,12 @@ namespace Vavatech.Shop.ViewModels
         {
             AddCustomerCommand = new DelegateCommand(AddCustomer);
             RemoveCustomerCommand = new DelegateCommand(RemoveCustomer);
+            SearchCommand = new DelegateCommand(Search);
 
             this.customerService = customerService;
             this.customerFaker = customerFaker;
+
+            SearchCriteria = CustomerSearchCriteria.Default;
 
             Load();
         }
@@ -79,6 +86,13 @@ namespace Vavatech.Shop.ViewModels
         public void RemoveCustomer()
         {
             Customers[5].CreditAmount += 1000;
+        }
+
+
+        public void Search()
+        {
+            Customers = customerService.Get(SearchCriteria).ToBindingList();
+            OnPropertyChanged(nameof(SelectedCustomers));
         }
     }
 }
