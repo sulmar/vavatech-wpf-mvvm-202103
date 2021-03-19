@@ -311,6 +311,18 @@
     <Resource Include="Assets\Shopping Cart-WF.png" />
     <Resource Include="Assets\Users-WF.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Setting_2-WF.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Menu-01-WF.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\House-08.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Add-New.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Fody.6.4.0\build\Fody.targets" Condition="Exists('..\packages\Fody.6.4.0\build\Fody.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

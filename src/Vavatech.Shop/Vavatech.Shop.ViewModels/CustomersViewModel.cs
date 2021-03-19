@@ -90,6 +90,7 @@ namespace Vavatech.Shop.ViewModels
 
             Customers = customers.ToBindingList();
             OnPropertyChanged(nameof(SelectedCustomers));
+            OnPropertyChanged(nameof(Customers));
 
             Customers.ListChanged += (s, e) =>
             {

@@ -2,9 +2,17 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
 
+    <BitmapImage x:Key="HomeImage" UriSource="/Assets/House-08.png" />
+
+    <BitmapImage x:Key="CounterImage" UriSource="/Assets/Add-New.png" />
     <BitmapImage x:Key="CustomersImage" UriSource="/Assets/Users-WF.png" />
     <BitmapImage x:Key="ProductsImage" UriSource="/Assets/Product Box-02-WF.png" />
     <BitmapImage x:Key="MapImage" UriSource="/Assets/Navigation-02.png" />
+    <BitmapImage x:Key="MenuImage" UriSource="/Assets/Menu-01-WF.png" />
+    <BitmapImage x:Key="SettingImage" UriSource="/Assets/Setting_2-WF.png" />
+
+    
+    
 
     <BitmapImage x:Key="SettingsImage" UriSource="https://picsum.photos/640/480/?image=481" />
 

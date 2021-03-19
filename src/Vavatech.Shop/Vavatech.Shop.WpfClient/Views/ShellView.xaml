@@ -8,7 +8,7 @@
         DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=ShellViewModel}"
         xmlns:i="http://schemas.microsoft.com/xaml/behaviors" xmlns:b="clr-namespace:Vavatech.Shop.WpfClient.Behaviors"
         mc:Ignorable="d"
-        Title="ShellView" Height="450" Width="800">
+        Title="ShellView" Height="650" Width="800">
 
     <i:Interaction.Behaviors>
         <b:CloseWindowBehavior />
@@ -123,9 +123,9 @@
 
                     <DockPanel>
 
-                        <ToggleButton IsChecked="True">
+                        <ToggleButton IsChecked="True" >
                             
-                            <Image Width="30" Source="{StaticResource CustomersImage}" />
+                            <Image Width="30" Source="{StaticResource MenuImage}" />
 
                             <ToggleButton.Triggers>
 
@@ -157,8 +157,18 @@
                     
                 </Border>
 
-                <Button Command="{Binding ShowViewCommand}" CommandParameter="Home" >Home</Button>
-                <Button Command="{Binding ShowViewCommand}" CommandParameter="Counter" >Counter</Button>
+                <Button Command="{Binding ShowViewCommand}" CommandParameter="Home" >
+                    <DockPanel>
+                        <Image Source="{StaticResource HomeImage}" />
+                        <TextBlock VerticalAlignment="Center">Home</TextBlock>
+                    </DockPanel>
+                    </Button>
+                <Button Command="{Binding ShowViewCommand}" CommandParameter="Counter" >
+                    <DockPanel>
+                        <Image Source="{StaticResource CounterImage}" />
+                        <TextBlock VerticalAlignment="Center">Counter</TextBlock>
+                    </DockPanel>
+                </Button>
                 
                 <Button Command="{Binding ShowViewCommand}" CommandParameter="Customers">
                     <DockPanel>
@@ -188,8 +198,13 @@
                     </DockPanel>
                 </Button>
 
-                <Button>Orders</Button>
-                <Button Command="{Binding ShowViewCommand}" CommandParameter="Settings"  Style="{StaticResource SettingsButtonStyle}">Settings</Button>
+                <Button Command="{Binding ShowViewCommand}" CommandParameter="Settings"  >
+                    <DockPanel>
+                        <Image DockPanel.Dock="Left" Source="{StaticResource SettingImage}" />
+                        <TextBlock VerticalAlignment="Center">Settings</TextBlock>
+                    </DockPanel>
+
+                    </Button>
                 
 
             </StackPanel>
