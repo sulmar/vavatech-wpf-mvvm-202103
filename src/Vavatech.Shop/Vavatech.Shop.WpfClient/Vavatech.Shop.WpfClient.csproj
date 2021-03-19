@@ -101,6 +101,8 @@
     <Compile Include="Converters\InvertConverter.cs" />
     <Compile Include="Converters\LocationConverter.cs" />
     <Compile Include="Converters\RGBToColorConverter.cs" />
+    <Compile Include="CustomControls\CustomControl1.cs" />
+    <Compile Include="CustomControls\MyControl.cs" />
     <Compile Include="FrameNavigationService.cs" />
     <Compile Include="Modules\CustomerModule.cs" />
     <Compile Include="Modules\ProductModule.cs" />
@@ -202,6 +204,10 @@
     <Page Include="Resources\Styles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\CounterView.xaml">
       <SubType>Designer</SubType>
