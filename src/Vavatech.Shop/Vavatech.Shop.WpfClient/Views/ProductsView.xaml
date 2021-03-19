@@ -64,6 +64,9 @@
                 <TextBox Text="{Binding Discount}" 
                          IsReadOnly="{Binding ElementName=IsDiscountCheckBox, Path=IsChecked, Converter={StaticResource NegativeConverter }}" />
             </DockPanel>
+
+
+            <Button Background="DarkBlue" Command="{Binding ElementName=Products, Path=DataContext.RecalculateCommand}" Content="Reculate"></Button>
             
         </StackPanel>
 
