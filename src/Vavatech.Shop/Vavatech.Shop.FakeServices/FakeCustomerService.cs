@@ -1,6 +1,7 @@
 ﻿using Bogus;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -55,10 +56,33 @@ namespace Vavatech.Shop.FakeServices
 
         }
 
+        public Task<IEnumerable<Customer>> GetAsync()
+        {
+            return Task.Run(() => Get());
+        }
+
+        public Task<IEnumerable<Customer>> GetAsync(CustomerSearchCriteria searchCriteria)
+        {
+            return Task.FromResult(Get(searchCriteria));
+        }
+
         public override void Remove(int id)
         {
             Customer customer = Get(id);
             customer.IsRemoved = true;
+        }
+
+        public async Task RemoveAsync(int id)
+        {
+            Remove(id);
+
+            Trace.WriteLine($"Remove {id}");
+
+            await Task.Delay(TimeSpan.FromSeconds(3));
+
+
+
+            // return Task.CompletedTask;
         }
     }
 }

@@ -6,12 +6,19 @@
       xmlns:local="clr-namespace:Vavatech.Shop.WpfClient.Views"
       xmlns:vm="clr-namespace:Vavatech.Shop.ViewModels;assembly=Vavatech.Shop.ViewModels" 
       xmlns:m="clr-namespace:Vavatech.Shop.Models;assembly=Vavatech.Shop.Models"
+      xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
       xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
       DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=CustomersViewModel}"
       x:Name="Customers"
-      mc:Ignorable="d" 
+      mc:Ignorable="d"       
       d:DesignHeight="450" d:DesignWidth="800"      
       Title="CustomersView">
+
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadCommand}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
 
     <!--<Page.DataContext>
             <vm:CustomersViewModel  />
