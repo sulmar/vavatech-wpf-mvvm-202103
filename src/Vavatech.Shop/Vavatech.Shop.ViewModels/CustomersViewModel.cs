@@ -51,6 +51,7 @@ namespace Vavatech.Shop.ViewModels
         public ICommand RemoveCustomerCommand { get; private set; }
         public ICommand SearchCommand { get; private set; }
         public ICommand LoadCommand { get; private set; }
+        public ICommand ShowCustomerCommand { get; set; }
 
         public IEnumerable<CustomerType> CustomerTypes { get; set; }
         public IEnumerable<Country> Countries { get; set; }
@@ -58,20 +59,23 @@ namespace Vavatech.Shop.ViewModels
 
         private readonly ICustomerService customerService;
         private readonly Faker<Customer> customerFaker;
+        private readonly IMessageBoxService messageBoxService;
         private Customer selectedCustomer;
         private bool isLoading;
 
-        public CustomersViewModel(ICustomerService customerService, Faker<Customer> customerFaker)
+        public CustomersViewModel(ICustomerService customerService, Faker<Customer> customerFaker, IMessageBoxService messageBoxService)
         {
             AddCustomerCommand = new DelegateCommand(AddCustomer);
             RemoveCustomerCommand = new DelegateCommand(async () => await RemoveCustomerAsync());
             SearchCommand = new DelegateCommand(Search);
+            ShowCustomerCommand = new DelegateCommand(ShowCustomer);
+
 
             LoadCommand = new DelegateCommand(async () => await LoadAsync());
 
             this.customerService = customerService;
             this.customerFaker = customerFaker;
-
+            this.messageBoxService = messageBoxService;
             SearchCriteria = CustomerSearchCriteria.Default;
             Customers = new BindingList<Customer>();
         }
@@ -129,6 +133,11 @@ namespace Vavatech.Shop.ViewModels
         {
             Customers.Add(SelectedCustomer);
             customerService.Add(SelectedCustomer);
+        }
+
+        public void ShowCustomer()
+        {
+            messageBoxService.ShowDialog("CustomerView", SelectedCustomer);
         }
 
 

@@ -40,7 +40,7 @@ namespace Vavatech.Shop.WpfClient
             // Automatyczna rejestracja klas z modułów
             containerBuilder.RegisterAssemblyModules(typeof(CustomerModule).Assembly);
 
-            containerBuilder.RegisterType<WpfMessageBoxService>().As<IMessageBoxService>();
+            containerBuilder.RegisterType<WpfMessageBoxService>().As<IMessageBoxService>().SingleInstance();
             containerBuilder.RegisterType<WpfApplicationService>().As<IApplicationService>();
 
             containerBuilder.RegisterType<FrameNavigationService>().As<INavigationService>().SingleInstance();
@@ -57,5 +57,7 @@ namespace Vavatech.Shop.WpfClient
 
         public CustomerProductsViewModel CustomerProductsViewModel => container.Resolve<CustomerProductsViewModel>();
         public ProductsViewModel ProductsViewModel => container.Resolve<ProductsViewModel>();
+
+        public CustomerDetailsViewModel CustomerDetailsViewModel => container.Resolve<CustomerDetailsViewModel>();
     }
 }

@@ -1,0 +1,23 @@
+﻿<Window x:Class="Vavatech.Shop.WpfClient.Views.MyWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Vavatech.Shop.WpfClient.Views"
+        mc:Ignorable="d"
+        DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=CustomerDetailsViewModel}"
+        Title="MyWindow" Height="450" Width="800">
+    <Grid>
+
+        <StackPanel>
+            <TextBlock FontWeight="Bold" FontSize="16" Text="{Binding Customer.FullName}" />
+
+            <Label>First name</Label>
+            <TextBox
+                Text="{Binding Customer.FirstName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" />
+
+            <Label>Last name</Label>
+            <TextBox Text="{Binding Customer.LastName,UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" />
+        </StackPanel>
+    </Grid>
+</Window>

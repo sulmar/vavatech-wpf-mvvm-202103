@@ -295,6 +295,10 @@
 
                 <Button Background="DarkBlue" Command="{Binding ElementName=Customers, Path=DataContext.AddCustomerCommand}">Add</Button>
                 <Button Background="DarkRed" Command="{Binding ElementName=Customers, Path=DataContext.RemoveCustomerCommand}">Remove</Button>
+                <Button Background="DarkGreen" Command="{Binding ElementName=Customers, Path=DataContext.ShowCustomerCommand}">Show</Button>
+
+                
+                
             </StackPanel>
 
         </Grid>
