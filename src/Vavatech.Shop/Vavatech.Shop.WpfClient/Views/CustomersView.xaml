@@ -100,6 +100,8 @@
           
         </ListBox>-->
 
+            <Grid>
+
             <StackPanel>
 
                 <Label>TotalCreditAmount</Label>
@@ -143,6 +145,28 @@
 
 
             </StackPanel>
+
+
+                <ProgressBar Width="100"
+                             Height="20"
+                             IsIndeterminate="True">
+
+                    <ProgressBar.Style>
+                        <Style TargetType="ProgressBar">
+                            <Setter Property="Visibility" Value="Hidden" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsLoading}" Value="True">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ProgressBar.Style>
+
+                </ProgressBar>
+
+                <!--<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding IsLoading}" />-->
+
+            </Grid>
 
             <!--<DataGrid 
             ItemsSource="{Binding Customers}"

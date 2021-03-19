@@ -36,6 +36,15 @@ namespace Vavatech.Shop.ViewModels
         }
 
 
+        public bool IsLoading
+        {
+            get => isLoading; set
+            {
+                isLoading = value;
+                OnPropertyChanged();
+            }
+        }
+
         public Coordinate CenterLocation { get; private set; }
 
         public ICommand AddCustomerCommand { get; private set; }
@@ -50,6 +59,7 @@ namespace Vavatech.Shop.ViewModels
         private readonly ICustomerService customerService;
         private readonly Faker<Customer> customerFaker;
         private Customer selectedCustomer;
+        private bool isLoading;
 
         public CustomersViewModel(ICustomerService customerService, Faker<Customer> customerFaker)
         {
@@ -68,8 +78,11 @@ namespace Vavatech.Shop.ViewModels
 
         private async Task LoadAsync()
         {
+            IsLoading = true;
 
             var customers = await customerService.GetAsync();
+
+            IsLoading = false;
 
             Customers = customers.ToBindingList();
             OnPropertyChanged(nameof(SelectedCustomers));
@@ -77,7 +90,7 @@ namespace Vavatech.Shop.ViewModels
             Customers.ListChanged += (s, e) =>
             {
                 OnPropertyChanged(nameof(TotalCreditAmount));
-                OnPropertyChanged(nameof(SelectedCustomers));                
+                OnPropertyChanged(nameof(SelectedCustomers));
             };
 
 
