@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vavatech.Shop.Fakers", "Vav
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vavatech.Shop.ViewModels", "Vavatech.Shop.ViewModels\Vavatech.Shop.ViewModels.csproj", "{895237C8-919B-4F42-A8C0-801F34EBE371}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vavatech.Shop.Models.Validators", "Vavatech.Shop.Models.Validators\Vavatech.Shop.Models.Validators.csproj", "{745EE7C0-A08E-4518-A60B-8A8AB7C323E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vavatech.Shop.Models.Validators", "Vavatech.Shop.Models.Validators\Vavatech.Shop.Models.Validators.csproj", "{745EE7C0-A08E-4518-A60B-8A8AB7C323E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vavatech.Shop.ConsoleClient", "Vavatech.Shop.ConsoleClient\Vavatech.Shop.ConsoleClient.csproj", "{35290A34-558F-47B1-ACC7-04E1B273581C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{745EE7C0-A08E-4518-A60B-8A8AB7C323E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{745EE7C0-A08E-4518-A60B-8A8AB7C323E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{745EE7C0-A08E-4518-A60B-8A8AB7C323E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35290A34-558F-47B1-ACC7-04E1B273581C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35290A34-558F-47B1-ACC7-04E1B273581C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35290A34-558F-47B1-ACC7-04E1B273581C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35290A34-558F-47B1-ACC7-04E1B273581C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

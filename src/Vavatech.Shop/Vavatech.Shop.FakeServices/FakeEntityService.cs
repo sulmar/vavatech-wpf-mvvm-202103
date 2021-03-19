@@ -22,7 +22,7 @@ namespace Vavatech.Shop.FakeServices
             entities.Add(entity);
         }
 
-        public IEnumerable<TEntity> Get()
+        public virtual IEnumerable<TEntity> Get()
         {
             return entities;
         }

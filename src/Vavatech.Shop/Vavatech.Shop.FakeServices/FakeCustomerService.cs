@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using Vavatech.Shop.IServices;
 using Vavatech.Shop.Models;
 using Vavatech.Shop.Models.SearchCriterias;
@@ -13,6 +15,15 @@ namespace Vavatech.Shop.FakeServices
     {
         public FakeCustomerService(Faker<Customer> faker) : base(faker)
         {
+        }
+
+        public override IEnumerable<Customer> Get()
+        {
+            // Task task = Task.Run(action)  - Task task = Task.Factory.StartNew(action)
+
+            Thread.Sleep(TimeSpan.FromSeconds(5));
+
+            return base.Get();
         }
 
         public IEnumerable<Customer> Get(CustomerSearchCriteria searchCriteria)
