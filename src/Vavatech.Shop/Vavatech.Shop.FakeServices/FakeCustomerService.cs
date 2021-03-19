@@ -22,7 +22,7 @@ namespace Vavatech.Shop.FakeServices
         {
             // Task task = Task.Run(action)  - Task task = Task.Factory.StartNew(action)
 
-            Thread.Sleep(TimeSpan.FromSeconds(5));
+            Thread.Sleep(TimeSpan.FromSeconds(2));
 
             return base.Get();
         }

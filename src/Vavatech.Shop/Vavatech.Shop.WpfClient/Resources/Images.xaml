@@ -11,8 +11,11 @@
     <BitmapImage x:Key="MenuImage" UriSource="/Assets/Menu-01-WF.png" />
     <BitmapImage x:Key="SettingImage" UriSource="/Assets/Setting_2-WF.png" />
 
-    
-    
+
+    <BitmapImage x:Key="HappyImage" UriSource="/Assets/AHappy-01.png" />
+    <BitmapImage x:Key="SmilyImage" UriSource="/Assets/Happy - 04.pngg" />
+    <BitmapImage x:Key="AnnoyedImage" UriSource="/Assets/Annoyed.png" />
+  
 
     <BitmapImage x:Key="SettingsImage" UriSource="https://picsum.photos/640/480/?image=481" />
 

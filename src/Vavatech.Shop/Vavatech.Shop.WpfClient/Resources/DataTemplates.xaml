@@ -10,14 +10,17 @@
 
     <DataTemplate x:Key="CustomerTemplate" DataType="{x:Type m:Customer}">
 
-        <Border BorderBrush="LightGray" BorderThickness="1">
+        <Border BorderBrush="LightGray" BorderThickness="1"  Background="DarkGray">
             <StackPanel Orientation="Horizontal" Width="300">
 
                 <Image Margin="5" Width="150" Source="{Binding Avatar}" />
 
+               
+
                 <StackPanel>
+
                     
-                
+                    
                     <TextBlock  FontSize="20" Style="{StaticResource TextBlockStyle}">
                         <TextBlock.Text>
                             <MultiBinding StringFormat="{} {0} {1}">
@@ -27,7 +30,25 @@
                         </TextBlock.Text>
                     </TextBlock>
 
-                    <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding CustomerType}" />
+                    <Image Width="50" Height="50" >
+                        <Image.Style>
+                            <Style TargetType="Image">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding CustomerType}" Value="{x:Static m:CustomerType.Smily}">
+                                        <Setter Property="Source" Value="{StaticResource SmilyImage}" />
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding CustomerType}" Value="{x:Static m:CustomerType.Happy}">
+                                        <Setter Property="Source" Value="{StaticResource HappyImage}" />
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding CustomerType}" Value="{x:Static m:CustomerType.Nervous}">
+                                        <Setter Property="Source" Value="{StaticResource AnnoyedImage}" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Image.Style>
+                    </Image>
+
+
 
                 </StackPanel>
 
