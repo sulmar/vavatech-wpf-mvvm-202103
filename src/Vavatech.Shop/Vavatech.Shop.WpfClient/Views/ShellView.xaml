@@ -127,6 +127,17 @@
                             
                             <Image Width="30" Source="{StaticResource MenuImage}" />
 
+
+                            <ToggleButton.Style>
+                                <Style TargetType="{x:Type ToggleButton}">
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="Transparent"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </ToggleButton.Style>
+
                             <ToggleButton.Triggers>
 
                                 <EventTrigger RoutedEvent="ToggleButton.Checked">

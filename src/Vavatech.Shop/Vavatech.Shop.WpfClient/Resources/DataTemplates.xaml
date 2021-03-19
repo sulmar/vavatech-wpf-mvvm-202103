@@ -29,8 +29,6 @@
 
                     <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding CustomerType}" />
 
-                    <CheckBox Margin="5" IsChecked="{Binding IsRemoved}">Removed</CheckBox>
-
                 </StackPanel>
 
 
