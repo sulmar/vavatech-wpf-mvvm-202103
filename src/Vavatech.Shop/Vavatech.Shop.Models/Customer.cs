@@ -59,7 +59,7 @@ namespace Vavatech.Shop.Models
         USA
     }
 
-    public class Customer : BaseEntity, IDataErrorInfo
+    public class Customer : BaseEntity
     {
      
 
@@ -91,38 +91,38 @@ namespace Vavatech.Shop.Models
 
         public bool IsRemoved { get; set; }
 
-        #region IDataErrorInfo
-        public string this[string columnName] => Validate(columnName);
+        //#region IDataErrorInfo
+        //public string this[string columnName] => Validate(columnName);
 
-        private string Validate(string columnName)
-        {
-            if (columnName == nameof(FirstName))
-            {
-                if (string.IsNullOrEmpty(FirstName))
-                {
-                    return "Imię nie może być puste";
-                }
-            }
+        //private string Validate(string columnName)
+        //{
+        //    if (columnName == nameof(FirstName))
+        //    {
+        //        if (string.IsNullOrEmpty(FirstName))
+        //        {
+        //            return "Imię nie może być puste";
+        //        }
+        //    }
 
-            if (columnName == nameof(LastName))
-            {
-                if (string.IsNullOrEmpty(LastName))
-                {
-                    return "Nazwisko nie może być puste";
-                }
-            }
+        //    if (columnName == nameof(LastName))
+        //    {
+        //        if (string.IsNullOrEmpty(LastName))
+        //        {
+        //            return "Nazwisko nie może być puste";
+        //        }
+        //    }
 
-            if (columnName == nameof(CreditAmount))
-            {
-                if (CreditAmount < 0 || CreditAmount > 1000)
-                    return "Wartość CreditAmount jest poza zakresem";
-            }
+        //    if (columnName == nameof(CreditAmount))
+        //    {
+        //        if (CreditAmount < 0 || CreditAmount > 1000)
+        //            return "Wartość CreditAmount jest poza zakresem";
+        //    }
 
-            return string.Empty;    // brak błędu
-        }
+        //    return string.Empty;    // brak błędu
+        //}
 
-        public string Error => null;
-        #endregion
+        //public string Error => null;
+        //#endregion
 
     }
 

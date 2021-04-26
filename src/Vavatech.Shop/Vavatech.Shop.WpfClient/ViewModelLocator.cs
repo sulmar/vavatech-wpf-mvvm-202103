@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using Bogus;
+using FluentValidation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,8 @@ using Vavatech.Shop.Fakers;
 using Vavatech.Shop.FakeServices;
 using Vavatech.Shop.IServices;
 using Vavatech.Shop.Models;
+using Vavatech.Shop.Models.SearchCriterias;
+using Vavatech.Shop.Models.Validators;
 using Vavatech.Shop.ViewModels;
 using Vavatech.Shop.WpfClient.Modules;
 
@@ -44,6 +47,19 @@ namespace Vavatech.Shop.WpfClient
             containerBuilder.RegisterType<WpfApplicationService>().As<IApplicationService>();
 
             containerBuilder.RegisterType<FrameNavigationService>().As<INavigationService>().SingleInstance();
+
+
+            //containerBuilder.RegisterType<CustomerSearchCriteria>();
+            //containerBuilder.RegisterType<PeriodSearchCriteria>();
+            //containerBuilder.RegisterType<CreditSearchCriteria>();
+
+            containerBuilder.RegisterAssemblyTypes(typeof(BaseSearchCriteria).Assembly)
+             .Where(t => t.IsSubclassOf(typeof(BaseSearchCriteria)));
+
+            containerBuilder.RegisterType<PeriodSearchCriteriaValidator>().As<IValidator<PeriodSearchCriteria>>();
+            containerBuilder.RegisterType<CreditSearchCriteriaValidator>().As<IValidator<CreditSearchCriteria>>();
+
+            
 
             container = containerBuilder.Build();
         }

@@ -43,6 +43,9 @@
     <Reference Include="Bogus, Version=33.0.2.0, Culture=neutral, PublicKeyToken=fa1bb3f3f218129a, processorArchitecture=MSIL">
       <HintPath>..\packages\Bogus.33.0.2\lib\net40\Bogus.dll</HintPath>
     </Reference>
+    <Reference Include="FluentValidation, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentValidation.9.5.3\lib\net461\FluentValidation.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
@@ -295,6 +298,10 @@
     <ProjectReference Include="..\Vavatech.Shop.IServices\Vavatech.Shop.IServices.csproj">
       <Project>{1296E4E5-9A05-42C5-85F5-BC14178B96E9}</Project>
       <Name>Vavatech.Shop.IServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Vavatech.Shop.Models.Validators\Vavatech.Shop.Models.Validators.csproj">
+      <Project>{745EE7C0-A08E-4518-A60B-8A8AB7C323E6}</Project>
+      <Name>Vavatech.Shop.Models.Validators</Name>
     </ProjectReference>
     <ProjectReference Include="..\Vavatech.Shop.Models\Vavatech.Shop.Models.csproj">
       <Project>{f7fc36f3-f380-48f4-928a-27266a2156ef}</Project>

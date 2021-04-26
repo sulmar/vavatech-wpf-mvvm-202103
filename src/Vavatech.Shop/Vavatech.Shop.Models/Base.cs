@@ -1,4 +1,5 @@
 ﻿using FluentValidation;
+using FluentValidation.Attributes;
 using FluentValidation.Internal;
 using FluentValidation.Results;
 using System;
@@ -11,35 +12,21 @@ using System.Runtime.CompilerServices;
 
 namespace Vavatech.Shop.Models
 {
-
-    public static class ValidatorExtensions
-    {
-        //public static ValidationResult Validate<T>(this IValidator<T> validator, T instance, string propertyName)
-        //{
-        //    IEnumerable<string> properties = new List<string> { propertyName };
-
-        //    var context = new ValidationContext<T>(instance, new PropertyChain(), new MemberNameValidatorSelector(properties));
-
-        //    return validator.Validate(context);
-        //}
-
-        public static ValidationResult MyValidate(this IValidator validator, object instance, string propertyName)
-        {
-            IEnumerable<string> properties = new List<string> { propertyName };
-
-            var context = new ValidationContext<object>(instance, new PropertyChain(), new MemberNameValidatorSelector(properties));
-
-            return validator.Validate(context);
-        }
-    }
-
     public abstract class Base : INotifyPropertyChanged, INotifyDataErrorInfo
     {
         #region INotifyDataErrorInfo
 
-        private readonly IDictionary<string, List<string>> errors = new Dictionary<string, List<string>>();
+        // private IValidator validator => new AttributedValidatorFactory().GetValidator(this.GetType());
 
-        public virtual bool HasErrors => errors.Any();
+        private IValidator validator;
+
+        public virtual bool HasErrors => !(validator?.Validate(new ValidationContext<object>(this)).IsValid ?? true);
+
+        public Base(IValidator validator)
+            : this()
+        {
+            this.validator = validator;
+        }
 
         public Base()
         {
@@ -55,26 +42,30 @@ namespace Vavatech.Shop.Models
 
         public IEnumerable GetErrors(string propertyName)
         {
-            return errors.ContainsKey(propertyName) ? errors[propertyName] : null;
+            if (validationResult == null)
+                return null;
+
+            return validationResult.Errors;
         }
+
+        private ValidationResult validationResult;
 
         protected virtual void Validate(string propertyName)
         {
-            errors.Clear();           
-        }
+            if (validator == null)
+                return;
 
-        protected void AddError(string propertyName, string error)
-        {
-            if (!errors.ContainsKey(propertyName))
-            {
-                errors[propertyName] = new List<string>();
-            }
+            var properties = new List<string> { propertyName };
 
-            if (!errors[propertyName].Contains(error))
-            {
-                errors[propertyName].Add(error);
-                OnErrorsChanged(propertyName);
-            }
+            var context = new ValidationContext<object>(
+                this,
+                new PropertyChain(),
+                new MemberNameValidatorSelector(properties));
+
+             validationResult = validator.Validate(context);
+
+
+            OnErrorsChanged(propertyName);
         }
 
         protected void OnErrorsChanged(string propertyName)
@@ -94,23 +85,6 @@ namespace Vavatech.Shop.Models
         }
 
         #endregion
-
-        //#region INotifyDataErrorInfo
-
-        //IValidator validator;
-
-        //public bool HasErrors => validator?.Validate(this).IsValid ?? true;
-
-        //public event EventHandler<DataErrorsChangedEventArgs> ErrorsChanged;
-
-        //public IEnumerable GetErrors(string propertyName)
-        //{
-        //    var result = validator.MyValidate(this, propertyName);
-
-        //    return result.Errors;
-        //}
-
-        //#endregion
 
 
     }

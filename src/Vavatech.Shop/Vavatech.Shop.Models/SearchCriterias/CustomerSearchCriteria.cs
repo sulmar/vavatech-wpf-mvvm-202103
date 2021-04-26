@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FluentValidation;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -6,8 +7,21 @@ using System.Text;
 
 namespace Vavatech.Shop.Models.SearchCriterias
 {
-    public abstract class BaseSearchCriteria : Base
+    public abstract class BaseSearchCriteria : Base        
     {
+        public BaseSearchCriteria()
+           : base()
+        {
+
+        }
+
+        public BaseSearchCriteria(IValidator validator)
+            : base(validator)
+        {
+
+        }
+
+       
 
     }
 
@@ -20,15 +34,13 @@ namespace Vavatech.Shop.Models.SearchCriterias
         public PeriodSearchCriteria Period { get; set; }
         public CreditSearchCriteria Credit { get; set; }
 
-        public static CustomerSearchCriteria Default => new CustomerSearchCriteria();
+        public override bool HasErrors => base.HasErrors || Credit.HasErrors || Period.HasErrors; // base.HasErrors || Period.HasErrors || Credit.HasErrors;
 
-        public override bool HasErrors => base.HasErrors || Period.HasErrors || Credit.HasErrors;
-
-        public CustomerSearchCriteria()
+        public CustomerSearchCriteria(PeriodSearchCriteria periodSearchCriteria, CreditSearchCriteria creditSearchCriteria)
         {
             Address = new AddressSearchCriteria();
-            Period = new PeriodSearchCriteria();
-            Credit = new CreditSearchCriteria();
+            Period = periodSearchCriteria;
+            Credit = creditSearchCriteria;
 
             Period.ErrorsChanged += CustomerSearchCriteria_ErrorsChanged;
             Credit.ErrorsChanged += CustomerSearchCriteria_ErrorsChanged;

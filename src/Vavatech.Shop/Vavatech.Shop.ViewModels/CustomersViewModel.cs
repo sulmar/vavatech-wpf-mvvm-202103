@@ -63,7 +63,11 @@ namespace Vavatech.Shop.ViewModels
         private Customer selectedCustomer;
         private bool isLoading;
 
-        public CustomersViewModel(ICustomerService customerService, Faker<Customer> customerFaker, IMessageBoxService messageBoxService)
+        public CustomersViewModel(
+            ICustomerService customerService, 
+            Faker<Customer> customerFaker, 
+            IMessageBoxService messageBoxService,
+            CustomerSearchCriteria customerSearchCriteria)
         {
             AddCustomerCommand = new DelegateCommand(AddCustomer);
             RemoveCustomerCommand = new DelegateCommand(async () => await RemoveCustomerAsync());
@@ -76,7 +80,7 @@ namespace Vavatech.Shop.ViewModels
             this.customerService = customerService;
             this.customerFaker = customerFaker;
             this.messageBoxService = messageBoxService;
-            SearchCriteria = CustomerSearchCriteria.Default;
+            SearchCriteria = customerSearchCriteria;
             Customers = new BindingList<Customer>();
 
             SearchCriteria.ErrorsChanged += SearchCriteria_ErrorsChanged;
@@ -84,10 +88,10 @@ namespace Vavatech.Shop.ViewModels
 
         private void SearchCriteria_ErrorsChanged(object sender, DataErrorsChangedEventArgs e)
         {
-            SearchCommand.OnCanExecuteChanged();
+           SearchCommand.OnCanExecuteChanged();
         }
 
-        private bool CanSearch() => !SearchCriteria.HasErrors;
+       
 
         private async Task LoadAsync()
         {
@@ -171,5 +175,7 @@ namespace Vavatech.Shop.ViewModels
             Customers = customerService.Get(SearchCriteria).ToBindingList();
             OnPropertyChanged(nameof(SelectedCustomers));
         }
+
+        private bool CanSearch() => !SearchCriteria.HasErrors;
     }
 }
