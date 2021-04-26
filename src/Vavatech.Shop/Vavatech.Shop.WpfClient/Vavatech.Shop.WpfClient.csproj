@@ -103,6 +103,9 @@
     <Compile Include="Modules\CustomerModule.cs" />
     <Compile Include="Modules\ProductModule.cs" />
     <Compile Include="ShellViewModel.cs" />
+    <Compile Include="UserControls\AddressSearchCriteriaView.xaml.cs">
+      <DependentUpon>AddressSearchCriteriaView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModelLocator.cs" />
     <Compile Include="Views\CounterView.xaml.cs">
       <DependentUpon>CounterView.xaml</DependentUpon>
@@ -207,6 +210,10 @@
     <Page Include="Themes\Generic.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\AddressSearchCriteriaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\CounterView.xaml">
       <SubType>Designer</SubType>

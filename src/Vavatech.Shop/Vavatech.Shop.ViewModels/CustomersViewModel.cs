@@ -49,7 +49,7 @@ namespace Vavatech.Shop.ViewModels
 
         public ICommand AddCustomerCommand { get; private set; }
         public ICommand RemoveCustomerCommand { get; private set; }
-        public ICommand SearchCommand { get; private set; }
+        public IDelegateCommand SearchCommand { get; private set; }
         public ICommand LoadCommand { get; private set; }
         public ICommand ShowCustomerCommand { get; set; }
 
@@ -67,7 +67,7 @@ namespace Vavatech.Shop.ViewModels
         {
             AddCustomerCommand = new DelegateCommand(AddCustomer);
             RemoveCustomerCommand = new DelegateCommand(async () => await RemoveCustomerAsync());
-            SearchCommand = new DelegateCommand(Search);
+            SearchCommand = new DelegateCommand(Search, CanSearch);
             ShowCustomerCommand = new DelegateCommand(ShowCustomer);
 
 
@@ -78,7 +78,16 @@ namespace Vavatech.Shop.ViewModels
             this.messageBoxService = messageBoxService;
             SearchCriteria = CustomerSearchCriteria.Default;
             Customers = new BindingList<Customer>();
+
+            SearchCriteria.ErrorsChanged += SearchCriteria_ErrorsChanged;
         }
+
+        private void SearchCriteria_ErrorsChanged(object sender, DataErrorsChangedEventArgs e)
+        {
+            SearchCommand.OnCanExecuteChanged();
+        }
+
+        private bool CanSearch() => !SearchCriteria.HasErrors;
 
         private async Task LoadAsync()
         {

@@ -1,0 +1,30 @@
+﻿<UserControl
+    x:Class="Vavatech.Shop.WpfClient.UserControls.AddressSearchCriteriaView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Vavatech.Shop.WpfClient.UserControls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+
+    <StackPanel Orientation="Vertical">
+
+        <Label>City</Label>
+        <TextBox Width="200" Text="{Binding City}" />
+
+        <Label>Country</Label>
+        <TextBox Width="200" Text="{Binding Country}" />
+
+        <Label>Street</Label>
+        <TextBox Width="200" Text="{Binding Street}" />
+
+        <Label>Zip-Code</Label>
+        <TextBox Width="50" Text="{Binding ZipCode}" />
+
+    </StackPanel>
+
+
+
+</UserControl>

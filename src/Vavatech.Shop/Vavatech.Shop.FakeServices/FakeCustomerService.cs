@@ -41,14 +41,14 @@ namespace Vavatech.Shop.FakeServices
                 customers = customers.Where(c => c.LastName.Contains(searchCriteria.LastName));
             }
 
-            if (searchCriteria.CreditAmountFrom.HasValue)
+            if (searchCriteria.Credit.CreditAmountFrom.HasValue)
             {
-                customers = customers.Where(c => c.CreditAmount >= searchCriteria.CreditAmountFrom);
+                customers = customers.Where(c => c.CreditAmount >= searchCriteria.Credit.CreditAmountFrom);
             }
 
-            if (searchCriteria.CreditAmountTo.HasValue)
+            if (searchCriteria.Credit.CreditAmountTo.HasValue)
             {
-                customers = customers.Where(c => c.CreditAmount <= searchCriteria.CreditAmountTo);
+                customers = customers.Where(c => c.CreditAmount <= searchCriteria.Credit.CreditAmountTo);
             }
 
             return customers.ToList();

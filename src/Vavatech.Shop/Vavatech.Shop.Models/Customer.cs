@@ -85,6 +85,10 @@ namespace Vavatech.Shop.Models
         [Country("Germany")]
         public string Land { get; set; }
 
+        public Address InvoiceAddress { get; set; }
+
+        public DateTime DateOfBirth { get; set; }
+
         public bool IsRemoved { get; set; }
 
         #region IDataErrorInfo

@@ -6,9 +6,14 @@ using System.Windows.Input;
 namespace Vavatech.Shop.ViewModels.Common
 {
 
+    public interface IDelegateCommand : ICommand
+    {
+        void OnCanExecuteChanged();
+    }
+
     // RelayCommand
 
-    public class DelegateCommand : ICommand
+    public class DelegateCommand : IDelegateCommand
     {
         public event EventHandler CanExecuteChanged;
 
