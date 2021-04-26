@@ -1,13 +1,10 @@
 ﻿using FluentValidation;
-using FluentValidation.Attributes;
 using FluentValidation.Internal;
 using FluentValidation.Results;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Collections.Specialized;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.CompilerServices;
 
 namespace Vavatech.Shop.Models
@@ -67,6 +64,7 @@ namespace Vavatech.Shop.Models
 
             OnErrorsChanged(propertyName);
         }
+
 
         protected void OnErrorsChanged(string propertyName)
         {

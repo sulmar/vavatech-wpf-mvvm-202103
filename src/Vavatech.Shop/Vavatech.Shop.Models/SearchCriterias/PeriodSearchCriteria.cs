@@ -1,10 +1,5 @@
 ﻿using FluentValidation;
-using FluentValidation.Attributes;
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
 
 namespace Vavatech.Shop.Models.SearchCriterias
 {
@@ -20,21 +15,5 @@ namespace Vavatech.Shop.Models.SearchCriterias
             From = DateTime.Today.AddDays(-30);
             To = DateTime.Today;
         }
-
-        //protected override void Validate(string propertyName)
-        //{
-        //    base.Validate(propertyName);
-
-        //    OnErrorsChanged(nameof(From));
-        //    OnErrorsChanged(nameof(To));
-
-        //    if (From.HasValue && To.HasValue && To < From)
-        //    {
-        //        AddError(nameof(From), "Data od jest nieprawidłowa");
-        //        AddError(nameof(To), "Data do jest nieprawidłowa");
-        //    }
-        //}
-       
-
     }
 }
