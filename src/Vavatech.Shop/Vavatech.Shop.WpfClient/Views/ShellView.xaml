@@ -245,6 +245,15 @@
                 </Button>
 
 
+                <Button Command="{Binding ShowViewCommand}" CommandParameter="DrawingVisual">
+                    <DockPanel>
+                        <Image DockPanel.Dock="Left" Source="{StaticResource SettingImage}" />
+                        <TextBlock VerticalAlignment="Center">Drawing Visual</TextBlock>
+                    </DockPanel>
+
+                </Button>
+
+
             </StackPanel>
 
 

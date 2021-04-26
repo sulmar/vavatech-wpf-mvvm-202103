@@ -103,6 +103,7 @@
     <Compile Include="CustomControls\CustomControl1.cs" />
     <Compile Include="CustomControls\MyControl.cs" />
     <Compile Include="CustomShapes\Diamond.cs" />
+    <Compile Include="CustomVisual\MyVisualHost.cs" />
     <Compile Include="FrameNavigationService.cs" />
     <Compile Include="Modules\CustomerModule.cs" />
     <Compile Include="Modules\ProductModule.cs" />
@@ -125,6 +126,9 @@
     </Compile>
     <Compile Include="Views\CustomerView.xaml.cs">
       <DependentUpon>CustomerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DrawingVisualView.xaml.cs">
+      <DependentUpon>DrawingVisualView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\HomeView.xaml.cs">
       <DependentUpon>HomeView.xaml</DependentUpon>
@@ -239,6 +243,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\CustomerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DrawingVisualView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
