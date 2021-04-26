@@ -74,10 +74,10 @@
             <StackPanel DataContext="{Binding SearchCriteria.Credit}" Orientation="Horizontal">
 
                 <Label>Credit from</Label>
-                <TextBox Width="200" Text="{Binding CreditAmountFrom}" />
+                <TextBox Width="200" Text="{Binding CreditAmountFrom, ValidatesOnNotifyDataErrors=True}" />
 
                 <Label>Credit to</Label>
-                <TextBox Width="200" Text="{Binding CreditAmountTo}" />
+                <TextBox Width="200" Text="{Binding CreditAmountTo, ValidatesOnNotifyDataErrors=True}" />
 
             </StackPanel>
 

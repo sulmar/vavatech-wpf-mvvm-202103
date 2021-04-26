@@ -22,7 +22,7 @@ namespace Vavatech.Shop.Models.SearchCriterias
 
         public static CustomerSearchCriteria Default => new CustomerSearchCriteria();
 
-        public override bool HasErrors => base.HasErrors || Period.HasErrors; // || Credit.HasErrors;
+        public override bool HasErrors => base.HasErrors || Period.HasErrors || Credit.HasErrors;
 
         public CustomerSearchCriteria()
         {
