@@ -53,9 +53,9 @@
                     <Setter Property="Margin" Value="5" />
                 </Style>
 
-                <Style TargetType="TextBox">
+                <Style BasedOn="{StaticResource {x:Type TextBox}}" TargetType="TextBox">
                     <Setter Property="Width" Value="200" />
-                    <Setter Property="Margin" Value="5" />
+                    <Setter Property="Margin" Value="20" />
                 </Style>
 
             </StackPanel.Resources>
@@ -74,10 +74,10 @@
             <StackPanel DataContext="{Binding SearchCriteria.Credit}" Orientation="Horizontal">
 
                 <Label>Credit from</Label>
-                <TextBox Width="200" Text="{Binding CreditAmountFrom, ValidatesOnNotifyDataErrors=True}" />
+                <TextBox Width="200" Text="{Binding CreditAmountFrom, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}" />
 
                 <Label>Credit to</Label>
-                <TextBox Width="200" Text="{Binding CreditAmountTo, ValidatesOnNotifyDataErrors=True}" />
+                <TextBox Width="200" Text="{Binding CreditAmountTo, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}" />
 
             </StackPanel>
 
@@ -86,10 +86,10 @@
             <StackPanel DataContext="{Binding SearchCriteria.Period}" Orientation="Horizontal">
 
                 <Label>Period from</Label>
-                <DatePicker SelectedDate="{Binding From, ValidatesOnNotifyDataErrors=True}" />
+                <DatePicker SelectedDate="{Binding From, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}" />
 
                 <Label>Period to</Label>
-                <DatePicker SelectedDate="{Binding To, ValidatesOnNotifyDataErrors=True}" />
+                <DatePicker SelectedDate="{Binding To, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}" />
 
             </StackPanel>
 

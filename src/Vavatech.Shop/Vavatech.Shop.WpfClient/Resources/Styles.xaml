@@ -1,7 +1,7 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                     xmlns:sys="clr-namespace:System;assembly=mscorlib"
-                    >
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
 
     <sys:Double x:Key="MyButtonHeight">48</sys:Double>
@@ -13,7 +13,7 @@
 
     <LinearGradientBrush x:Key="MyGradientBrush">
         <GradientStop Color="{StaticResource MyBlue}" />
-        <GradientStop Color="{StaticResource MyPurple}" Offset="1" />
+        <GradientStop Offset="1" Color="{StaticResource MyPurple}" />
     </LinearGradientBrush>
 
     <Style x:Key="DefaultButtonStyle" TargetType="Button">
@@ -24,10 +24,13 @@
         <Setter Property="Template" Value="{StaticResource RounderButtonTemplate}" />
     </Style>
 
-    <!-- Ustawia wszystkie kontrolki typu Button na domyślny styl -->
-    <Style TargetType="Button" BasedOn="{StaticResource DefaultButtonStyle}" />
+    <!--  Ustawia wszystkie kontrolki typu Button na domyślny styl  -->
+    <Style BasedOn="{StaticResource DefaultButtonStyle}" TargetType="Button" />
 
-    <Style x:Key="SettingsButtonStyle" TargetType="Button" BasedOn="{StaticResource DefaultButtonStyle}">
+    <Style
+        x:Key="SettingsButtonStyle"
+        BasedOn="{StaticResource DefaultButtonStyle}"
+        TargetType="Button">
         <Setter Property="Height" Value="48" />
         <Setter Property="Background" Value="DarkSeaGreen" />
         <Setter Property="Foreground" Value="White" />
@@ -40,22 +43,28 @@
         <Setter Property="Margin" Value="5" />
     </Style>
 
-    <Style x:Key="DangerousMenuBarButtonStyle" TargetType="Button" BasedOn="{StaticResource MenuBarButtonStyle}">
+    <Style
+        x:Key="DangerousMenuBarButtonStyle"
+        BasedOn="{StaticResource MenuBarButtonStyle}"
+        TargetType="Button">
         <Setter Property="Background" Value="DarkBlue" />
         <Setter Property="Foreground" Value="White" />
         <Setter Property="Width" Value="100" />
     </Style>
 
-    <Style x:Key="TextBlockStyle" TargetType="TextBlock"   >
+    <Style x:Key="TextBlockStyle" TargetType="TextBlock">
         <Setter Property="Width" Value="100" />
         <Setter Property="Margin" Value="5" />
     </Style>
 
 
-    <Style x:Key="VisibilityTextBlockStyle" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyle}">
+    <Style
+        x:Key="VisibilityTextBlockStyle"
+        BasedOn="{StaticResource TextBlockStyle}"
+        TargetType="TextBlock">
         <Setter Property="Visibility" Value="Visible" />
         <Style.Triggers>
-            <DataTrigger Binding="{Binding IsDiscount}" Value="False" >
+            <DataTrigger Binding="{Binding IsDiscount}" Value="False">
                 <Setter Property="Visibility" Value="Collapsed" />
             </DataTrigger>
         </Style.Triggers>
@@ -68,5 +77,25 @@
     <Style x:Key="SecondTextBlockStyle" TargetType="TextBlock">
         <Setter Property="Foreground" Value="Green" />
     </Style>-->
+
+
+    <Style
+        x:Key="ToolTipWithErrorMessageOnErrorStyle"
+        BasedOn="{StaticResource DefaultTextBoxStyle}"
+        TargetType="TextBox">
+        <Style.Triggers>
+            <Trigger Property="Validation.HasError" Value="True">
+                <Setter Property="ToolTip" Value="{Binding RelativeSource={RelativeSource Self}, Path=(Validation.Errors)/ErrorContent}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style TargetType="TextBox">
+        <Setter Property="Validation.ErrorTemplate" Value="{StaticResource ErrorTemplate}" />
+    </Style>
+
+    <Style TargetType="DatePicker">
+        <Setter Property="Validation.ErrorTemplate" Value="{StaticResource ErrorTemplate}" />
+    </Style>
 
 </ResourceDictionary>
