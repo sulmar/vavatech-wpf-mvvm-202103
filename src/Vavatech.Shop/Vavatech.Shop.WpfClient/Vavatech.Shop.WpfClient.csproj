@@ -102,6 +102,7 @@
     <Compile Include="Converters\RGBToColorConverter.cs" />
     <Compile Include="CustomControls\CustomControl1.cs" />
     <Compile Include="CustomControls\MyControl.cs" />
+    <Compile Include="CustomPanels\RadialPanel.cs" />
     <Compile Include="CustomShapes\Diamond.cs" />
     <Compile Include="CustomVisual\MyVisualHost.cs" />
     <Compile Include="FrameNavigationService.cs" />
@@ -126,6 +127,9 @@
     </Compile>
     <Compile Include="Views\CustomerView.xaml.cs">
       <DependentUpon>CustomerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CustomPanelView.xaml.cs">
+      <DependentUpon>CustomPanelView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\DrawingVisualView.xaml.cs">
       <DependentUpon>DrawingVisualView.xaml</DependentUpon>
@@ -243,6 +247,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\CustomerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CustomPanelView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

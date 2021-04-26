@@ -254,6 +254,16 @@
                 </Button>
 
 
+                <Button Command="{Binding ShowViewCommand}" CommandParameter="CustomPanel">
+                    <DockPanel>
+                        <Image DockPanel.Dock="Left" Source="{StaticResource SettingImage}" />
+                        <TextBlock VerticalAlignment="Center">Custom Panel</TextBlock>
+                    </DockPanel>
+
+                </Button>
+
+
+
             </StackPanel>
 
 

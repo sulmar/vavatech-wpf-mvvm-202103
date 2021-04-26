@@ -9,6 +9,7 @@ using System.Windows.Media;
 namespace Vavatech.Shop.WpfClient.CustomVisual
 {
     // https://docs.microsoft.com/pl-pl/dotnet/desktop/wpf/graphics-multimedia/using-drawingvisual-objects?view=netframeworkdesktop-4.8
+    // https://docs.microsoft.com/pl-pl/dotnet/desktop/wpf/advanced/optimizing-performance-2d-graphics-and-imaging?view=netframeworkdesktop-4.8
     public class MyVisualHost : FrameworkElement
     {
         private readonly VisualCollection children;
