@@ -1,14 +1,18 @@
-﻿<Window x:Class="Vavatech.Shop.WpfClient.Views.ShellView"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:sys="clr-namespace:System;assembly=mscorlib"
-        xmlns:local="clr-namespace:Vavatech.Shop.WpfClient.Views"
-        DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=ShellViewModel}"
-        xmlns:i="http://schemas.microsoft.com/xaml/behaviors" xmlns:b="clr-namespace:Vavatech.Shop.WpfClient.Behaviors"
-        mc:Ignorable="d"
-        Title="ShellView" Height="650" Width="800">
+﻿<Window
+    x:Class="Vavatech.Shop.WpfClient.Views.ShellView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:b="clr-namespace:Vavatech.Shop.WpfClient.Behaviors"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:local="clr-namespace:Vavatech.Shop.WpfClient.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    Title="ShellView"
+    Width="800"
+    Height="650"
+    DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=ShellViewModel}"
+    mc:Ignorable="d">
 
     <i:Interaction.Behaviors>
         <b:CloseWindowBehavior />
@@ -19,23 +23,27 @@
 
         <Storyboard x:Key="OpenMenu">
 
-            <DoubleAnimation 
+            <DoubleAnimation
                 Storyboard.TargetName="SideBar"
                 Storyboard.TargetProperty="Width"
-                From="50" To="250" Duration="0:0:0.5" />
+                From="50"
+                To="250"
+                Duration="0:0:0.5" />
 
         </Storyboard>
 
         <Storyboard x:Key="CloseMenu">
-            <DoubleAnimation 
+            <DoubleAnimation
                 Storyboard.TargetName="SideBar"
                 Storyboard.TargetProperty="Width"
-                From="250" To="50" Duration="0:0:0.5" />
-            
+                From="250"
+                To="50"
+                Duration="0:0:0.5" />
+
         </Storyboard>
-        
+
     </Window.Resources>
-    
+
     <!--<i:Interaction.Triggers>
         <i:EventTrigger EventName="Closing">
             <i:InvokeCommandAction Command="{Binding ExitCommand}" PassEventArgsToCommand="True" />
@@ -45,7 +53,7 @@
     <!--<Window.Resources>
 
         <sys:Double x:Key="MyButtonHeight">48</sys:Double>
-        
+
         <Color x:Key="MyBlue">#052767</Color>
         <Color x:Key="MyPurple">#3a0647</Color>
 
@@ -63,7 +71,9 @@
             <Setter Property="Margin" Value="5" />
         </Style>
 
-        --><!-- Ustawia wszystkie kontrolki typu Button na domyślny styl --><!--
+    -->
+    <!--  Ustawia wszystkie kontrolki typu Button na domyślny styl  -->
+    <!--
         <Style TargetType="Button" BasedOn="{StaticResource DefaultButtonStyle}" />
 
         <Style x:Key="SettingsButtonStyle" TargetType="Button" BasedOn="{StaticResource DefaultButtonStyle}">
@@ -91,40 +101,49 @@
 
         <DockPanel>
 
-            <!-- Menu -->
+            <!--  Menu  -->
             <Menu DockPanel.Dock="Top">
                 <MenuItem Header="File">
-                    <MenuItem Header="Show Customers" Command="{Binding ShowViewCommand}" CommandParameter="Customers" />
-                    <MenuItem Header="Show Products" Command="{Binding ShowViewCommand}" CommandParameter="Products" />
-                    <MenuItem Header="Show Counter" Command="{Binding ShowViewCommand}" CommandParameter="Counter" />
+                    <MenuItem
+                        Command="{Binding ShowViewCommand}"
+                        CommandParameter="Customers"
+                        Header="Show Customers" />
+                    <MenuItem
+                        Command="{Binding ShowViewCommand}"
+                        CommandParameter="Products"
+                        Header="Show Products" />
+                    <MenuItem
+                        Command="{Binding ShowViewCommand}"
+                        CommandParameter="Counter"
+                        Header="Show Counter" />
                     <Separator />
-                    <MenuItem Header="Exit" Command="{Binding ExitCommand}" />
+                    <MenuItem Command="{Binding ExitCommand}" Header="Exit" />
                 </MenuItem>
-                <MenuItem Header="Edit"></MenuItem>
-                <MenuItem Header="View"></MenuItem>
-                <MenuItem Header="Help"></MenuItem>
+                <MenuItem Header="Edit" />
+                <MenuItem Header="View" />
+                <MenuItem Header="Help" />
             </Menu>
 
 
-            <!-- Status bar -->
+            <!--  Status bar  -->
             <StatusBar DockPanel.Dock="Bottom">
                 <StatusBarItem>Ready</StatusBarItem>
                 <StatusBarItem>John Smith</StatusBarItem>
             </StatusBar>
-            
-            <!-- Side bar -->
-            <StackPanel 
-                
+
+            <!--  Side bar  -->
+            <StackPanel
                 x:Name="SideBar"
-                Width="250" Background="{StaticResource MyGradientBrush}" >
+                Width="250"
+                Background="{StaticResource MyGradientBrush}">
 
 
-                <Border Background="{StaticResource MyBlueBrush}" Height="48">
+                <Border Height="48" Background="{StaticResource MyBlueBrush}">
 
                     <DockPanel>
 
-                        <ToggleButton IsChecked="True" >
-                            
+                        <ToggleButton IsChecked="True">
+
                             <Image Width="30" Source="{StaticResource MenuImage}" />
 
 
@@ -132,7 +151,7 @@
                                 <Style TargetType="{x:Type ToggleButton}">
                                     <Style.Triggers>
                                         <Trigger Property="IsMouseOver" Value="True">
-                                            <Setter Property="Background" Value="Transparent"/>
+                                            <Setter Property="Background" Value="Transparent" />
                                         </Trigger>
                                     </Style.Triggers>
                                 </Style>
@@ -151,90 +170,102 @@
                                         <BeginStoryboard Storyboard="{StaticResource CloseMenu}" />
                                     </EventTrigger.Actions>
                                 </EventTrigger>
-                                
-                            </ToggleButton.Triggers>
-                            
-                        </ToggleButton>
-                        
-                        <Label 
-                        Foreground="White" 
-                        HorizontalAlignment="Left" 
-                        VerticalAlignment="Center" 
-                        FontSize="18"
-                        Content="WPF App" />
 
-                        
+                            </ToggleButton.Triggers>
+
+                        </ToggleButton>
+
+                        <Label
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            Content="WPF App"
+                            FontSize="18"
+                            Foreground="White" />
+
+
                     </DockPanel>
-                    
+
                 </Border>
 
-                <Button Command="{Binding ShowViewCommand}" CommandParameter="Home" >
+                <Button Command="{Binding ShowViewCommand}" CommandParameter="Home">
                     <DockPanel>
                         <Image Source="{StaticResource HomeImage}" />
                         <TextBlock VerticalAlignment="Center">Home</TextBlock>
                     </DockPanel>
-                    </Button>
-                <Button Command="{Binding ShowViewCommand}" CommandParameter="Counter" >
+                </Button>
+                <Button Command="{Binding ShowViewCommand}" CommandParameter="Counter">
                     <DockPanel>
                         <Image Source="{StaticResource CounterImage}" />
                         <TextBlock VerticalAlignment="Center">Counter</TextBlock>
                     </DockPanel>
                 </Button>
-                
+
                 <Button Command="{Binding ShowViewCommand}" CommandParameter="Customers">
                     <DockPanel>
                         <Image Source="{StaticResource CustomersImage}" />
                         <TextBlock VerticalAlignment="Center">Customers</TextBlock>
                     </DockPanel>
-                    </Button>
+                </Button>
                 <Button Command="{Binding ShowViewCommand}" CommandParameter="Customer">
                     <DockPanel>
                         <Image Source="{StaticResource CustomersImage}" />
                         <TextBlock VerticalAlignment="Center">Customer</TextBlock>
                     </DockPanel>
                 </Button>
-                
-                
-                <Button Command="{Binding ShowViewCommand}" CommandParameter="Products" >
+
+
+                <Button Command="{Binding ShowViewCommand}" CommandParameter="Products">
                     <DockPanel>
                         <Image DockPanel.Dock="Left" Source="{StaticResource ProductsImage}" />
                         <TextBlock VerticalAlignment="Center">Products</TextBlock>
                     </DockPanel>
                 </Button>
 
-                <Button Command="{Binding ShowViewCommand}" CommandParameter="CustomersMap" >
+                <Button Command="{Binding ShowViewCommand}" CommandParameter="CustomersMap">
                     <DockPanel>
                         <Image DockPanel.Dock="Left" Source="{StaticResource MapImage}" />
                         <TextBlock VerticalAlignment="Center">Map</TextBlock>
                     </DockPanel>
                 </Button>
 
-                <Button Command="{Binding ShowViewCommand}" CommandParameter="Settings"  >
+                <Button Command="{Binding ShowViewCommand}" CommandParameter="Settings">
                     <DockPanel>
                         <Image DockPanel.Dock="Left" Source="{StaticResource SettingImage}" />
                         <TextBlock VerticalAlignment="Center">Settings</TextBlock>
                     </DockPanel>
 
-                    </Button>
-                
+                </Button>
+
+                <Button Command="{Binding ShowViewCommand}" CommandParameter="Shapes">
+                    <DockPanel>
+                        <Image DockPanel.Dock="Left" Source="{StaticResource SettingImage}" />
+                        <TextBlock VerticalAlignment="Center">Shapes</TextBlock>
+                    </DockPanel>
+
+                </Button>
+
 
             </StackPanel>
 
-          
 
-            <!-- Main -->
 
-            <Grid DockPanel.Dock="Top" Background="#f7f7f7" Height="48">
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <!--  Main  -->
+
+            <Grid
+                Height="48"
+                Background="#f7f7f7"
+                DockPanel.Dock="Top">
+                <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
                     <Button Style="{StaticResource MenuBarButtonStyle}">Help</Button>
                     <Button Style="{StaticResource DangerousMenuBarButtonStyle}">About</Button>
                 </StackPanel>
             </Grid>
 
 
-            <Frame x:Name="MainFrame" Source="CustomersView.xaml" NavigationUIVisibility="Hidden"
-                   
-                   />
+            <Frame
+                x:Name="MainFrame"
+                NavigationUIVisibility="Hidden"
+                Source="CustomersView.xaml" />
 
 
         </DockPanel>
