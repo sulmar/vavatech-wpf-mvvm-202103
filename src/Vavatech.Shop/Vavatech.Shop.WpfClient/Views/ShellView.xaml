@@ -263,6 +263,15 @@
                 </Button>
 
 
+                <Button Command="{Binding ShowViewCommand}" CommandParameter="ItemsPanel">
+                    <DockPanel>
+                        <Image DockPanel.Dock="Left" Source="{StaticResource SettingImage}" />
+                        <TextBlock VerticalAlignment="Center">Items Panel</TextBlock>
+                    </DockPanel>
+
+                </Button>
+
+
 
             </StackPanel>
 
