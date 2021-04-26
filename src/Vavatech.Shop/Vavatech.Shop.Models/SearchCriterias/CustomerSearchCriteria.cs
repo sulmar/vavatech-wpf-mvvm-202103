@@ -22,7 +22,7 @@ namespace Vavatech.Shop.Models.SearchCriterias
 
         public static CustomerSearchCriteria Default => new CustomerSearchCriteria();
 
-        public bool HasErrors => Period.HasErrors; // || Credit.HasErrors;
+        public override bool HasErrors => base.HasErrors || Period.HasErrors; // || Credit.HasErrors;
 
         public CustomerSearchCriteria()
         {
@@ -38,14 +38,8 @@ namespace Vavatech.Shop.Models.SearchCriterias
 
         private void CustomerSearchCriteria_ErrorsChanged(object sender, DataErrorsChangedEventArgs e)
         {
-            ErrorsChanged.Invoke(this, new DataErrorsChangedEventArgs(nameof(e.PropertyName)));
+            OnErrorsChanged(e.PropertyName);
         }
 
-        public event EventHandler<DataErrorsChangedEventArgs> ErrorsChanged;
-
-        public IEnumerable GetErrors(string propertyName)
-        {
-            return Period.GetErrors(propertyName);
-        }
     }
 }

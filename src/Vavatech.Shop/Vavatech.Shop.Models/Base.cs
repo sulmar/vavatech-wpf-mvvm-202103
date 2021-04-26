@@ -6,6 +6,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.ComponentModel;
+using System.Linq;
 using System.Runtime.CompilerServices;
 
 namespace Vavatech.Shop.Models
@@ -32,8 +33,57 @@ namespace Vavatech.Shop.Models
         }
     }
 
-    public abstract class Base : INotifyPropertyChanged
+    public abstract class Base : INotifyPropertyChanged, INotifyDataErrorInfo
     {
+        #region INotifyDataErrorInfo
+
+        private readonly IDictionary<string, List<string>> errors = new Dictionary<string, List<string>>();
+
+        public virtual bool HasErrors => errors.Any();
+
+        public Base()
+        {
+            this.PropertyChanged += Base_PropertyChanged;
+        }
+
+        private void Base_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            Validate(e.PropertyName);
+        }
+
+        public event EventHandler<DataErrorsChangedEventArgs> ErrorsChanged;
+
+        public IEnumerable GetErrors(string propertyName)
+        {
+            return errors.ContainsKey(propertyName) ? errors[propertyName] : null;
+        }
+
+        protected virtual void Validate(string propertyName)
+        {
+            errors.Clear();           
+        }
+
+        protected void AddError(string propertyName, string error)
+        {
+            if (!errors.ContainsKey(propertyName))
+            {
+                errors[propertyName] = new List<string>();
+            }
+
+            if (!errors[propertyName].Contains(error))
+            {
+                errors[propertyName].Add(error);
+                OnErrorsChanged(propertyName);
+            }
+        }
+
+        protected void OnErrorsChanged(string propertyName)
+        {
+            ErrorsChanged?.Invoke(this, new DataErrorsChangedEventArgs(propertyName));
+        }
+
+        #endregion
+
         #region INotifyPropertyChanged
 
         public event PropertyChangedEventHandler PropertyChanged;
