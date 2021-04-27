@@ -3,7 +3,9 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:dt="clr-namespace:Vavatech.Shop.WpfClient.DataTemplateSelectors"
     xmlns:local="clr-namespace:Vavatech.Shop.WpfClient.Views"
+    xmlns:m="clr-namespace:Vavatech.Shop.Models;assembly=Vavatech.Shop.Models"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="ItemsView"
     d:DesignHeight="450"
@@ -11,9 +13,41 @@
     DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=ItemsViewModel}"
     mc:Ignorable="d">
 
+    <Page.Resources>
+
+        <DataTemplate x:Key="ProductItemTemplate" DataType="{x:Type m:Product}">
+            <StackPanel Orientation="Horizontal">
+
+                <TextBlock
+                    Width="200"
+                    Margin="10"
+                    Text="{Binding Name}" />
+                <TextBlock Margin="10" Text="{Binding Color}" />
+                <TextBlock Margin="10" Text="{Binding Weight}" />
+            </StackPanel>
+        </DataTemplate>
+
+
+        <DataTemplate x:Key="ServiceItemTemplate" DataType="{x:Type m:Service}">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock
+                    Width="200"
+                    Margin="10"
+                    Text="{Binding Name}" />
+                <TextBlock Margin="10" Text="{Binding Duration}" />
+            </StackPanel>
+        </DataTemplate>
+
+        <dt:ItemTemplateSelector
+            x:Key="ItemTemplateSelector"
+            ProductDataTemplate="{StaticResource ProductItemTemplate}"
+            ServiceDataTemplate="{StaticResource ServiceItemTemplate}" />
+
+    </Page.Resources>
+
     <Grid>
 
-        <ListBox ItemsSource="{Binding Items}" />
+        <ListBox ItemTemplateSelector="{StaticResource ItemTemplateSelector}" ItemsSource="{Binding Items}" />
 
     </Grid>
 </Page>

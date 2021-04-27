@@ -106,6 +106,7 @@
     <Compile Include="CustomPanels\RadialPanel.cs" />
     <Compile Include="CustomShapes\Diamond.cs" />
     <Compile Include="CustomVisual\MyVisualHost.cs" />
+    <Compile Include="DataTemplateSelectors\ItemTemplateSelector.cs" />
     <Compile Include="FrameNavigationService.cs" />
     <Compile Include="Modules\CustomerModule.cs" />
     <Compile Include="Modules\ProductModule.cs" />
