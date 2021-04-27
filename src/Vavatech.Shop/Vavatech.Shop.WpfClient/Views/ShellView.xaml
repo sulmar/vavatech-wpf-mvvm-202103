@@ -10,7 +10,7 @@
     xmlns:sys="clr-namespace:System;assembly=mscorlib"
     Title="ShellView"
     Width="800"
-    Height="650"
+    Height="850"
     DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=ShellViewModel}"
     mc:Ignorable="d">
 
@@ -271,6 +271,14 @@
 
                 </Button>
 
+
+                <Button Command="{Binding ShowViewCommand}" CommandParameter="Items">
+                    <DockPanel>
+                        <Image DockPanel.Dock="Left" Source="{StaticResource SettingImage}" />
+                        <TextBlock VerticalAlignment="Center">Items</TextBlock>
+                    </DockPanel>
+
+                </Button>
 
 
             </StackPanel>

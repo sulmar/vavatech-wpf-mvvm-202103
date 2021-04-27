@@ -109,6 +109,7 @@
     <Compile Include="FrameNavigationService.cs" />
     <Compile Include="Modules\CustomerModule.cs" />
     <Compile Include="Modules\ProductModule.cs" />
+    <Compile Include="Modules\ServiceModule.cs" />
     <Compile Include="ShellViewModel.cs" />
     <Compile Include="UserControls\AddressSearchCriteriaView.xaml.cs">
       <DependentUpon>AddressSearchCriteriaView.xaml</DependentUpon>
@@ -143,6 +144,9 @@
     </Compile>
     <Compile Include="Views\ItemsPanelView.xaml.cs">
       <DependentUpon>ItemsPanelView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ItemsView.xaml.cs">
+      <DependentUpon>ItemsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ProductsView.xaml.cs">
       <DependentUpon>ProductsView.xaml</DependentUpon>
@@ -271,6 +275,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ItemsPanelView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ItemsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

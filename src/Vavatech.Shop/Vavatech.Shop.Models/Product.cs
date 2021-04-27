@@ -1,18 +1,18 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace Vavatech.Shop.Models
 {
+
+
     // Exceptions -> ValidatesOnExceptions=True
 
     // INotifyDataErrorInfo -> ValidatesOnNotifyDataErrors = true
 
-    public class Product : BaseEntity
+    public class Product : Item
     {
-        public string Name { get; set; }
-
+      
         //public string Name
         //{
         //    get => name; 
@@ -27,6 +27,8 @@ namespace Vavatech.Shop.Models
 
         public string Color { get; set; }
 
+        public float Weight { get; set; }
+
         //public decimal UnitPrice
         //{
         //    get => unitPrice; 
@@ -39,7 +41,7 @@ namespace Vavatech.Shop.Models
         //    }
         //}
 
-        public decimal UnitPrice { get; set; }
+
         public bool IsDiscount { get; set; }
         public decimal Discount { get; set; }
         public string ImageUrl { get; set; }
