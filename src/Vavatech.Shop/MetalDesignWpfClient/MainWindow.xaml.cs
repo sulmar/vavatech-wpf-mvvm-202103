@@ -24,5 +24,26 @@ namespace MetalDesignWpfClient
         {
             InitializeComponent();
         }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+
+            if (!int.TryParse(textBox.Text, out int result))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!char.IsNumber(e.Text[0]))
+            {
+                e.Handled = true;
+            }
+
+
+           
+        }
     }
 }
