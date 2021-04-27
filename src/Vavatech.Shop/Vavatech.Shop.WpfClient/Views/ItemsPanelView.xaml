@@ -2,13 +2,14 @@
     x:Class="Vavatech.Shop.WpfClient.Views.ItemsPanelView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:c="clr-namespace:Vavatech.Shop.WpfClient.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:Vavatech.Shop.WpfClient.Views"
     xmlns:m="clr-namespace:Vavatech.Shop.Models;assembly=Vavatech.Shop.Models"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:p="clr-namespace:Vavatech.Shop.WpfClient.CustomPanels"
     Title="ItemsPanelView"
-    d:DesignHeight="450"
+    d:DesignHeight="750"
     d:DesignWidth="800"
     DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=ItemsPanelViewModel}"
     mc:Ignorable="d">
@@ -20,6 +21,8 @@
     </d:DesignerProperties.DesignStyle>
 
     <Page.Resources>
+
+
         <DataTemplate x:Key="CustomerItemTemplate" DataType="{x:Type m:Customer}">
 
             <Grid>
@@ -87,25 +90,62 @@
 
     <Grid>
 
+        <StackPanel>
+
+            <!--  Horizontal  -->
+            <ListBox
+                Height="300"
+                ItemTemplate="{StaticResource CustomerItemTemplate}"
+                ItemsSource="{Binding Customers}">
+
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal" />
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="Padding" Value="0" />
+
+                    </Style>
+                </ListBox.ItemContainerStyle>
+            </ListBox>
 
 
-        <ListBox ItemTemplate="{StaticResource CustomerItemTemplate}" ItemsSource="{Binding Customers}">
+            <!--  Canvas  -->
 
-            <ListBox.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <StackPanel Orientation="Horizontal" />
-                </ItemsPanelTemplate>
-            </ListBox.ItemsPanel>
+            <ItemsControl ItemsSource="{Binding Customers}">
 
-            <ListBox.ItemContainerStyle>
-                <Style TargetType="ListBoxItem">
-                    <Setter Property="Padding" Value="0" />
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Canvas />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
 
-                </Style>
-            </ListBox.ItemContainerStyle>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate DataType="{x:Type m:Customer}">
+                        <Ellipse
+                            Width="10"
+                            Height="10"
+                            Fill="DarkBlue" />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
 
 
-        </ListBox>
+                <ItemsControl.ItemContainerStyle>
+                    <Style TargetType="ContentPresenter">
+                        <Setter Property="Canvas.Left" Value="{Binding Location.Latitude}" />
+                        <Setter Property="Canvas.Top" Value="{Binding Location.Longitude}" />
+                    </Style>
+                </ItemsControl.ItemContainerStyle>
+
+
+
+            </ItemsControl>
+
+
+        </StackPanel>
 
     </Grid>
 </Page>
