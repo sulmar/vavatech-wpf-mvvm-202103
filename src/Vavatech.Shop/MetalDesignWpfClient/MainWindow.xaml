@@ -17,6 +17,7 @@
 
     </Window.Resources>
 
+
     <Grid>
 
 
@@ -24,8 +25,23 @@
         <ScrollViewer VerticalScrollBarVisibility="Visible">
 
 
-
             <StackPanel>
+
+                <materialDesign:DialogHost CloseOnClickAway="True">
+                    <materialDesign:DialogHost.DialogContent>
+                        <StackPanel Margin="20">
+
+                            <TextBlock Text="Hello World!" />
+
+                            <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" Content="Close" />
+
+                        </StackPanel>
+                    </materialDesign:DialogHost.DialogContent>
+
+                    <Button Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}" Content="Show Dialog " />
+
+                </materialDesign:DialogHost>
+
 
 
                 <TextBlock
@@ -248,12 +264,18 @@
                 </ListBox>
 
 
-                <materialDesign:Clock />
+                <materialDesign:Clock DisplayAutomation="ToSeconds" />
 
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:Chip Margin="5" Content="WPF" />
                     <materialDesign:Chip Margin="5" Content="MVVM" />
                 </StackPanel>
+
+
+                <Calendar />
+
+
+
 
 
 
