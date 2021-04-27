@@ -4,48 +4,108 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:Vavatech.Shop.WpfClient.Views"
+    xmlns:m="clr-namespace:Vavatech.Shop.Models;assembly=Vavatech.Shop.Models"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:p="clr-namespace:Vavatech.Shop.WpfClient.CustomPanels"
     Title="ItemsPanelView"
     d:DesignHeight="450"
     d:DesignWidth="800"
+    DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=ItemsPanelViewModel}"
     mc:Ignorable="d">
 
     <d:DesignerProperties.DesignStyle>
         <Style TargetType="Page">
-            <Setter Property="Background" Value="DarkBlue" />
+            <Setter Property="Background" Value="White" />
         </Style>
     </d:DesignerProperties.DesignStyle>
+
+    <Page.Resources>
+        <DataTemplate x:Key="CustomerItemTemplate" DataType="{x:Type m:Customer}">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="3*" />
+                    <RowDefinition Height="1*" />
+                </Grid.RowDefinitions>
+
+
+                <TextBlock Text="{Binding FullName}">
+                    <TextBlock.RenderTransform>
+                        <RotateTransform Angle="270" />
+                    </TextBlock.RenderTransform>
+                </TextBlock>
+
+                <Grid Grid.Row="1">
+
+                    <Rectangle
+                        Width="100"
+                        Height="3"
+                        HorizontalAlignment="Left"
+                        Fill="Black"
+                        Stroke="Black"
+                        StrokeThickness="3" />
+
+                    <Ellipse
+                        Width="30"
+                        Height="30"
+                        HorizontalAlignment="Left">
+
+                        <Ellipse.Style>
+                            <Style TargetType="Ellipse">
+                                <Style.Triggers>
+
+                                    <DataTrigger Binding="{Binding CustomerType}" Value="{x:Static m:CustomerType.Happy}">
+                                        <Setter Property="Fill" Value="Blue" />
+                                    </DataTrigger>
+
+                                    <DataTrigger Binding="{Binding CustomerType}" Value="{x:Static m:CustomerType.Nervous}">
+                                        <Setter Property="Fill" Value="Red" />
+                                    </DataTrigger>
+
+                                    <DataTrigger Binding="{Binding CustomerType}" Value="{x:Static m:CustomerType.Smily}">
+                                        <Setter Property="Fill" Value="Green" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Ellipse.Style>
+
+                    </Ellipse>
+
+                    <Image
+                        Width="30"
+                        HorizontalAlignment="Left"
+                        Source="{StaticResource HappyImage}" />
+                </Grid>
+
+
+            </Grid>
+
+
+
+        </DataTemplate>
+    </Page.Resources>
 
     <Grid>
 
 
 
-        <!--<ListBox>
+        <ListBox ItemTemplate="{StaticResource CustomerItemTemplate}" ItemsSource="{Binding Customers}">
 
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <StackPanel Orientation="Horizontal" />
-        -->
-        <!--<UniformGrid />-->
-
-        <!--<p:RadialPanel />-->
-        <!--
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
 
-            <ListBoxItem>Item 1</ListBoxItem>
-            <ListBoxItem>Item 2</ListBoxItem>
-            <ListBoxItem>Item 3</ListBoxItem>
-            <ListBoxItem>Item 4</ListBoxItem>
-            <ListBoxItem>Item 5</ListBoxItem>
-            <ListBoxItem>Item 1</ListBoxItem>
-            <ListBoxItem>Item 2</ListBoxItem>
-            <ListBoxItem>Item 3</ListBoxItem>
-            <ListBoxItem>Item 4</ListBoxItem>
-            <ListBoxItem>Item 5</ListBoxItem>
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="Padding" Value="0" />
 
-        </ListBox>-->
+                </Style>
+            </ListBox.ItemContainerStyle>
+
+
+        </ListBox>
 
     </Grid>
 </Page>
