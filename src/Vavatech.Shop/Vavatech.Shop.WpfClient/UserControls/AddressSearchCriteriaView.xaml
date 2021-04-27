@@ -6,8 +6,15 @@
     xmlns:local="clr-namespace:Vavatech.Shop.WpfClient.UserControls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DesignHeight="450"
+    d:DesignStyle="{StaticResource MyDesignUserControlStyle}"
     d:DesignWidth="800"
     mc:Ignorable="d">
+
+    <d:DesignerProperties.DesignStyle>
+        <Style TargetType="UserControl">
+            <Setter Property="Background" Value="DarkGray" />
+        </Style>
+    </d:DesignerProperties.DesignStyle>
 
     <StackPanel Orientation="Vertical">
 

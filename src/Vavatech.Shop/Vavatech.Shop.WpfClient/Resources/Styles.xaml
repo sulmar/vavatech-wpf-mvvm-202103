@@ -98,4 +98,14 @@
         <Setter Property="Validation.ErrorTemplate" Value="{StaticResource ErrorTemplate}" />
     </Style>
 
+    <Style x:Key="MyDesignPageStyle" TargetType="Page">
+        <Setter Property="Background" Value="DarkBlue" />
+        <Setter Property="Foreground" Value="White" />
+    </Style>
+
+    <Style x:Key="MyDesignUserControlStyle" TargetType="UserControl">
+        <Setter Property="Background" Value="DarkGreen" />
+        <Setter Property="Foreground" Value="White" />
+    </Style>
+
 </ResourceDictionary>

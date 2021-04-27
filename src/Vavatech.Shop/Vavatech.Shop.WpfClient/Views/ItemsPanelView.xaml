@@ -11,16 +11,26 @@
     d:DesignWidth="800"
     mc:Ignorable="d">
 
+    <d:DesignerProperties.DesignStyle>
+        <Style TargetType="Page">
+            <Setter Property="Background" Value="DarkBlue" />
+        </Style>
+    </d:DesignerProperties.DesignStyle>
+
     <Grid>
 
-        <ListBox>
+
+
+        <!--<ListBox>
 
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <StackPanel Orientation="Horizontal" />
-                    <!--<UniformGrid />-->
+        -->
+        <!--<UniformGrid />-->
 
-                    <!--<p:RadialPanel />-->
+        <!--<p:RadialPanel />-->
+        <!--
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
 
@@ -35,7 +45,7 @@
             <ListBoxItem>Item 4</ListBoxItem>
             <ListBoxItem>Item 5</ListBoxItem>
 
-        </ListBox>
+        </ListBox>-->
 
     </Grid>
 </Page>
