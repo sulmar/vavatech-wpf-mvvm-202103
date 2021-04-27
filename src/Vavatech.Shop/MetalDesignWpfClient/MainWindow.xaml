@@ -1,0 +1,282 @@
+﻿<Window
+    x:Class="MetalDesignWpfClient.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:MetalDesignWpfClient"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="800"
+    Height="850"
+    mc:Ignorable="d">
+
+    <Window.Resources>
+        <Style BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}" TargetType="TextBox" />
+
+
+    </Window.Resources>
+
+    <Grid>
+
+
+
+        <ScrollViewer VerticalScrollBarVisibility="Visible">
+
+
+
+            <StackPanel>
+
+
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Style="{StaticResource MaterialDesignHeadline2TextBlock}">
+                    Hello World
+                </TextBlock>
+
+                <materialDesign:Card Margin="16" Padding="32">
+
+                    <StackPanel Orientation="Horizontal">
+
+                        <materialDesign:PackIcon
+                            Width="64"
+                            Height="64"
+                            Kind="Account" />
+
+                        <TextBlock
+                            FontSize="20"
+                            Style="{StaticResource MaterialDesignTextBlock}"
+                            Text="Lorem ipsum..." />
+                    </StackPanel>
+
+                </materialDesign:Card>
+
+
+                <TextBox Margin="10" materialDesign:HintAssist.Hint="Username" />
+                <TextBox Margin="10" materialDesign:HintAssist.Hint="First name" />
+                <TextBox Margin="10" materialDesign:HintAssist.Hint="Last name" />
+
+                <PasswordBox
+                    Margin="10"
+                    materialDesign:HintAssist.Hint="Password"
+                    Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
+
+
+                <TextBox Margin="10" />
+
+
+                <!--  Radio Buttons  -->
+
+                <RadioButton Margin="10" GroupName="Options">Option 1</RadioButton>
+                <RadioButton Margin="10" GroupName="Options">Option 2</RadioButton>
+                <RadioButton Margin="10" GroupName="Options">Option 3</RadioButton>
+
+                <RadioButton Margin="10" GroupName="Type">Type 1</RadioButton>
+                <RadioButton Margin="10" GroupName="Type">Type 2</RadioButton>
+
+
+                <!--  Checkboxes  -->
+
+                <CheckBox Margin="10" Style="{x:Null}">Option 1</CheckBox>
+                <CheckBox Margin="10" IsChecked="True">Option 2</CheckBox>
+                <CheckBox Margin="10" IsThreeState="True">Option 3</CheckBox>
+
+
+                <CheckBox Margin="10" Style="{StaticResource MaterialDesignFilterChipAccentOutlineCheckBox}">Option 4</CheckBox>
+
+
+
+
+                <!--  Toggle Button  -->
+
+                <ToggleButton
+                    Margin="10"
+                    IsChecked="True"
+                    Style="{StaticResource MaterialDesignSwitchDarkToggleButton}" />
+
+                <ToggleButton Margin="10" Style="{StaticResource MaterialDesignSwitchDarkToggleButton}" />
+                <ToggleButton Margin="10" Style="{StaticResource MaterialDesignActionAccentToggleButton}" />
+
+
+                <ToggleButton Margin="10" Style="{StaticResource MaterialDesignActionAccentToggleButton}">
+
+                    <materialDesign:ToggleButtonAssist.OnContent>
+                        <materialDesign:PackIcon Kind="Alert" />
+                    </materialDesign:ToggleButtonAssist.OnContent>
+                </ToggleButton>
+
+
+                <ToggleButton
+                    x:Name="ExpanderButton"
+                    Margin="10"
+                    IsChecked="True"
+                    Style="{StaticResource MaterialDesignExpanderToggleButton}" />
+
+                <TextBlock
+                    x:Name="TextBlockSection"
+                    Margin="10"
+                    TextWrapping="Wrap">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    <TextBlock.Style>
+                        <Style BasedOn="{StaticResource MaterialDesignBody1TextBlock}" TargetType="TextBlock">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=ExpanderButton, Path=IsChecked}" Value="True">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+
+                                <DataTrigger Binding="{Binding ElementName=ExpanderButton, Path=IsChecked}" Value="False">
+                                    <Setter Property="Visibility" Value="Collapsed" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+
+                </TextBlock>
+
+
+                <!--  ComboBoxes  -->
+
+                <ComboBox Margin="10" materialDesign:HintAssist.Hint="Choose Item">
+                    <ComboBoxItem>Item 1</ComboBoxItem>
+                    <ComboBoxItem>Item 2</ComboBoxItem>
+                    <ComboBoxItem>Item 3</ComboBoxItem>
+                </ComboBox>
+
+
+                <!--  ListBoxes  -->
+
+                <ListBox Margin="10" materialDesign:HintAssist.Hint="Choose Item">
+                    <ListBoxItem>Item 1</ListBoxItem>
+                    <ListBoxItem>Item 2</ListBoxItem>
+                    <ListBoxItem>Item 3</ListBoxItem>
+                </ListBox>
+
+                <ListBox Margin="10" Style="{StaticResource MaterialDesignToolToggleListBox}">
+                    <ListBoxItem>
+                        <materialDesign:PackIcon Kind="FormatAlignLeft" />
+                    </ListBoxItem>
+
+                    <ListBoxItem>
+                        <materialDesign:PackIcon Kind="FormatAlignCenter" />
+                    </ListBoxItem>
+
+                    <ListBoxItem>
+                        <materialDesign:PackIcon Kind="FormatAlignRight" />
+                    </ListBoxItem>
+
+                    <ListBoxItem>
+                        <materialDesign:PackIcon Kind="FormatAlignJustify" />
+                    </ListBoxItem>
+                </ListBox>
+
+
+                <ListBox Margin="10" Style="{StaticResource MaterialDesignFilterChipAccentListBox}">
+                    <ListBoxItem>WPF</ListBoxItem>
+                    <ListBoxItem>.NET Core</ListBoxItem>
+                    <ListBoxItem>C#</ListBoxItem>
+                    <ListBoxItem>Design Patterns</ListBoxItem>
+                </ListBox>
+
+                <ListBox Margin="10" Style="{StaticResource MaterialDesignToolVerticalToggleListBox}">
+                    <ListBoxItem>WPF</ListBoxItem>
+                    <ListBoxItem>.NET Core</ListBoxItem>
+                    <ListBoxItem>C#</ListBoxItem>
+                    <ListBoxItem>Design Patterns</ListBoxItem>
+                </ListBox>
+
+
+
+                <ListBox
+                    Margin="10"
+                    materialDesign:ComboBoxAssist.ShowSelectedItem="True"
+                    Style="{StaticResource MaterialDesignCardsListBox}">
+                    <ListBoxItem>
+                        <StackPanel Orientation="Horizontal">
+
+                            <materialDesign:PackIcon
+                                Width="64"
+                                Height="64"
+                                Kind="Account" />
+
+                            <TextBlock
+                                FontSize="20"
+                                Style="{StaticResource MaterialDesignTextBlock}"
+                                Text="Lorem ipsum..." />
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem>
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon
+                                Width="64"
+                                Height="64"
+                                Kind="AcademicCap" />
+
+                            <TextBlock
+                                FontSize="20"
+                                Style="{StaticResource MaterialDesignTextBlock}"
+                                Text="Lorem ipsum..." />
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem>
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon
+                                Width="64"
+                                Height="64"
+                                Kind="Beach" />
+
+                            <TextBlock
+                                FontSize="20"
+                                Style="{StaticResource MaterialDesignTextBlock}"
+                                Text="Lorem ipsum..." />
+                        </StackPanel>
+
+                    </ListBoxItem>
+                    <ListBoxItem>
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon
+                                Width="64"
+                                Height="64"
+                                Kind="Walk" />
+
+                            <TextBlock
+                                FontSize="20"
+                                Style="{StaticResource MaterialDesignTextBlock}"
+                                Text="Lorem ipsum..." />
+                        </StackPanel>
+                    </ListBoxItem>
+                </ListBox>
+
+
+                <materialDesign:Clock />
+
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:Chip Margin="5" Content="WPF" />
+                    <materialDesign:Chip Margin="5" Content="MVVM" />
+                </StackPanel>
+
+
+
+                <!--  Buttons  -->
+
+                <Button Margin="10" IsEnabled="True">Hello</Button>
+
+                <Button Margin="10" Style="{StaticResource MaterialDesignRaisedAccentButton}">Accept</Button>
+
+
+                <Button Margin="10" Style="{StaticResource MaterialDesignRaisedAccentButton}">
+
+                    <materialDesign:PackIcon Width="20" Kind="Alarm" />
+                </Button>
+
+
+
+
+
+
+            </StackPanel>
+
+        </ScrollViewer>
+
+    </Grid>
+</Window>
