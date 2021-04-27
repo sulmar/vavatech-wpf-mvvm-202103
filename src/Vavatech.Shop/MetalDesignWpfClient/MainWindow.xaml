@@ -6,15 +6,19 @@
     xmlns:local="clr-namespace:MetalDesignWpfClient"
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:MetalDesignWpfClient.ViewModels"
+    xmlns:vr="clr-namespace:MetalDesignWpfClient.ValidationRules"
     Title="MainWindow"
     Width="800"
     Height="850"
     mc:Ignorable="d">
 
+    <Window.DataContext>
+        <vm:MainWindowViewModel />
+    </Window.DataContext>
+
     <Window.Resources>
         <Style BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}" TargetType="TextBox" />
-
-
     </Window.Resources>
 
 
@@ -77,6 +81,18 @@
                     Margin="10"
                     materialDesign:HintAssist.Hint="Password"
                     Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
+
+
+                <TextBox Margin="10" materialDesign:HintAssist.Hint="Age">
+                    <TextBox.Text>
+                        <Binding Path="Age" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <vr:NumericRangeValidationRule Maximum="120" Minimum="1" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+
+                </TextBox>
 
 
                 <TextBox Margin="10" />
