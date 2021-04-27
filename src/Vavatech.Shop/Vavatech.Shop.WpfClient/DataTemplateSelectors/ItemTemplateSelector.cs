@@ -16,6 +16,10 @@ namespace Vavatech.Shop.WpfClient.DataTemplateSelectors
 
         public override DataTemplate SelectTemplate(object item, DependencyObject container)
         {
+            //Type type = item.GetType();
+
+            //bool isItem = type.IsSubclassOf(typeof(Item));
+
             if (item is Product)
             {
                 return ProductDataTemplate;

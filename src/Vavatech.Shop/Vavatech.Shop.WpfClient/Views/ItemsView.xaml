@@ -47,7 +47,12 @@
 
     <Grid>
 
-        <ListBox ItemTemplateSelector="{StaticResource ItemTemplateSelector}" ItemsSource="{Binding Items}" />
+        <StackPanel>
+
+            <ListBox ItemTemplateSelector="{StaticResource ItemTemplateSelector}" ItemsSource="{Binding Items}" />
+
+        </StackPanel>
+
 
     </Grid>
 </Page>
