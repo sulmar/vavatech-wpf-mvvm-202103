@@ -120,6 +120,8 @@
     <Compile Include="CustomVisual\MyVisualHost.cs" />
     <Compile Include="DataTemplateSelectors\ItemTemplateSelector.cs" />
     <Compile Include="FrameNavigationService.cs" />
+    <Compile Include="MarkupExtensions\CurrentFolderMarkupExtension.cs" />
+    <Compile Include="MarkupExtensions\EnumSourceExtension.cs" />
     <Compile Include="MarkupExtensions\EventBindingMarkupExtensions.cs" />
     <Compile Include="Modules\CustomerModule.cs" />
     <Compile Include="Modules\ProductModule.cs" />

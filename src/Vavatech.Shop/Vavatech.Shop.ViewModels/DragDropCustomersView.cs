@@ -11,7 +11,7 @@ namespace Vavatech.Shop.ViewModels
 {
     public class DragDropCustomersViewModel : BaseViewModel
     {
-        public BindingList<Customer> SourceCustomers
+        public SortableBindingList<Customer> SourceCustomers
         {
             get => sourceCustomers; set
             {
@@ -31,7 +31,7 @@ namespace Vavatech.Shop.ViewModels
 
 
         private readonly ICustomerService customerService;
-        private BindingList<Customer> sourceCustomers;
+        private SortableBindingList<Customer> sourceCustomers;
         private BindingList<Customer> targetCustomers;
 
         public ICommand AddCustomerCommand { get; private set; }
@@ -87,7 +87,7 @@ namespace Vavatech.Shop.ViewModels
 
         private void Load()
         {
-            SourceCustomers = customerService.Get().ToBindingList();
+            SourceCustomers = customerService.Get().ToSortableBindingList();
             TargetCustomers = new BindingList<Customer>();
         }
 
