@@ -1,24 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.Web.WebView2.Wpf;
+using System;
 using System.Windows;
-using System.Windows.Controls;
 
 namespace Vavatech.Shop.WpfClient.AttachedProperties
 {
-    public static class WebBrowserAttachedProperty
+    public static class WebView2AttachedProperty
     {
         public static readonly DependencyProperty BindableSourceProperty =
             DependencyProperty.RegisterAttached("BindableSource",
-                typeof(string), typeof(WebBrowserAttachedProperty), new PropertyMetadata(null, BindableSourcePropertyChanged));
+                typeof(string), typeof(WebView2AttachedProperty), new PropertyMetadata(null, BindableSourcePropertyChanged));
 
         private static void BindableSourcePropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var webBrowser = (WebBrowser)d;
+            var webBrowser = (WebView2)d;
 
-            webBrowser.Source = new Uri( (string) e.NewValue);
+            webBrowser.Source = new Uri((string)e.NewValue);
         }
 
         public static string GetBindableSource(DependencyObject obj)
