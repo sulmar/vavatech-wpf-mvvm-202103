@@ -281,6 +281,15 @@
                 </Button>
 
 
+                <Button Command="{Binding ShowViewCommand}" CommandParameter="Navigation">
+                    <DockPanel>
+                        <Image DockPanel.Dock="Left" Source="{StaticResource SettingImage}" />
+                        <TextBlock VerticalAlignment="Center">Navigation</TextBlock>
+                    </DockPanel>
+
+                </Button>
+
+
             </StackPanel>
 
 

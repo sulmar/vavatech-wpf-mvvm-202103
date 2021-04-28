@@ -7,6 +7,8 @@ namespace Vavatech.Shop.IServices
     public interface INavigationService
     {
         void Navigate(string viewName, object parameter = null);
+        bool? ShowDialog(string viewName, object parameter = null);
+        void Show(string viewName, object parameter = null);
 
         void GoBack();
         void GoForward();

@@ -29,6 +29,11 @@ namespace Vavatech.Shop.WpfClient
             window.ShowDialog();
         }
 
+        public Task<bool> ShowDialogAsync(string viewName)
+        {
+            throw new NotImplementedException();
+        }
+
         public bool ShowMessage(string text, string caption)
         {
             return MessageBox.Show(text, caption, MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes;

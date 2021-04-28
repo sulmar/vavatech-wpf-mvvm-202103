@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Threading;
 using Vavatech.Shop.Models.Attributes;
 
 namespace Vavatech.Shop.Models
@@ -61,25 +62,35 @@ namespace Vavatech.Shop.Models
 
     public class Customer : BaseEntity
     {
-     
+        private Coordinate location;
 
         public string FirstName { get; set; }
-        public string LastName { get; set;  }
+        public string LastName { get; set; }
         public string FullName => $"{FirstName} {LastName}";
         public CustomerType CustomerType { get; set; }
         public string Avatar { get; set; }
 
         public decimal? CreditAmount { get; set; }
 
-        public Coordinate Location { get; set; }
-        
+        public Coordinate Location
+        {
+            get
+            {
+                Thread.Sleep(TimeSpan.FromSeconds(5));
+
+                return location;
+            }
+
+            set => location = value;
+        }
+
         public Country Country { get; set; }
 
         [Country("Poland")]
         public string Pesel { get; set; }
         [Country("Poland")]
         public string Regon { get; set; }
-        
+
         public string TaxId { get; set; }
 
         [Country("Germany")]

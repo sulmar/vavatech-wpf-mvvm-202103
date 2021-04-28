@@ -12,20 +12,28 @@ namespace Vavatech.Shop.ViewModels
     public class CustomerViewModel : BaseViewModel
     {
         private readonly INavigationService navigationService;
+        private readonly ICustomerService customerService;
 
         public Customer SelectedCustomer { get; set; }
 
         public ICommand NextCommand { get; private set; }
         public ICommand BackCommand { get; private set; }
 
-        public CustomerViewModel(INavigationService navigationService)
+        public CustomerViewModel(INavigationService navigationService, ICustomerService customerService)
         {
             this.navigationService = navigationService;
-
+            this.customerService = customerService;
             NextCommand = new DelegateCommand(Next);
             BackCommand = new DelegateCommand(Back);
 
-            SelectedCustomer = new Customer() { CustomerType = CustomerType.Smily };
+            Load();
+        }
+
+        private void Load()
+        {
+            int customerId = (int)navigationService.Parameter;
+
+            SelectedCustomer = customerService.Get(customerId);
         }
 
         public void Next()

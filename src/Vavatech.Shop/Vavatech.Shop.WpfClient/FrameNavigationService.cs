@@ -30,8 +30,46 @@ namespace Vavatech.Shop.WpfClient
             Frame.Navigate(uri, parameter);
 
             Parameter = parameter;
+        }
 
+        public void Show(string viewName, object parameter = null)
+        {
+            Uri uri = new Uri($"Views/{viewName}View.xaml", UriKind.Relative);
 
+            Parameter = parameter;
+
+            Window window = Application.LoadComponent(uri) as Window;
+
+            if (window != null)
+            {
+                window.Show();
+            }
+            else
+            {
+                throw new InvalidOperationException();
+            }
+        }
+
+        public bool? ShowDialog(string viewName, object parameter = null)
+        {
+            Uri uri = new Uri($"Views/{viewName}View.xaml", UriKind.Relative);
+            
+            Parameter = parameter;
+
+            Window window = Application.LoadComponent(uri) as Window;
+
+            if (window != null)
+            {
+                var result = window.ShowDialog();
+
+                return result;
+            }
+            else
+            {
+                throw new InvalidOperationException();
+            }    
+
+            
         }
 
         private Frame Get(string frameName)
