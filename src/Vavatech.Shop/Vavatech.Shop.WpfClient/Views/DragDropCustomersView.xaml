@@ -3,6 +3,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
     xmlns:local="clr-namespace:Vavatech.Shop.WpfClient.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="DragDropCustomersView"
@@ -29,7 +30,16 @@
                 Grid.Column="0"
                 DisplayMemberPath="FullName"
                 ItemsSource="{Binding SourceCustomers}"
-                SelectedItem="{Binding SelectedCustomer}" />
+                SelectedItem="{Binding SelectedCustomer}">
+
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseDoubleClick">
+                        <i:InvokeCommandAction Command="{Binding AddCustomerCommand}" />
+                    </i:EventTrigger>
+
+                </i:Interaction.Triggers>
+
+            </ListBox>
 
             <!--  Panel  -->
             <StackPanel
@@ -47,7 +57,16 @@
                 Grid.Column="2"
                 DisplayMemberPath="FullName"
                 ItemsSource="{Binding TargetCustomers}"
-                SelectedItem="{Binding SelectedCustomer}" />
+                SelectedItem="{Binding SelectedCustomer}">
+
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseDoubleClick">
+                        <i:InvokeCommandAction Command="{Binding RemoveCustomerCommand}" />
+                    </i:EventTrigger>
+
+                </i:Interaction.Triggers>
+
+            </ListBox>
 
         </Grid>
 
