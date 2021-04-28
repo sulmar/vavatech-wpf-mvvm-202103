@@ -108,6 +108,7 @@
     <Compile Include="Behaviors\CloseWindowBehavior.cs" />
     <Compile Include="Behaviors\MouseEnterButtonBehavior.cs" />
     <Compile Include="Converters\BoolToVisibilityConverter.cs" />
+    <Compile Include="Converters\DragEventArgsConverter.cs" />
     <Compile Include="Converters\InvertConverter.cs" />
     <Compile Include="Converters\LocationConverter.cs" />
     <Compile Include="Converters\MultiplyConverter.cs" />
@@ -119,6 +120,7 @@
     <Compile Include="CustomVisual\MyVisualHost.cs" />
     <Compile Include="DataTemplateSelectors\ItemTemplateSelector.cs" />
     <Compile Include="FrameNavigationService.cs" />
+    <Compile Include="MarkupExtensions\EventBindingMarkupExtensions.cs" />
     <Compile Include="Modules\CustomerModule.cs" />
     <Compile Include="Modules\ProductModule.cs" />
     <Compile Include="Modules\ServiceModule.cs" />

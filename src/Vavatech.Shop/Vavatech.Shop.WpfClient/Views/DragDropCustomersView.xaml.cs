@@ -24,5 +24,10 @@ namespace Vavatech.Shop.WpfClient.Views
         {
             InitializeComponent();
         }
+
+        private void ListBox_Drop(object sender, DragEventArgs e)
+        {
+
+        }
     }
 }

@@ -37,6 +37,10 @@ namespace Vavatech.Shop.ViewModels
         public ICommand AddCustomerCommand { get; private set; }
         public ICommand RemoveCustomerCommand { get; private set; }
 
+        public ICommand DropAddCustomerCommand { get; private set; }
+        public ICommand DropRemoveCustomerCommand { get; private set; }
+
+
         public Customer SelectedCustomer { get; set; }
 
         public DragDropCustomersViewModel(ICustomerService customerService)
@@ -45,21 +49,40 @@ namespace Vavatech.Shop.ViewModels
 
             AddCustomerCommand = new DelegateCommand(AddCustomer);
             RemoveCustomerCommand = new DelegateCommand(RemoveCustomer);
+            DropAddCustomerCommand = new DelegateCommand<Customer>(DropAddCustomer);
+            DropRemoveCustomerCommand = new DelegateCommand<Customer>(DropRemoveCustomer);
 
             Load();
         }
 
+        private void DropAddCustomer(Customer customer)
+        {
+            SelectedCustomer = customer;
+            AddCustomer();
+        }
+
+        private void DropRemoveCustomer(Customer customer)
+        {
+            SelectedCustomer = customer;
+            RemoveCustomer();
+        }
+
         private void RemoveCustomer()
         {
-            SourceCustomers.Add(SelectedCustomer);
-            TargetCustomers.Remove(SelectedCustomer);         
+            if (!SourceCustomers.Contains(SelectedCustomer))
+            {
+                SourceCustomers.Add(SelectedCustomer);
+                TargetCustomers.Remove(SelectedCustomer);
+            }
         }
 
         private void AddCustomer()
         {
-            
-            TargetCustomers.Add(SelectedCustomer);
-            SourceCustomers.Remove(SelectedCustomer);
+            if (!TargetCustomers.Contains(SelectedCustomer))
+            {
+                TargetCustomers.Add(SelectedCustomer);
+                SourceCustomers.Remove(SelectedCustomer);
+            }
         }
 
         private void Load()
@@ -67,7 +90,6 @@ namespace Vavatech.Shop.ViewModels
             SourceCustomers = customerService.Get().ToBindingList();
             TargetCustomers = new BindingList<Customer>();
         }
-
 
     }
 }
