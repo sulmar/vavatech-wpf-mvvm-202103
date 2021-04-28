@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using Vavatech.Shop.ViewModels.Common;
 
 namespace Vavatech.Shop.ViewModels
 {
@@ -11,6 +12,11 @@ namespace Vavatech.Shop.ViewModels
         public static BindingList<T> ToBindingList<T>(this IEnumerable<T> collection)
         {
             return new BindingList<T>(collection.ToList());
+        }
+
+        public static SortableBindingList<T> ToSortableBindingList<T>(this IEnumerable<T> collection)
+        {
+            return new SortableBindingList<T>(collection.ToList());
         }
     }
 
