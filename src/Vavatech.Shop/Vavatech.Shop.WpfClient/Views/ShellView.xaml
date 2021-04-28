@@ -305,6 +305,14 @@
 
                 </Button>
 
+                <Button Command="{Binding ShowViewCommand}" CommandParameter="DragDropCustomers">
+                    <DockPanel>
+                        <Image DockPanel.Dock="Left" Source="{StaticResource SettingImage}" />
+                        <TextBlock VerticalAlignment="Center">Drag Drop</TextBlock>
+                    </DockPanel>
+
+                </Button>
+
 
             </StackPanel>
 
