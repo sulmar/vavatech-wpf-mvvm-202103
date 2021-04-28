@@ -19,6 +19,41 @@
 
     <Window.Resources>
         <Style BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}" TargetType="TextBox" />
+
+
+        <ContentControl x:Key="MyDialog">
+            <Grid Margin="16">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <TextBox
+                    Grid.Row="0"
+                    Margin="0,6,0,0"
+                    materialDesign:HintAssist.Hint="Name"
+                    FontSize="18"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <StackPanel
+                    Grid.Row="1"
+                    Margin="0,16,0,0"
+                    Orientation="Horizontal">
+                    <Button
+                        Command="{Binding AcceptDialogCommand}"
+                        IsDefault="True"
+                        Style="{StaticResource MaterialDesignFlatButton}">
+                        ACCEPT
+                    </Button>
+                    <Button
+                        Margin="8,0,0,0"
+                        Command="{Binding CancelDialogCommand}"
+                        IsCancel="True"
+                        Style="{StaticResource MaterialDesignFlatButton}">
+                        CANCEL
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </ContentControl>
+
     </Window.Resources>
 
 
@@ -29,12 +64,16 @@
         <ScrollViewer VerticalScrollBarVisibility="Visible">
 
 
-            <StackPanel>
+            <StackPanel Margin="20">
 
-                <materialDesign:DialogHost CloseOnClickAway="True">
+
+                <!--  Hello World Dialog  -->
+                <materialDesign:DialogHost
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    CloseOnClickAway="True">
                     <materialDesign:DialogHost.DialogContent>
                         <StackPanel Margin="20">
-
                             <TextBlock Text="Hello World!" />
 
                             <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" Content="Close" />
@@ -42,10 +81,55 @@
                         </StackPanel>
                     </materialDesign:DialogHost.DialogContent>
 
-                    <Button Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}" Content="Show Dialog " />
+                    <Button
+                        Margin="10"
+                        Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
+                        Style="{StaticResource MaterialDesignIconButton}">
+
+                        <materialDesign:PackIcon Kind="Account" />
+                    </Button>
 
                 </materialDesign:DialogHost>
 
+
+
+
+                <!--  Remove Dialog  -->
+                <!--<materialDesign:DialogHost
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    CloseOnClickAway="True"
+                    DialogContent="{StaticResource MyDialog}">
+
+                    <Button
+                        Margin="10"
+                        Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
+                        Style="{StaticResource MaterialDesignIconButton}">
+
+                        <materialDesign:PackIcon Kind="Remove" />
+                    </Button>
+
+                </materialDesign:DialogHost>-->
+
+                <materialDesign:DialogHost Identifier="RootDialog">
+
+                    <!--<Button
+                        Margin="10"
+                        Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
+                        Style="{StaticResource MaterialDesignIconButton}">
+
+                        <materialDesign:PackIcon Kind="Remove" />
+                    </Button>-->
+
+                </materialDesign:DialogHost>
+
+                <Button
+                    Margin="10"
+                    Command="{Binding RemoveCommand}"
+                    Style="{StaticResource MaterialDesignIconButton}">
+
+                    <materialDesign:PackIcon Kind="Remove" />
+                </Button>
 
 
                 <TextBlock

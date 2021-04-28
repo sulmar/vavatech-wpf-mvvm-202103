@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Vavatech.Shop.IServices
 {
@@ -13,5 +14,6 @@ namespace Vavatech.Shop.IServices
         void ShowDialog(string viewName, object parameter = null);
 
         object Parameter { get; }
+        Task<bool> ShowDialogAsync(string viewName);
     }
 }
