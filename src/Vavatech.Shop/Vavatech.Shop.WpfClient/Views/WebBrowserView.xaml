@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:Vavatech.Shop.WpfClient.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:wv2="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf"
     Title="WebBrowserView"
     d:DesignHeight="450"
     d:DesignWidth="800"
@@ -38,13 +39,17 @@
                     Width="200"
                     Background="DarkBlue"
                     Command="{Binding ShowWebPageCommand}"
+
                     CommandParameter="http://www.vavatech.pl">
                     Vavatech
                 </Button>
 
             </StackPanel>
 
-            <WebBrowser x:Name="MyWebBrowser" ap:WebBrowserAttachedProperty.BindableSource="{Binding Url}" />
+            <!--<WebBrowser x:Name="MyWebBrowser" ap:WebBrowserAttachedProperty.BindableSource="{Binding Url}" />-->
+
+
+            <wv2:WebView2 ap:WebView2AttachedProperty.BindableSource="{Binding Url}" />
 
         </DockPanel>
 

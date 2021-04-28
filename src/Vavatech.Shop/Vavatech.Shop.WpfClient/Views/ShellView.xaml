@@ -289,6 +289,22 @@
 
                 </Button>
 
+                <Button Command="{Binding ShowViewCommand}" CommandParameter="FlowDocument">
+                    <DockPanel>
+                        <Image DockPanel.Dock="Left" Source="{StaticResource SettingImage}" />
+                        <TextBlock VerticalAlignment="Center">FlowDocument</TextBlock>
+                    </DockPanel>
+
+                </Button>
+
+                <Button Command="{Binding ShowViewCommand}" CommandParameter="WebBrowser">
+                    <DockPanel>
+                        <Image DockPanel.Dock="Left" Source="{StaticResource SettingImage}" />
+                        <TextBlock VerticalAlignment="Center">WebBrowser</TextBlock>
+                    </DockPanel>
+
+                </Button>
+
 
             </StackPanel>
 

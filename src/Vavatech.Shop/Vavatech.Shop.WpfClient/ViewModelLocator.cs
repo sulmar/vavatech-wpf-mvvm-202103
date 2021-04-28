@@ -79,5 +79,7 @@ namespace Vavatech.Shop.WpfClient
         public ItemsViewModel ItemsViewModel => container.Resolve<ItemsViewModel>();
         public NavigationViewModel NavigationViewModel => container.Resolve<NavigationViewModel>();
         public WindowViewModel WindowViewModel => container.Resolve<WindowViewModel>();
+
+        public WebBrowserViewModel WebBrowserViewModel => container.Resolve<WebBrowserViewModel>();
     }
 }
