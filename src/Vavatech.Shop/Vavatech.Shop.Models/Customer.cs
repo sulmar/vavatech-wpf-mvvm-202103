@@ -76,7 +76,7 @@ namespace Vavatech.Shop.Models
         {
             get
             {
-                Thread.Sleep(TimeSpan.FromSeconds(5));
+                // Thread.Sleep(TimeSpan.FromSeconds(5));
 
                 return location;
             }

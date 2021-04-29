@@ -100,7 +100,8 @@
 
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <StackPanel Orientation="Horizontal" />
+                        <!--<StackPanel Orientation="Horizontal" />-->
+                        <VirtualizingStackPanel Orientation="Horizontal" />
                     </ItemsPanelTemplate>
                 </ListBox.ItemsPanel>
 

@@ -132,6 +132,9 @@
     <Compile Include="UserControls\AddressSearchCriteriaView.xaml.cs">
       <DependentUpon>AddressSearchCriteriaView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\MyUserControl.xaml.cs">
+      <DependentUpon>MyUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModelLocator.cs" />
     <Compile Include="Views\CounterView.xaml.cs">
       <DependentUpon>CounterView.xaml</DependentUpon>
@@ -186,6 +189,9 @@
     </Compile>
     <Compile Include="Views\ShellView.xaml.cs">
       <DependentUpon>ShellView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VirtualizingView.xaml.cs">
+      <DependentUpon>VirtualizingView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\WebBrowserView.xaml.cs">
       <DependentUpon>WebBrowserView.xaml</DependentUpon>
@@ -271,6 +277,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControls\MyUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\CounterView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -340,6 +350,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ShellView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\VirtualizingView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

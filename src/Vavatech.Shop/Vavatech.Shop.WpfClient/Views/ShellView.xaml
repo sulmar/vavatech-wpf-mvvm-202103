@@ -7,7 +7,8 @@
     xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
     xmlns:local="clr-namespace:Vavatech.Shop.WpfClient.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:sys="clr-namespace:System;assembly=mscorlib" xmlns:me="clr-namespace:Vavatech.Shop.WpfClient.MarkupExtensions"
+    xmlns:me="clr-namespace:Vavatech.Shop.WpfClient.MarkupExtensions"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
     Title="ShellView"
     Width="800"
     Height="850"
@@ -131,7 +132,7 @@
                 <StatusBarItem>John Smith</StatusBarItem>
 
                 <StatusBarItem>Current folder</StatusBarItem>
-                <StatusBarItem Content="{me:CurrentFolderMarkup}"/>
+                <StatusBarItem Content="{me:CurrentFolderMarkup}" />
             </StatusBar>
 
             <!--  Side bar  -->
@@ -317,6 +318,13 @@
                 </Button>
 
 
+                <Button Command="{Binding ShowViewCommand}" CommandParameter="Virtualizing">
+                    <DockPanel>
+                        <Image DockPanel.Dock="Left" Source="{StaticResource SettingImage}" />
+                        <TextBlock VerticalAlignment="Center">Virtualizing</TextBlock>
+                    </DockPanel>
+                </Button>
+
             </StackPanel>
 
 
@@ -337,9 +345,7 @@
             <Frame
                 x:Name="MainFrame"
                 NavigationUIVisibility="Hidden"
-                Source="CustomersView.xaml"
-                                
-                />
+                Source="CustomersView.xaml" />
 
 
         </DockPanel>
