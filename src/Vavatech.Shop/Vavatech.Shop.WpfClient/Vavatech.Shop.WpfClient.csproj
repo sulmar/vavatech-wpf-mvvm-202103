@@ -401,6 +401,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Vavatech.Shop.Controls\Vavatech.Shop.Controls.csproj">
+      <Project>{1d558fa4-b465-4012-a27b-4e192de0bd5f}</Project>
+      <Name>Vavatech.Shop.Controls</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Vavatech.Shop.Fakers\Vavatech.Shop.Fakers.csproj">
       <Project>{BE49440A-7E39-49B0-88A9-1CF4C4A755D8}</Project>
       <Name>Vavatech.Shop.Fakers</Name>

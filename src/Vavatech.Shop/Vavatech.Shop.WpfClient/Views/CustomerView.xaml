@@ -8,6 +8,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:me="clr-namespace:Vavatech.Shop.WpfClient.MarkupExtensions"
     xmlns:system="clr-namespace:System;assembly=mscorlib"
+    xmlns:vt="http://schemas.vavatech.pl/xaml/controls"
     Title="CustomerView"
     d:DesignHeight="450"
     d:DesignWidth="800"
@@ -79,6 +80,8 @@
                     </Button>
                 </Grid>
 
+
+                <vt:UserControl1 />
 
             </StackPanel>
 
