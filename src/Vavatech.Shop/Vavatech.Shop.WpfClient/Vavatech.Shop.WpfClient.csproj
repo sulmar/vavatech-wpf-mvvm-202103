@@ -106,7 +106,9 @@
     <Compile Include="AttachedProperties\WebBrowserAttachedProperty.cs" />
     <Compile Include="AttachedProperties\WebView2AttachedProperty.cs" />
     <Compile Include="Behaviors\CloseWindowBehavior.cs" />
+    <Compile Include="AttachedProperties\IsDragDropAttachedProperty.cs" />
     <Compile Include="Behaviors\MouseEnterButtonBehavior.cs" />
+    <Compile Include="Behaviors\MouseMoveBehavior.cs" />
     <Compile Include="Converters\BoolToVisibilityConverter.cs" />
     <Compile Include="Converters\DragEventArgsConverter.cs" />
     <Compile Include="Converters\InvertConverter.cs" />
