@@ -6,6 +6,7 @@ using System.Text;
 
 namespace Vavatech.Shop.Models.Converters
 {
+    // https://brianlagunas.com/a-better-way-to-data-bind-enums-in-wpf/
     public class EnumDescriptionTypeConverter : EnumConverter
     {
         public EnumDescriptionTypeConverter(Type type)
