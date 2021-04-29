@@ -1,0 +1,71 @@
+﻿<Window
+    x:Class="Vavatech.ViewModelFirst.WpfClient.Views.ShellView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:c="clr-namespace:Vavatech.ViewModelFirst.WpfClient.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Vavatech.ViewModelFirst.WpfClient.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:Vavatech.ViewModelFirst.WpfClient.ViewModels"
+    Title="ShellView"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+
+    <Window.DataContext>
+        <vm:ShellViewModel />
+    </Window.DataContext>
+
+    <Window.Resources>
+
+        <c:ViewModelConverter x:Key="ViewModelConverter" />
+
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="10" />
+            <Setter Property="Width" Value="200" />
+            <Setter Property="Height" Value="50" />
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+
+
+
+        <DockPanel>
+
+            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+                <Button
+                    Background="DarkBlue"
+                    Command="{Binding ShowFirstViewCommand}"
+                    Content="Show First" />
+                <Button
+                    Background="DarkGreen"
+                    Command="{Binding ShowSecondViewCommand}"
+                    Content="Show Second" />
+            </StackPanel>
+
+            <ListBox
+                Width="200"
+                DockPanel.Dock="Left"
+                ItemsSource="{Binding ViewModels}"
+                SelectedItem="{Binding SelectedViewModel}">
+
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Button Background="Black" Content="{Binding}" />
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+
+            </ListBox>
+
+            <!--<ContentControl Content="{Binding SelectedViewModel}" />-->
+
+            <Frame Source="{Binding SelectedViewModel, Converter={StaticResource ViewModelConverter}}" />
+
+            <!--<Frame Source="FirstPageView.xaml" />-->
+
+        </DockPanel>
+
+    </Grid>
+</Window>

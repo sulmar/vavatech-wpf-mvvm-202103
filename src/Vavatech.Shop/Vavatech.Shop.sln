@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetalDesignWpfClient", "Met
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vavatech.Shop.Controls", "Vavatech.Shop.Controls\Vavatech.Shop.Controls.csproj", "{1D558FA4-B465-4012-A27B-4E192DE0BD5F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vavatech.ViewModelFirst.WpfClient", "Vavatech.ViewModelFirst.WpfClient\Vavatech.ViewModelFirst.WpfClient.csproj", "{BA77AF08-A197-4A03-9149-CD00A4402074}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{1D558FA4-B465-4012-A27B-4E192DE0BD5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1D558FA4-B465-4012-A27B-4E192DE0BD5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1D558FA4-B465-4012-A27B-4E192DE0BD5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA77AF08-A197-4A03-9149-CD00A4402074}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA77AF08-A197-4A03-9149-CD00A4402074}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA77AF08-A197-4A03-9149-CD00A4402074}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA77AF08-A197-4A03-9149-CD00A4402074}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
