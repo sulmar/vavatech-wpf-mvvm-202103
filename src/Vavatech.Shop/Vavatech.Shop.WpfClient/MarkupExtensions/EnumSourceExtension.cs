@@ -8,6 +8,8 @@ using System.Windows.Markup;
 
 namespace Vavatech.Shop.WpfClient.MarkupExtensions
 {
+  
+
     public class EnumSourceExtension : MarkupExtension
     {
         private Type _enumType;
@@ -15,10 +17,11 @@ namespace Vavatech.Shop.WpfClient.MarkupExtensions
         public EnumSourceExtension(Type enumType)
         {
             if (enumType == null)
-                throw new ArgumentNullException("enumType");
+            {
+                throw new ArgumentNullException(nameof(enumType));
+            }
 
-
-            this._enumType = enumType;
+            EnumType = enumType;
         }
 
         public Type EnumType
@@ -27,12 +30,16 @@ namespace Vavatech.Shop.WpfClient.MarkupExtensions
             private set
             {
                 if (_enumType == value)
+                {
                     return;
+                }
 
                 var enumType = Nullable.GetUnderlyingType(value) ?? value;
 
                 if (enumType.IsEnum == false)
+                {
                     throw new ArgumentException("Type must be an Enum.");
+                }
 
                 _enumType = value;
             }
@@ -40,21 +47,13 @@ namespace Vavatech.Shop.WpfClient.MarkupExtensions
 
         public override object ProvideValue(IServiceProvider serviceProvider)
         {
-            var items = Enum.GetValues(_enumType)
-                .Cast<object>()
-                .Select(item => new { Value = item, Description = GetDesciption(item) });
+            var enumValues = Enum.GetValues(EnumType);
 
-            return items;
+            return enumValues;
+
 
         }
 
-        private object GetDesciption(object enumValue)
-        {
-            var desciptionAttribute = _enumType.GetField(enumValue.ToString())
-                .GetCustomAttributes(typeof(DescriptionAttribute), false)
-                .FirstOrDefault() as DescriptionAttribute;
-
-            return desciptionAttribute.Description;
-        }
+      
     }
 }

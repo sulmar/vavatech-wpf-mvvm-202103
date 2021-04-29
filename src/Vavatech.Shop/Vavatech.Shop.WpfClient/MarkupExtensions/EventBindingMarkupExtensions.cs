@@ -17,10 +17,10 @@ namespace Vavatech.Shop.WpfClient.MarkupExtensions
     {
         public override object ProvideValue(IServiceProvider serviceProvider)
         {
-            return new MouseEventHandler(MyHandler);
+            return new MouseEventHandler(OnMouseEventHandler);
         }
 
-        private void MyHandler(object sender, MouseEventArgs e)
+        private void OnMouseEventHandler(object sender, MouseEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
             {

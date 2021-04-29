@@ -67,76 +67,12 @@
             <StackPanel Margin="20">
 
 
-                <!--  Hello World Dialog  -->
-                <materialDesign:DialogHost
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    CloseOnClickAway="True">
-                    <materialDesign:DialogHost.DialogContent>
-                        <StackPanel Margin="20">
-                            <TextBlock Text="Hello World!" />
-
-                            <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" Content="Close" />
-
-                        </StackPanel>
-                    </materialDesign:DialogHost.DialogContent>
-
-                    <Button
-                        Margin="10"
-                        Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
-                        Style="{StaticResource MaterialDesignIconButton}">
-
-                        <materialDesign:PackIcon Kind="Account" />
-                    </Button>
-
-                </materialDesign:DialogHost>
-
-
-
-
-                <!--  Remove Dialog  -->
-                <!--<materialDesign:DialogHost
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    CloseOnClickAway="True"
-                    DialogContent="{StaticResource MyDialog}">
-
-                    <Button
-                        Margin="10"
-                        Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
-                        Style="{StaticResource MaterialDesignIconButton}">
-
-                        <materialDesign:PackIcon Kind="Remove" />
-                    </Button>
-
-                </materialDesign:DialogHost>-->
-
-                <materialDesign:DialogHost Identifier="RootDialog">
-
-                    <!--<Button
-                        Margin="10"
-                        Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
-                        Style="{StaticResource MaterialDesignIconButton}">
-
-                        <materialDesign:PackIcon Kind="Remove" />
-                    </Button>-->
-
-                </materialDesign:DialogHost>
-
-                <Button
-                    Margin="10"
-                    Command="{Binding RemoveCommand}"
-                    Style="{StaticResource MaterialDesignIconButton}">
-
-                    <materialDesign:PackIcon Kind="Remove" />
-                </Button>
-
 
                 <TextBlock
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Style="{StaticResource MaterialDesignHeadline2TextBlock}">
-                    Hello World
+                    WPF Demo
                 </TextBlock>
 
                 <materialDesign:Card Margin="16" Padding="32">
@@ -178,28 +114,43 @@
 
                 </TextBox>
 
-                <TextBox
-                    Margin="10"
-                    ap:Numeric.IsNumeric="True"
-                    materialDesign:HintAssist.Hint="Number" />
-
-                <TextBox
-                    Margin="10"
-                    ap:Mask.Format="^a{d3}$"
-                    materialDesign:HintAssist.Hint="Text" />
-
-                <TextBox Margin="10" />
-
 
                 <!--  Radio Buttons  -->
 
-                <RadioButton Margin="10" GroupName="Options">Option 1</RadioButton>
-                <RadioButton Margin="10" GroupName="Options">Option 2</RadioButton>
-                <RadioButton Margin="10" GroupName="Options">Option 3</RadioButton>
+                <Grid>
 
-                <RadioButton Margin="10" GroupName="Type">Type 1</RadioButton>
-                <RadioButton Margin="10" GroupName="Type">Type 2</RadioButton>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
 
+                    <StackPanel>
+                        <RadioButton Margin="10" GroupName="Options">Option 1</RadioButton>
+                        <RadioButton Margin="10" GroupName="Options">Option 2</RadioButton>
+                        <RadioButton Margin="10" GroupName="Options">Option 3</RadioButton>
+                    </StackPanel>
+
+
+                    <StackPanel Grid.Column="1">
+                        <RadioButton Margin="10" GroupName="Type">Type 1</RadioButton>
+                        <RadioButton Margin="10" GroupName="Type">Type 2</RadioButton>
+                    </StackPanel>
+
+
+
+                </Grid>
+
+                <!--  Buttons  -->
+
+                <Button Margin="10" IsEnabled="True">Cancel</Button>
+
+                <Button Margin="10" Style="{StaticResource MaterialDesignRaisedAccentButton}">Accept</Button>
+
+
+                <Button Margin="10" Style="{StaticResource MaterialDesignIconButton}">
+
+                    <materialDesign:PackIcon Width="20" Kind="Send" />
+                </Button>
 
                 <!--  Checkboxes  -->
 
@@ -258,6 +209,8 @@
                     </TextBlock.Style>
 
                 </TextBlock>
+
+
 
 
                 <!--  ComboBoxes  -->
@@ -388,20 +341,73 @@
 
 
 
-                <!--  Buttons  -->
-
-                <Button Margin="10" IsEnabled="True">Hello</Button>
-
-                <Button Margin="10" Style="{StaticResource MaterialDesignRaisedAccentButton}">Accept</Button>
 
 
-                <Button Margin="10" Style="{StaticResource MaterialDesignRaisedAccentButton}">
 
-                    <materialDesign:PackIcon Width="20" Kind="Alarm" />
+
+                <!--  Hello World Dialog  -->
+                <materialDesign:DialogHost
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    CloseOnClickAway="True">
+                    <materialDesign:DialogHost.DialogContent>
+                        <StackPanel Margin="20">
+                            <TextBlock Text="Hello World!" />
+
+                            <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" Content="Close" />
+
+                        </StackPanel>
+                    </materialDesign:DialogHost.DialogContent>
+
+                    <Button
+                        Margin="10"
+                        Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
+                        Style="{StaticResource MaterialDesignIconButton}">
+
+                        <materialDesign:PackIcon Kind="Account" />
+                    </Button>
+
+                </materialDesign:DialogHost>
+
+
+
+
+                <!--  Remove Dialog  -->
+                <!--<materialDesign:DialogHost
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    CloseOnClickAway="True"
+                    DialogContent="{StaticResource MyDialog}">
+
+                    <Button
+                        Margin="10"
+                        Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
+                        Style="{StaticResource MaterialDesignIconButton}">
+
+                        <materialDesign:PackIcon Kind="Remove" />
+                    </Button>
+
+                </materialDesign:DialogHost>-->
+
+                <materialDesign:DialogHost Identifier="RootDialog">
+
+                    <!--<Button
+                        Margin="10"
+                        Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
+                        Style="{StaticResource MaterialDesignIconButton}">
+
+                        <materialDesign:PackIcon Kind="Remove" />
+                    </Button>-->
+
+                </materialDesign:DialogHost>
+
+                <Button
+                    Margin="10"
+                    Command="{Binding RemoveCommand}"
+                    Style="{StaticResource MaterialDesignIconButton}">
+
+                    <materialDesign:PackIcon Kind="Remove" />
                 </Button>
-
-
-
 
 
 
