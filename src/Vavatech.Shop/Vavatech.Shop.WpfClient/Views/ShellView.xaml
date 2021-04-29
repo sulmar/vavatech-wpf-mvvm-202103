@@ -138,217 +138,222 @@
             <!--  Side bar  -->
 
             <ScrollViewer>
-            
+
                 <StackPanel
-                x:Name="SideBar"
-                Width="250"
-                Background="{StaticResource MyGradientBrush}">
+                    x:Name="SideBar"
+                    Width="250"
+                    Background="{StaticResource MyGradientBrush}">
 
 
-                <Border Height="48" Background="{StaticResource MyBlueBrush}">
+                    <Border Height="48" Background="{StaticResource MyBlueBrush}">
 
-                    <DockPanel>
+                        <DockPanel>
 
-                        <ToggleButton IsChecked="True">
+                            <ToggleButton Background="Transparent" IsChecked="True">
 
-                            <Image Width="30" Source="{StaticResource MenuImage}" />
-
-
-                            <ToggleButton.Style>
-                                <Style TargetType="{x:Type ToggleButton}">
-                                    <Style.Triggers>
-                                        <Trigger Property="IsMouseOver" Value="True">
-                                            <Setter Property="Background" Value="Transparent" />
-                                        </Trigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </ToggleButton.Style>
-
-                            <ToggleButton.Triggers>
-
-                                <EventTrigger RoutedEvent="ToggleButton.Checked">
-                                    <EventTrigger.Actions>
-                                        <BeginStoryboard Storyboard="{StaticResource OpenMenu}" />
-                                    </EventTrigger.Actions>
-                                </EventTrigger>
-
-                                <EventTrigger RoutedEvent="ToggleButton.Unchecked">
-                                    <EventTrigger.Actions>
-                                        <BeginStoryboard Storyboard="{StaticResource CloseMenu}" />
-                                    </EventTrigger.Actions>
-                                </EventTrigger>
-
-                            </ToggleButton.Triggers>
-
-                        </ToggleButton>
-
-                        <Label
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Center"
-                            Content="WPF App"
-                            FontSize="18"
-                            Foreground="White" />
+                                <Image Width="30" Source="{StaticResource MenuImage}" />
 
 
-                    </DockPanel>
 
-                </Border>
+                                <ToggleButton.Style>
+                                    <Style TargetType="{x:Type ToggleButton}">
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="ToggleButton">
+                                                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}">
+                                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                                    </Border>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </ToggleButton.Style>
 
-           
-                    
-                
-                <Button Command="{Binding ShowViewCommand}" CommandParameter="Home">
-                    <DockPanel>
-                        <Image Source="{StaticResource HomeImage}" />
-                        <TextBlock VerticalAlignment="Center">Home</TextBlock>
-                    </DockPanel>
-                </Button>
-                <Button Command="{Binding ShowViewCommand}" CommandParameter="Counter">
-                    <DockPanel>
-                        <Image Source="{StaticResource CounterImage}" />
-                        <TextBlock VerticalAlignment="Center">Counter</TextBlock>
-                    </DockPanel>
-                </Button>
+                                <ToggleButton.Triggers>
 
-                <Button Command="{Binding ShowViewCommand}" CommandParameter="Customers">
-                    <DockPanel>
-                        <Image Source="{StaticResource CustomersImage}" />
-                        <TextBlock VerticalAlignment="Center">Customers</TextBlock>
-                    </DockPanel>
-                </Button>
-                <Button Command="{Binding ShowViewCommand}" CommandParameter="Customer">
-                    <DockPanel>
-                        <Image Source="{StaticResource CustomersImage}" />
-                        <TextBlock VerticalAlignment="Center">Customer</TextBlock>
-                    </DockPanel>
-                </Button>
+                                    <EventTrigger RoutedEvent="ToggleButton.Checked">
+                                        <EventTrigger.Actions>
+                                            <BeginStoryboard Storyboard="{StaticResource OpenMenu}" />
+                                        </EventTrigger.Actions>
+                                    </EventTrigger>
 
+                                    <EventTrigger RoutedEvent="ToggleButton.Unchecked">
+                                        <EventTrigger.Actions>
+                                            <BeginStoryboard Storyboard="{StaticResource CloseMenu}" />
+                                        </EventTrigger.Actions>
+                                    </EventTrigger>
 
-                <Button Command="{Binding ShowViewCommand}" CommandParameter="Products">
-                    <DockPanel>
-                        <Image DockPanel.Dock="Left" Source="{StaticResource ProductsImage}" />
-                        <TextBlock VerticalAlignment="Center">Products</TextBlock>
-                    </DockPanel>
-                </Button>
+                                </ToggleButton.Triggers>
 
-                <Button Command="{Binding ShowViewCommand}" CommandParameter="CustomersMap">
-                    <DockPanel>
-                        <Image DockPanel.Dock="Left" Source="{StaticResource MapImage}" />
-                        <TextBlock VerticalAlignment="Center">Map</TextBlock>
-                    </DockPanel>
-                </Button>
+                            </ToggleButton>
 
-                <Button Command="{Binding ShowViewCommand}" CommandParameter="Settings">
-                    <DockPanel>
-                        <Image DockPanel.Dock="Left" Source="{StaticResource SettingImage}" />
-                        <TextBlock VerticalAlignment="Center">Settings</TextBlock>
-                    </DockPanel>
-
-                </Button>
-
-                <Button Command="{Binding ShowViewCommand}" CommandParameter="Shapes">
-                    <DockPanel>
-                        <Image DockPanel.Dock="Left" Source="{StaticResource SettingImage}" />
-                        <TextBlock VerticalAlignment="Center">Shapes</TextBlock>
-                    </DockPanel>
-
-                </Button>
+                            <Label
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                Content="WPF App"
+                                FontSize="18"
+                                Foreground="White" />
 
 
-                <Button Command="{Binding ShowViewCommand}" CommandParameter="DrawingVisual">
-                    <DockPanel>
-                        <Image DockPanel.Dock="Left" Source="{StaticResource SettingImage}" />
-                        <TextBlock VerticalAlignment="Center">Drawing Visual</TextBlock>
-                    </DockPanel>
+                        </DockPanel>
 
-                </Button>
+                    </Border>
 
 
-                <Button Command="{Binding ShowViewCommand}" CommandParameter="CustomPanel">
-                    <DockPanel>
-                        <Image DockPanel.Dock="Left" Source="{StaticResource SettingImage}" />
-                        <TextBlock VerticalAlignment="Center">Custom Panel</TextBlock>
-                    </DockPanel>
-
-                </Button>
 
 
-                <Button Command="{Binding ShowViewCommand}" CommandParameter="ItemsPanel">
-                    <DockPanel>
-                        <Image DockPanel.Dock="Left" Source="{StaticResource SettingImage}" />
-                        <TextBlock VerticalAlignment="Center">Items Panel</TextBlock>
-                    </DockPanel>
+                    <Button Command="{Binding ShowViewCommand}" CommandParameter="Home">
+                        <DockPanel>
+                            <Image Source="{StaticResource HomeImage}" />
+                            <TextBlock VerticalAlignment="Center">Home</TextBlock>
+                        </DockPanel>
+                    </Button>
+                    <Button Command="{Binding ShowViewCommand}" CommandParameter="Counter">
+                        <DockPanel>
+                            <Image Source="{StaticResource CounterImage}" />
+                            <TextBlock VerticalAlignment="Center">Counter</TextBlock>
+                        </DockPanel>
+                    </Button>
 
-                </Button>
-
-
-                <Button Command="{Binding ShowViewCommand}" CommandParameter="Items">
-                    <DockPanel>
-                        <Image DockPanel.Dock="Left" Source="{StaticResource SettingImage}" />
-                        <TextBlock VerticalAlignment="Center">Items</TextBlock>
-                    </DockPanel>
-
-                </Button>
-
-
-                <Button Command="{Binding ShowViewCommand}" CommandParameter="Navigation">
-                    <DockPanel>
-                        <Image DockPanel.Dock="Left" Source="{StaticResource SettingImage}" />
-                        <TextBlock VerticalAlignment="Center">Navigation</TextBlock>
-                    </DockPanel>
-
-                </Button>
-
-                <Button Command="{Binding ShowViewCommand}" CommandParameter="FlowDocument">
-                    <DockPanel>
-                        <Image DockPanel.Dock="Left" Source="{StaticResource SettingImage}" />
-                        <TextBlock VerticalAlignment="Center">FlowDocument</TextBlock>
-                    </DockPanel>
-
-                </Button>
-
-                <Button Command="{Binding ShowViewCommand}" CommandParameter="WebBrowser">
-                    <DockPanel>
-                        <Image DockPanel.Dock="Left" Source="{StaticResource SettingImage}" />
-                        <TextBlock VerticalAlignment="Center">WebBrowser</TextBlock>
-                    </DockPanel>
-
-                </Button>
-
-                <Button Command="{Binding ShowViewCommand}" CommandParameter="DragDropCustomers">
-                    <DockPanel>
-                        <Image DockPanel.Dock="Left" Source="{StaticResource SettingImage}" />
-                        <TextBlock VerticalAlignment="Center">Drag Drop</TextBlock>
-                    </DockPanel>
-
-                </Button>
+                    <Button Command="{Binding ShowViewCommand}" CommandParameter="Customers">
+                        <DockPanel>
+                            <Image Source="{StaticResource CustomersImage}" />
+                            <TextBlock VerticalAlignment="Center">Customers</TextBlock>
+                        </DockPanel>
+                    </Button>
+                    <Button Command="{Binding ShowViewCommand}" CommandParameter="Customer">
+                        <DockPanel>
+                            <Image Source="{StaticResource CustomersImage}" />
+                            <TextBlock VerticalAlignment="Center">Customer</TextBlock>
+                        </DockPanel>
+                    </Button>
 
 
-                <Button Command="{Binding ShowViewCommand}" CommandParameter="Virtualizing">
-                    <DockPanel>
-                        <Image DockPanel.Dock="Left" Source="{StaticResource SettingImage}" />
-                        <TextBlock VerticalAlignment="Center">Virtualizing</TextBlock>
-                    </DockPanel>
-                </Button>
+                    <Button Command="{Binding ShowViewCommand}" CommandParameter="Products">
+                        <DockPanel>
+                            <Image DockPanel.Dock="Left" Source="{StaticResource ProductsImage}" />
+                            <TextBlock VerticalAlignment="Center">Products</TextBlock>
+                        </DockPanel>
+                    </Button>
+
+                    <Button Command="{Binding ShowViewCommand}" CommandParameter="CustomersMap">
+                        <DockPanel>
+                            <Image DockPanel.Dock="Left" Source="{StaticResource MapImage}" />
+                            <TextBlock VerticalAlignment="Center">Map</TextBlock>
+                        </DockPanel>
+                    </Button>
+
+                    <Button Command="{Binding ShowViewCommand}" CommandParameter="Settings">
+                        <DockPanel>
+                            <Image DockPanel.Dock="Left" Source="{StaticResource SettingImage}" />
+                            <TextBlock VerticalAlignment="Center">Settings</TextBlock>
+                        </DockPanel>
+
+                    </Button>
+
+                    <Button Command="{Binding ShowViewCommand}" CommandParameter="Shapes">
+                        <DockPanel>
+                            <Image DockPanel.Dock="Left" Source="{StaticResource SettingImage}" />
+                            <TextBlock VerticalAlignment="Center">Shapes</TextBlock>
+                        </DockPanel>
+
+                    </Button>
 
 
-                <Button Command="{Binding ShowViewCommand}" CommandParameter="Dispatcher">
-                    <DockPanel>
-                        <Image DockPanel.Dock="Left" Source="{StaticResource SettingImage}" />
-                        <TextBlock VerticalAlignment="Center">Dispatcher</TextBlock>
-                    </DockPanel>
-                </Button>
+                    <Button Command="{Binding ShowViewCommand}" CommandParameter="DrawingVisual">
+                        <DockPanel>
+                            <Image DockPanel.Dock="Left" Source="{StaticResource SettingImage}" />
+                            <TextBlock VerticalAlignment="Center">Drawing Visual</TextBlock>
+                        </DockPanel>
 
-                <Button Command="{Binding ShowViewCommand}" CommandParameter="VisualStateManager">
-                    <DockPanel>
-                        <Image DockPanel.Dock="Left" Source="{StaticResource SettingImage}" />
-                        <TextBlock VerticalAlignment="Center">VisualStateManager</TextBlock>
-                    </DockPanel>
-                </Button>
+                    </Button>
 
-                
 
-            </StackPanel>
+                    <Button Command="{Binding ShowViewCommand}" CommandParameter="CustomPanel">
+                        <DockPanel>
+                            <Image DockPanel.Dock="Left" Source="{StaticResource SettingImage}" />
+                            <TextBlock VerticalAlignment="Center">Custom Panel</TextBlock>
+                        </DockPanel>
+
+                    </Button>
+
+
+                    <Button Command="{Binding ShowViewCommand}" CommandParameter="ItemsPanel">
+                        <DockPanel>
+                            <Image DockPanel.Dock="Left" Source="{StaticResource SettingImage}" />
+                            <TextBlock VerticalAlignment="Center">Items Panel</TextBlock>
+                        </DockPanel>
+
+                    </Button>
+
+
+                    <Button Command="{Binding ShowViewCommand}" CommandParameter="Items">
+                        <DockPanel>
+                            <Image DockPanel.Dock="Left" Source="{StaticResource SettingImage}" />
+                            <TextBlock VerticalAlignment="Center">Items</TextBlock>
+                        </DockPanel>
+
+                    </Button>
+
+
+                    <Button Command="{Binding ShowViewCommand}" CommandParameter="Navigation">
+                        <DockPanel>
+                            <Image DockPanel.Dock="Left" Source="{StaticResource SettingImage}" />
+                            <TextBlock VerticalAlignment="Center">Navigation</TextBlock>
+                        </DockPanel>
+
+                    </Button>
+
+                    <Button Command="{Binding ShowViewCommand}" CommandParameter="FlowDocument">
+                        <DockPanel>
+                            <Image DockPanel.Dock="Left" Source="{StaticResource SettingImage}" />
+                            <TextBlock VerticalAlignment="Center">FlowDocument</TextBlock>
+                        </DockPanel>
+
+                    </Button>
+
+                    <Button Command="{Binding ShowViewCommand}" CommandParameter="WebBrowser">
+                        <DockPanel>
+                            <Image DockPanel.Dock="Left" Source="{StaticResource SettingImage}" />
+                            <TextBlock VerticalAlignment="Center">WebBrowser</TextBlock>
+                        </DockPanel>
+
+                    </Button>
+
+                    <Button Command="{Binding ShowViewCommand}" CommandParameter="DragDropCustomers">
+                        <DockPanel>
+                            <Image DockPanel.Dock="Left" Source="{StaticResource SettingImage}" />
+                            <TextBlock VerticalAlignment="Center">Drag Drop</TextBlock>
+                        </DockPanel>
+
+                    </Button>
+
+
+                    <Button Command="{Binding ShowViewCommand}" CommandParameter="Virtualizing">
+                        <DockPanel>
+                            <Image DockPanel.Dock="Left" Source="{StaticResource SettingImage}" />
+                            <TextBlock VerticalAlignment="Center">Virtualizing</TextBlock>
+                        </DockPanel>
+                    </Button>
+
+
+                    <Button Command="{Binding ShowViewCommand}" CommandParameter="Dispatcher">
+                        <DockPanel>
+                            <Image DockPanel.Dock="Left" Source="{StaticResource SettingImage}" />
+                            <TextBlock VerticalAlignment="Center">Dispatcher</TextBlock>
+                        </DockPanel>
+                    </Button>
+
+                    <Button Command="{Binding ShowViewCommand}" CommandParameter="VisualStateManager">
+                        <DockPanel>
+                            <Image DockPanel.Dock="Left" Source="{StaticResource SettingImage}" />
+                            <TextBlock VerticalAlignment="Center">VisualStateManager</TextBlock>
+                        </DockPanel>
+                    </Button>
+
+
+
+                </StackPanel>
 
             </ScrollViewer>
 
