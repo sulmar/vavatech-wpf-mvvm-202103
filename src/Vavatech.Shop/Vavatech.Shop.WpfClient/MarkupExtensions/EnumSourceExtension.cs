@@ -47,11 +47,7 @@ namespace Vavatech.Shop.WpfClient.MarkupExtensions
 
         public override object ProvideValue(IServiceProvider serviceProvider)
         {
-            var enumValues = Enum.GetValues(EnumType);
-
-            return enumValues;
-
-
+            return Enum.GetValues(EnumType);
         }
 
       
