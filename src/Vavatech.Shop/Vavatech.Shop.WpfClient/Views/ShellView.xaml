@@ -136,7 +136,10 @@
             </StatusBar>
 
             <!--  Side bar  -->
-            <StackPanel
+
+            <ScrollViewer>
+            
+                <StackPanel
                 x:Name="SideBar"
                 Width="250"
                 Background="{StaticResource MyGradientBrush}">
@@ -191,6 +194,9 @@
 
                 </Border>
 
+           
+                    
+                
                 <Button Command="{Binding ShowViewCommand}" CommandParameter="Home">
                     <DockPanel>
                         <Image Source="{StaticResource HomeImage}" />
@@ -333,9 +339,18 @@
                     </DockPanel>
                 </Button>
 
+                <Button Command="{Binding ShowViewCommand}" CommandParameter="VisualStateManager">
+                    <DockPanel>
+                        <Image DockPanel.Dock="Left" Source="{StaticResource SettingImage}" />
+                        <TextBlock VerticalAlignment="Center">VisualStateManager</TextBlock>
+                    </DockPanel>
+                </Button>
+
+                
+
             </StackPanel>
 
-
+            </ScrollViewer>
 
             <!--  Main  -->
 

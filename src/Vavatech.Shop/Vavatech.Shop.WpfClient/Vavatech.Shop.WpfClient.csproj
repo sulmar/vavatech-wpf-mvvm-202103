@@ -103,6 +103,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AttachedProperties\StateManager.cs" />
     <Compile Include="AttachedProperties\WebBrowserAttachedProperty.cs" />
     <Compile Include="AttachedProperties\WebView2AttachedProperty.cs" />
     <Compile Include="Behaviors\CloseWindowBehavior.cs" />
@@ -195,6 +196,9 @@
     </Compile>
     <Compile Include="Views\VirtualizingView.xaml.cs">
       <DependentUpon>VirtualizingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VisualStateManagerView.xaml.cs">
+      <DependentUpon>VisualStateManagerView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\WebBrowserView.xaml.cs">
       <DependentUpon>WebBrowserView.xaml</DependentUpon>
@@ -361,6 +365,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\VirtualizingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\VisualStateManagerView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

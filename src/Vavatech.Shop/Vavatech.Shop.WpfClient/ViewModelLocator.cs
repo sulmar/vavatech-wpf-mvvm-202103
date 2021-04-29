@@ -88,5 +88,6 @@ namespace Vavatech.Shop.WpfClient
         public VirtualizingViewModel VirtualizingViewModel => container.Resolve<VirtualizingViewModel>();
 
         public DispatcherViewModel DispatcherViewModel => container.Resolve<DispatcherViewModel>();
+        public VisualStateManagerViewModel VisualStateManagerViewModel => container.Resolve<VisualStateManagerViewModel>();
     }
 }

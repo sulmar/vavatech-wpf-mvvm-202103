@@ -1,0 +1,256 @@
+﻿<Page
+    x:Class="Vavatech.Shop.WpfClient.Views.VisualStateManagerView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ap="clr-namespace:Vavatech.Shop.WpfClient.AttachedProperties"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Vavatech.Shop.WpfClient.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="VisualStateManagerView"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=VisualStateManagerViewModel}"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <Style x:Key="MainButtonStyle" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <!--  The one and only root element  -->
+                        <Border x:Name="RootElement">
+                            <!--
+                                Create a solid color brush for the background as an object element so that
+                                it has a name that can be referred
+                            -->
+                            <Border.Background>
+                                <SolidColorBrush x:Name="BorderBrush" Color="DarkGray" />
+                            </Border.Background>
+
+                            <!--
+                                Other FrameworkElement elements that are children of the root element. In
+                                this case a Grid is used as a container to center the button's content
+                                Background="{TemplateBinding Background} indicates that the background for the
+                                grid is obtained from the background of the templated control
+                            -->
+                            <Grid Margin="2" Background="{TemplateBinding Background}">
+
+                                <!--  A child FrameworkElement is used to display the content of the button  -->
+                                <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                            </Grid>
+                            <!--
+                                Define visual states. See Control Styles and Templates in MSDN for
+                                available states and state groups for the relevant control
+                            -->
+                            <VisualStateManager.VisualStateGroups>
+
+                                <!--  Common States  -->
+                                <VisualStateGroup Name="CommonStates">
+
+                                    <!--  Transitions to states  -->
+                                    <VisualStateGroup.Transitions>
+
+                                        <!--  Take one hundredth of a second to transition to the Pressed state.  -->
+                                        <VisualTransition GeneratedDuration="0:0:0.01" To="Pressed" />
+
+                                        <!--  Take one hundredth of a second to transition to the  MouseOver state.  -->
+                                        <VisualTransition GeneratedDuration="0:0:0.01" To="MouseOver" />
+
+                                    </VisualStateGroup.Transitions>
+
+                                    <!--  States  -->
+                                    <VisualState Name="Normal" />
+
+                                    <VisualState Name="MouseOver">
+                                        <Storyboard>
+                                            <ThicknessAnimation
+                                                Storyboard.TargetName="RootElement"
+                                                Storyboard.TargetProperty="Padding"
+                                                To="10" />
+                                        </Storyboard>
+                                    </VisualState>
+
+                                    <VisualState Name="Pressed">
+                                        <Storyboard>
+                                            <ThicknessAnimation
+                                                Storyboard.TargetName="RootElement"
+                                                Storyboard.TargetProperty="Padding"
+                                                To="50" />
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+
+                                <!--  Focus States  -->
+                                <VisualStateGroup Name="FocusStates">
+                                    <!--  Not implemented for brevity  -->
+                                </VisualStateGroup>
+
+
+                            </VisualStateManager.VisualStateGroups>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+
+
+    <Grid>
+
+        <StackPanel>
+
+            <Label Content="{Binding VisualStateName}" />
+
+            <StackPanel Orientation="Horizontal">
+
+                <!--<Button
+                    Width="100"
+                    Background="DarkBlue"
+                    Click="GoToStateA_Click"
+                    CommandParameter="StateA"
+                    Content="State A" />
+                <Button
+                    Width="100"
+                    Background="DarkGreen"
+                    Click="GoToStateB_Click"
+                    CommandParameter="StateB"
+                    Content="State B" />-->
+
+                <Button
+                    Width="100"
+                    Background="DarkBlue"
+                    Command="{Binding GoToStateCommand}"
+                    CommandParameter="StateA"
+                    Content="State A" />
+                <Button
+                    Width="100"
+                    Background="DarkGreen"
+                    Command="{Binding GoToStateCommand}"
+                    CommandParameter="StateB"
+                    Content="State B" />
+
+            </StackPanel>
+
+            <Grid x:Name="LayoutRoot" ap:StateManager.VisualStateProperty="{Binding VisualStateName}">
+                <StackPanel>
+
+                    <Button
+                        Width="300"
+                        Height="100"
+                        Background="DarkOliveGreen"
+                        Style="{StaticResource MainButtonStyle}">
+                        Main Button
+                    </Button>
+
+                    <Button
+                        x:Name="MyButton"
+                        Width="300"
+                        Height="100"
+                        Background="DarkRed"
+                        Content="Fire"
+                        FontSize="32" />
+
+
+
+                    <Label x:Name="FirstNameLabel">First name</Label>
+
+                    <TextBox
+                        x:Name="FirstName"
+                        Width="100"
+                        IsReadOnly="False" />
+
+                    <Label x:Name="LastNameLabel">Last name</Label>
+
+                    <TextBox x:Name="LastName" Width="100" />
+
+                </StackPanel>
+
+
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup x:Name="CommonStates">
+
+
+                        <VisualState x:Name="StateA">
+
+                            <Storyboard>
+
+                                <DoubleAnimation
+                                    Storyboard.TargetName="MyButton"
+                                    Storyboard.TargetProperty="Width"
+                                    To="50" />
+
+                                <DoubleAnimation
+                                    Storyboard.TargetName="FirstName"
+                                    Storyboard.TargetProperty="Width"
+                                    To="50" />
+
+
+                                <DoubleAnimation
+                                    Storyboard.TargetName="LastName"
+                                    Storyboard.TargetProperty="Width"
+                                    From="300"
+                                    To="50" />
+
+
+                                <!--<BooleanAnimationUsingKeyFrames Storyboard.TargetName="FirstName" Storyboard.TargetProperty="IsEnabled">
+
+                                    <DiscreteBooleanKeyFrame Value="False" />
+
+                                </BooleanAnimationUsingKeyFrames>-->
+
+                            </Storyboard>
+
+                        </VisualState>
+
+                        <VisualState x:Name="StateB">
+
+                            <Storyboard>
+
+                                <DoubleAnimation
+                                    Storyboard.TargetName="MyButton"
+                                    Storyboard.TargetProperty="Width"
+                                    To="300" />
+
+
+                                <DoubleAnimation
+                                    Storyboard.TargetName="FirstName"
+                                    Storyboard.TargetProperty="Width"
+                                    To="300" />
+
+                                <DoubleAnimation
+                                    Storyboard.TargetName="LastName"
+                                    Storyboard.TargetProperty="Width"
+                                    To="300" />
+
+                                <ColorAnimation
+                                    Storyboard.TargetName="MyButton"
+                                    Storyboard.TargetProperty="(Background).(SolidColorBrush.Color)"
+                                    To="DarkGray" />
+
+                                <!--<BooleanAnimationUsingKeyFrames Storyboard.TargetName="FirstName" Storyboard.TargetProperty="IsEnabled">
+
+                                    <DiscreteBooleanKeyFrame Value="True" />
+
+                                </BooleanAnimationUsingKeyFrames>-->
+                            </Storyboard>
+
+                        </VisualState>
+
+                        <VisualStateGroup.Transitions>
+                            <VisualTransition GeneratedDuration="0:0:0.1" />
+
+                            <!--<VisualTransition
+                                GeneratedDuration="0:0:1"
+                                From="StateA"
+                                To="StateB" />-->
+
+                        </VisualStateGroup.Transitions>
+
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+            </Grid>
+
+        </StackPanel>
+
+    </Grid>
+</Page>
