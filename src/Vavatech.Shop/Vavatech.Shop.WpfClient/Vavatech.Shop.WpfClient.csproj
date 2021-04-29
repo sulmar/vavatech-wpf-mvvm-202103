@@ -154,6 +154,9 @@
     <Compile Include="Views\CustomPanelView.xaml.cs">
       <DependentUpon>CustomPanelView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\DispatcherView.xaml.cs">
+      <DependentUpon>DispatcherView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\DragDropCustomersView.xaml.cs">
       <DependentUpon>DragDropCustomersView.xaml</DependentUpon>
     </Compile>
@@ -302,6 +305,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\CustomPanelView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DispatcherView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

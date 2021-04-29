@@ -325,6 +325,14 @@
                     </DockPanel>
                 </Button>
 
+
+                <Button Command="{Binding ShowViewCommand}" CommandParameter="Dispatcher">
+                    <DockPanel>
+                        <Image DockPanel.Dock="Left" Source="{StaticResource SettingImage}" />
+                        <TextBlock VerticalAlignment="Center">Dispatcher</TextBlock>
+                    </DockPanel>
+                </Button>
+
             </StackPanel>
 
 

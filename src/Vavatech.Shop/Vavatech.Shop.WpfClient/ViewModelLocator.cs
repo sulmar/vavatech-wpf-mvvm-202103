@@ -59,6 +59,8 @@ namespace Vavatech.Shop.WpfClient
             containerBuilder.RegisterType<PeriodSearchCriteriaValidator>().As<IValidator<PeriodSearchCriteria>>();
             containerBuilder.RegisterType<CreditSearchCriteriaValidator>().As<IValidator<CreditSearchCriteria>>();
 
+
+            containerBuilder.RegisterType<FakeMeasureService>().As<IMeasureService>();
             
 
             container = containerBuilder.Build();
@@ -84,5 +86,7 @@ namespace Vavatech.Shop.WpfClient
 
         public DragDropCustomersViewModel DragDropCustomersViewModel => container.Resolve<DragDropCustomersViewModel>();
         public VirtualizingViewModel VirtualizingViewModel => container.Resolve<VirtualizingViewModel>();
+
+        public DispatcherViewModel DispatcherViewModel => container.Resolve<DispatcherViewModel>();
     }
 }
