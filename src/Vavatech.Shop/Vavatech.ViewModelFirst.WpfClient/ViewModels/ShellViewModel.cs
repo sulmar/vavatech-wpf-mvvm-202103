@@ -4,7 +4,6 @@ using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using Vavatech.Shop.ViewModels.Common;
 
@@ -22,6 +21,7 @@ namespace Vavatech.ViewModelFirst.WpfClient.ViewModels
 
         public ICommand ShowFirstViewCommand => commandManager.Bind(ShowFirst);
         public ICommand ShowSecondViewCommand => commandManager.Bind(ShowSecond);
+
 
         private CommandManager commandManager;
 

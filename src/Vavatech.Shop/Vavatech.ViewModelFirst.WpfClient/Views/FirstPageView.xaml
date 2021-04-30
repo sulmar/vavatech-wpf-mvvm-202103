@@ -12,12 +12,17 @@
 
     <Grid Background="DarkBlue">
 
-        <TextBlock
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            FontSize="64"
-            Foreground="White"
-            Text="First Page View" />
+        <StackPanel>
+            <TextBlock
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                FontSize="64"
+                Foreground="White"
+                Text="First Page View" />
+
+          
+
+        </StackPanel>
 
     </Grid>
 </Page>
