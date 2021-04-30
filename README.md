@@ -5,7 +5,7 @@ Przykłady ze szkolenia WPF MVVM
 Aplikacja
 ![alt text](https://github.com/sulmar/vavatech-wpf-mvvm-202103/blob/master/src/Vavatech.Shop/Vavatech.Shop.WpfClient/Assets/screenshot.png "Logo Title Text 1")
 
-## Opis klas"
+## Opis klas
 
 | Klasa  | Opis  |
 |---|---|
@@ -26,7 +26,7 @@ Aplikacja
 
 
 
-## Hierarchia klas"
+## Hierarchia klas
 
 
 | Nazwa                | Threading | DP | Rendering | Hit Testing | Layout | Input | Focus | Events | Styles | Data Binding | Resources | Animation | Template |
