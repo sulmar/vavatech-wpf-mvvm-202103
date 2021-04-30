@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -14,8 +16,31 @@ namespace Vavatech.ViewModelFirst.WpfClient.ViewModels
         private BaseViewModel selectedViewModel;
         private readonly ViewModelLocator viewModelLocator;
 
-        public ICommand ShowFirstViewCommand { get; private set; }
-        public ICommand ShowSecondViewCommand { get; set; }
+        // public ICommand ShowFirstViewCommand { get; private set; }
+        // public ICommand ShowSecondViewCommand { get; private set; }
+
+
+        public ICommand ShowFirstViewCommand => commandManager.Bind(ShowFirst);
+        public ICommand ShowSecondViewCommand => commandManager.Bind(ShowSecond);
+
+        private CommandManager commandManager;
+
+        //private ICommand _ShowFirstViewCommand;
+        //public ICommand ShowFirstViewCommand
+        //{
+        //    get
+        //    {
+        //        if (_ShowFirstViewCommand == null)
+        //        {
+        //            _ShowFirstViewCommand = new DelegateCommand(ShowFirst);
+        //        }
+
+        //        return _ShowFirstViewCommand;
+        //    }
+        //}
+
+
+
 
         public ICollection<BaseViewModel> ViewModels { get; set; }
 
@@ -29,15 +54,17 @@ namespace Vavatech.ViewModelFirst.WpfClient.ViewModels
         }
 
         public ShellViewModel()
-            : this(new ViewModelLocator())
+            : this(new ViewModelLocator(), new CommandManager())
         {
 
         }
 
-        public ShellViewModel(ViewModelLocator viewModelLocator)
+        public ShellViewModel(ViewModelLocator viewModelLocator, CommandManager commandHelper)
         {
-            ShowFirstViewCommand = new DelegateCommand(ShowFirst);
-            ShowSecondViewCommand = new DelegateCommand(ShowSecond);
+            // ShowFirstViewCommand = new DelegateCommand(ShowFirst);
+            // ShowSecondViewCommand = new DelegateCommand(ShowSecond);
+
+            this.commandManager = commandHelper;
          
             this.viewModelLocator = viewModelLocator;
 
@@ -49,7 +76,7 @@ namespace Vavatech.ViewModelFirst.WpfClient.ViewModels
             ShowFirst();
         }
 
-        private void ShowFirst()
+        public void ShowFirst()
         {
             SelectedViewModel = viewModelLocator.FirstViewModel;
         }

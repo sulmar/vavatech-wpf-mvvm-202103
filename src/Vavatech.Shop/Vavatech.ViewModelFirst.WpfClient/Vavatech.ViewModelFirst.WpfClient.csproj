@@ -84,6 +84,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="CommandHelper.cs" />
     <Compile Include="Converters\ViewModelConverter.cs" />
     <Compile Include="FakeServices\FakeBooService.cs" />
     <Compile Include="FakeServices\FakeFooService.cs" />

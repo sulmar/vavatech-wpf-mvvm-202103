@@ -35,6 +35,21 @@
         <DockPanel>
 
             <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+
+                <Button
+                    Background="DarkBlue"
+                    Command="{Binding ShowFirstViewCommand}"
+                    Content="Show First" />
+                <Button
+                    Background="DarkGreen"
+                    Command="{Binding ShowSecondViewCommand}"
+                    Content="Show Second" />
+            
+            </StackPanel>
+
+
+
+            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
                 <Button
                     Background="DarkBlue"
                     Command="{Binding ShowFirstViewCommand}"
