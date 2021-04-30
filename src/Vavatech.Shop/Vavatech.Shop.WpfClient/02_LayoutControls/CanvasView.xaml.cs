@@ -22,6 +22,11 @@ namespace Vavatech.Shop.WpfClient._02_LayoutControls
         public CanvasView()
         {
             InitializeComponent();
+            
+            //HeaderedContentControl
+
+            
+
         }
     }
 }

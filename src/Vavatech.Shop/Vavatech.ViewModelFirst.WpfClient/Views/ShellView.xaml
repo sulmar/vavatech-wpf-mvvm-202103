@@ -5,6 +5,7 @@
     xmlns:c="clr-namespace:Vavatech.ViewModelFirst.WpfClient.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:Vavatech.ViewModelFirst.WpfClient.Views"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="clr-namespace:Vavatech.ViewModelFirst.WpfClient.ViewModels"
     Title="ShellView"
@@ -26,6 +27,49 @@
             <Setter Property="Height" Value="50" />
             <Setter Property="Foreground" Value="White" />
         </Style>
+
+        <Style TargetType="MenuItem">
+            <!--<Setter Property="Height" Value="50" />-->
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="Margin" Value="10,0" />
+        </Style>
+
+        <ControlTemplate x:Key="MyMenuItem" TargetType="{x:Type MenuItem}">
+
+            <StackPanel>
+
+
+
+                <Expander Foreground="{TemplateBinding Foreground}" IsExpanded="False">
+
+
+                    <Expander.Header>
+                        <ContentPresenter
+                            Grid.Column="1"
+                            Margin="{TemplateBinding Padding}"
+                            Content="{TemplateBinding Header}"
+                            ContentSource="Header"
+                            ContentStringFormat="{TemplateBinding HeaderStringFormat}"
+                            ContentTemplate="{TemplateBinding HeaderTemplate}"
+                            RecognizesAccessKey="True"
+                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                    </Expander.Header>
+
+
+                    <ItemsPresenter
+                        x:Name="ItemsPresenter"
+                        Grid.IsSharedSizeScope="True"
+                        KeyboardNavigation.DirectionalNavigation="Cycle"
+                        KeyboardNavigation.TabNavigation="Cycle"
+                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+
+                </Expander>
+
+            </StackPanel>
+
+        </ControlTemplate>
+
+
     </Window.Resources>
 
     <Grid>
@@ -34,33 +78,111 @@
 
         <DockPanel>
 
-            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
-
-                <Button
-                    Background="DarkBlue"
-                    Command="{Binding ShowFirstViewCommand}"
-                    Content="Show First" />
-                <Button
-                    Background="DarkGreen"
-                    Command="{Binding ShowSecondViewCommand}"
-                    Content="Show Second" />
-            
-            </StackPanel>
 
 
+            <Menu
+                Width="200"
+                HorizontalAlignment="Left"
+                Background="DarkBlue"
+                DockPanel.Dock="Left"
+                Foreground="White">
 
-            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
-                <Button
-                    Background="DarkBlue"
-                    Command="{Binding ShowFirstViewCommand}"
-                    Content="Show First" />
-                <Button
-                    Background="DarkGreen"
-                    Command="{Binding ShowSecondViewCommand}"
-                    Content="Show Second" />
-            </StackPanel>
+                <Menu.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel />
+                    </ItemsPanelTemplate>
+                </Menu.ItemsPanel>
 
-            <ListBox
+
+                <materialDesign:PackIcon Kind="SmileyHappy" />
+
+                <MenuItem Command="{Binding ShowFirstViewCommand}" Header="First View">
+                    <MenuItem.Icon>
+                        <materialDesign:PackIcon Kind="Gambling" />
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <MenuItem Command="{Binding ShowSecondViewCommand}" Header="Second View">
+                    <MenuItem.Icon>
+                        <materialDesign:PackIcon Kind="User" />
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <Separator />
+
+                <MenuItem Header="File" Template="{StaticResource MyMenuItem}">
+                    <MenuItem.Icon>
+                        <materialDesign:PackIcon Kind="File" />
+                    </MenuItem.Icon>
+                    <MenuItem
+                        Command="{Binding ShowViewCommand}"
+                        CommandParameter="Customers"
+                        Header="Show Customers" />
+                    <MenuItem
+                        Command="{Binding ShowViewCommand}"
+                        CommandParameter="Products"
+                        Header="Show Products" />
+                    <MenuItem
+                        Command="{Binding ShowViewCommand}"
+                        CommandParameter="Counter"
+                        Header="Show Counter" />
+                    <Separator />
+                    <MenuItem Command="{Binding ExitCommand}" Header="Exit" />
+                </MenuItem>
+
+                <MenuItem Header="Edit">
+                    <MenuItem.Icon>
+                        <materialDesign:PackIcon Kind="Edit" />
+                    </MenuItem.Icon>
+
+                </MenuItem>
+                <MenuItem Header="View">
+                    <MenuItem.Icon>
+                        <materialDesign:PackIcon Kind="ViewAgenda" />
+                    </MenuItem.Icon>
+                </MenuItem>
+
+
+                <MenuItem Header="Help">
+                    <MenuItem.Icon>
+                        <materialDesign:PackIcon Kind="Help" />
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <MenuItem Header="Settings">
+                    <MenuItem.Icon>
+                        <materialDesign:PackIcon Kind="Settings" />
+                    </MenuItem.Icon>
+                </MenuItem>
+
+            </Menu>
+
+
+
+
+            <!--<Expander
+                DockPanel.Dock="Top"
+                Header="Group"
+                IsExpanded="False">
+
+                <StackPanel Orientation="Horizontal">
+
+                    <Button
+                        Background="DarkBlue"
+                        Command="{Binding ShowFirstViewCommand}"
+                        Content="Show First" />
+                    <Button
+                        Background="DarkGreen"
+                        Command="{Binding ShowSecondViewCommand}"
+                        Content="Show Second" />
+
+                </StackPanel>
+
+            </Expander>-->
+
+
+
+            <!--<ListBox
                 Width="200"
                 DockPanel.Dock="Left"
                 ItemsSource="{Binding ViewModels}"
@@ -72,7 +194,25 @@
                     </DataTemplate>
                 </ListBox.ItemTemplate>
 
-            </ListBox>
+            </ListBox>-->
+
+
+
+
+
+            <!--<ListBox
+                Width="200"
+                DockPanel.Dock="Left"
+                SelectedItem="{Binding SelectedViewModelName}"
+                SelectionChanged="ListBox_SelectionChanged">
+
+
+                <ListBoxItem Tag="Views/FirstView.xaml">First View</ListBoxItem>
+                <ListBoxItem Tag="Views/SecondView.xaml">Second View</ListBoxItem>
+
+            </ListBox>-->
+
+
 
             <!--<ContentControl Content="{Binding SelectedViewModel}" />-->
 

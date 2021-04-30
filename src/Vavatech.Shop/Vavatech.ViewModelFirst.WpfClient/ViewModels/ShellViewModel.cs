@@ -25,6 +25,8 @@ namespace Vavatech.ViewModelFirst.WpfClient.ViewModels
 
         private CommandManager commandManager;
 
+        public string SelectedViewModelName { get; set; }
+
         //private ICommand _ShowFirstViewCommand;
         //public ICommand ShowFirstViewCommand
         //{
