@@ -22,3 +22,20 @@ Aplikacja
 | **Control**  | klasa bazowa, która dodaje do FrameworkElement właściwości Foreground, Background, FontSize i Template  |
 | **ContentControl**  | klasa bazowa dla kontrolek, które mogą mieć tylko jeden element podrzędny. Element podrzędny może być dowolnym elementem od ciągu znaków do panelu układu z kombinacją innych elementów sterujących i kształtów.  |
 | **ItemsControl**  | klasa bazowa dla kontrolek, których można użyć do prezentacji kolekcji elementów, takich jak elementy ListBox i TreeView.  |
+
+
+
+
+## Hierarchia klas"
+
+
+| Nazwa                | Threading | DP | Rendering | Hit Testing | Layout | Input | Focus | Events | Styles | Data Binding | Resources | Animation | Template |
+| -------------------- | ----------|----|---------- | ----------- | ------ | ----- | ----- | ------ | ------ | ------------ |  -------- | -------- | -------- | 
+| DispatcherObject     | x |   |
+| DependendencyObject  | x | x | 
+| Visual               | x | x | x | x |
+| UIElement            | x | x | x | x | x | x | x | x | 
+| FrameworkElement     | x | x | x | x | x | x | x | x | x | x | x | x | 
+| Control     | x | x | x | x | x | x | x | x | x | x | x | x | x |
+| ContentControl     | x | x | x | x | x | x | x | x | x | x | x | x | x |
+| ItemsControl     | x | x | x | x | x | x | x | x | x | x | x | x | x |
