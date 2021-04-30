@@ -14,7 +14,7 @@ namespace Vavatech.Shop.FakeServices
 
         public FakeEntityService(Faker<TEntity> faker)
         {
-            entities = faker.Generate(1_000);
+            entities = faker.Generate(100);
         }
 
         public void Add(TEntity entity)

@@ -3,6 +3,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:diag="clr-namespace:System.Diagnostics;assembly=WindowsBase"
     xmlns:local="clr-namespace:Vavatech.ViewModelFirst.WpfClient.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="FirstPageView"
@@ -18,9 +19,7 @@
                 VerticalAlignment="Center"
                 FontSize="64"
                 Foreground="White"
-                Text="First Page View" />
-
-          
+                Text="{Binding Name, diag:PresentationTraceSources.TraceLevel=High}" />
 
         </StackPanel>
 

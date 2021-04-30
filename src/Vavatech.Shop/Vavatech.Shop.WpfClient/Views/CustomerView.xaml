@@ -2,7 +2,9 @@
     x:Class="Vavatech.Shop.WpfClient.Views.CustomerView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:c="clr-namespace:Vavatech.Shop.WpfClient.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:diag="clr-namespace:System.Diagnostics;assembly=WindowsBase"
     xmlns:local="clr-namespace:Vavatech.Shop.WpfClient.Views"
     xmlns:m="clr-namespace:Vavatech.Shop.Models;assembly=Vavatech.Shop.Models"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -38,10 +40,10 @@
             <StackPanel>
 
                 <Label>First name</Label>
-                <TextBox Text="{Binding SelectedCustomer.FirstName}" />
+                <TextBox Text="{Binding SelectedCustomer.FirstName, Converter={c:DebuggerConverter}}" />
 
                 <Label>Last name</Label>
-                <TextBox Text="{Binding SelectedCustomer.LastName}" />
+                <TextBox Text="{Binding SelectedCustomer.LastNameXXXX, FallbackValue='Hello'}"  />
 
 
 
